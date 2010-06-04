@@ -11,7 +11,10 @@ Welcome to your account! <br /><br />
 		<% @documentations.each do |documentation| %>
 			<% if (session[:user_id] == documentation.user_id) %>
 				<li><b><dt><%= link_to "#{documentation.title}", documentation %></dt></b></li>
-				<dd><%=h documentation.description %></dd><br/>
+				<dd><%=h documentation.description %></dd>
+				<%= link_to 'Edit', documentation %> |
+				<%= link_to 'Delete', documentation, :confirm => 'Are you sure you want to delete this DOX? This cannot be undone.', :method => :delete %>
+				<br/><br/>
 				<% flag = true %>
 			<% end %>
 		<% end %>

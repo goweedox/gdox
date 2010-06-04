@@ -83,9 +83,10 @@ class DocumentationsController < ApplicationController
   def destroy
     @documentation = Documentation.find(params[:id])
     @documentation.destroy
+		flash[:notice] = "Dox \'#{@documentation.title}\' successfully deleted."
 
     respond_to do |format|
-      format.html { redirect_to(documentations_url) }
+      format.html { redirect_to(:controller => "admin", :action => "index") }
       format.xml  { head :ok }
     end
   end
