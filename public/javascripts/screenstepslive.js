@@ -1,4 +1,3 @@
-/*
 function GetScreenStepsLiveLessonsForTag(tag_name){
   jQuery.ajax({
     type: "GET",
@@ -11,7 +10,7 @@ function GetScreenStepsLiveLessonsForTag(tag_name){
     }
   })
 }
-*/
+
 function SearchScreenStepsLiveSpace(string){
   jQuery.ajax({
     type: "GET",
@@ -39,14 +38,13 @@ function MakeSpaceTagsUrl(){
 
 
 function DisplayScreenStepsLiveSearchResults(data){
-  //alert("display results " + data);
   if (data.errors == undefined) {
     jQuery('#' + ScreenStepsLiveSearchOptions.update_element).html(render_lesson_results(data.lessons));
   } else {
     jQuery.each(data.errors, function(error) { alert(error); })
   }
 }
-/*
+
 function DisplayScreenStepsLiveLessonsForTag(data){
   if (data.errors == undefined) {
     result ='<ul>';
@@ -56,11 +54,9 @@ function DisplayScreenStepsLiveLessonsForTag(data){
 	  jQuery.each(data.errors, function(error) { alert(error); })
 	}
 }
-*/
 
 render_lesson_results = function(lessons) {
 	result = "";
-	//alert(lessons.length);
 	 if(lessons == null) {
 	 	 result = "<h4>No results found!</h4>";
 	 } else {
