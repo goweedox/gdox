@@ -1,0 +1,2 @@
+module LimitedHelper
+end

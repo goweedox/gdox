@@ -1,0 +1,22 @@
+<div class="goweedox-form">
+    
+  <% form_tag do %>
+    <fieldset>
+      <legend>User Log In</legend>
+
+      <div>
+        <label for="name">Name</label><br />
+        <%= text_field_tag :name, params[:name], :size => 30 %>
+      </div>
+
+      <div>
+        <label for="password">Password</label><br />
+        <%= password_field_tag :password, params[:password], :size => 30 %><br /><br />
+      </div>
+  
+      <div>
+        <%= submit_tag "Login" %>
+      </div>
+    </fieldset>
+  <% end %>
+</div>

@@ -1,0 +1,32 @@
+<div class="goweedox-form">
+
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <fieldset>
+  
+  <legend>New User | Enter details</legend>
+  
+  <div>
+    <%= f.label :name, 'User Name' %><br />
+    <%= f.text_field :name, :size => 30 %>
+  </div>
+  
+  
+  <div>
+	<%= f.label :user_password, 'Password' %> <br />
+	<%= f.password_field :password, :size => 30 %>
+  </div>
+  
+  <div>
+	<%= f.label :user_password_confirmation, 'Confirm' %> <br />
+	<%= f.password_field :password_confirmation, :size => 30 %> <br /><br />
+  </div>
+  
+  <div>
+	<%= f.submit "Submit", :class => "submit" %>
+  </div>
+  
+  </fieldset>
+<% end %>
+</div>

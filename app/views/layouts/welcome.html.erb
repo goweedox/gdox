@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title> Welcome to Gowee Dox!</title>
+  	<style type="text/css">
+	a { text-decoration:none; color: #FFFFFF; }
+	</style>
+  <%= stylesheet_link_tag 'gowee', 'scaffold', 'jquery.ui.all', 'custom-theme/jquery-ui-1.8.1.custom.css' %>
+  <%= javascript_include_tag "jquery-1.4.2", "ui/jquery.ui.core", "ui/jquery.ui.widget", "ui/jquery.ui.tabs"%>
+  
+	<script type="text/javascript">
+	$(function() {
+		$("#tabs").tabs();
+	});
+	</script>
+	</head>
+	
+<body id="store" class="demo">
+	<div id="banner">
+		<%= image_tag("gowee.jpg") %>
+	</div>
+	
+	<div id="menu">	
+			<%= link_to 'Home', :controller => 'welcome', :action => 'index' %> |
+			<%= link_to  "Sign Up", :controller => 'welcome',:action => 'signup' %> |
+			<%= link_to  "   Login   ", :controller => 'welcome',:action => 'login' %>			
+	</div>	
+	
+	<div id="main">
+		<% if flash[:notice] -%>
+      		<div id="notice"><%= flash[:notice] %></div>
+   		<% end -%>
+		<%= yield :layout %>
+	</div>
+
+	<div id="extlinks"> 
+		Powered by <a href="http://www.codrschool.com/internship-program/2010-interns"> CodrSchool</a>&nbsp;&nbsp;
+		| &nbsp;&nbsp;&copy;  Copyright 2010 	
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,1838 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: ActiveSupport::Multibyte::Chars</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">ActiveSupport::Multibyte::Chars</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/vendor/rails/activesupport/lib/active_support/multibyte/chars_rb.html">
+                vendor/rails/activesupport/lib/active_support/multibyte/chars.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="Chars.html">Chars</a> enables you to work transparently with UTF-8
+encoding in the Ruby String class without having extensive knowledge about
+the encoding. A <a href="Chars.html">Chars</a> object accepts a string upon
+initialization and proxies String methods in an encoding safe manner. All
+the normal String methods are also implemented on the proxy.
+</p>
+<p>
+String methods are proxied through the <a href="Chars.html">Chars</a>
+object, and can be accessed through the <tt>mb_chars</tt> method. Methods
+which would normally return a String object now return a <a
+href="Chars.html">Chars</a> object so methods can be chained.
+</p>
+<pre>
+  &quot;The Perfect String  &quot;.mb_chars.downcase.strip.normalize #=&gt; &quot;the perfect string&quot;
+</pre>
+<p>
+<a href="Chars.html">Chars</a> objects are perfectly interchangeable with
+String objects as long as no explicit class checks are made. If certain
+methods do explicitly check the class, call <tt>to_s</tt> before you pass
+chars objects to them.
+</p>
+<pre>
+  bad.explicit_checking_method &quot;T&quot;.mb_chars.downcase.to_s
+</pre>
+<p>
+The default <a href="Chars.html">Chars</a> implementation assumes that the
+encoding of the string is UTF-8, if you want to handle different encodings
+you can write your own multibyte string handler and configure it through
+ActiveSupport::Multibyte.proxy_class.
+</p>
+<pre>
+  class CharsForUTF32
+    def size
+      @wrapped_string.size / 4
+    end
+
+    def self.accepts?(string)
+      string.length % 4 == 0
+    end
+  end
+
+  ActiveSupport::Multibyte.proxy_class = CharsForUTF32
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000277">+</a>&nbsp;&nbsp;
+      <a href="#M000276">&lt;=&gt;</a>&nbsp;&nbsp;
+      <a href="#M000278">=~</a>&nbsp;&nbsp;
+      <a href="#M000294">[]</a>&nbsp;&nbsp;
+      <a href="#M000283">[]=</a>&nbsp;&nbsp;
+      <a href="#M000273">acts_like_string?</a>&nbsp;&nbsp;
+      <a href="#M000298">capitalize</a>&nbsp;&nbsp;
+      <a href="#M000286">center</a>&nbsp;&nbsp;
+      <a href="#M000301">compose</a>&nbsp;&nbsp;
+      <a href="#M000310">compose_codepoints</a>&nbsp;&nbsp;
+      <a href="#M000275">consumes?</a>&nbsp;&nbsp;
+      <a href="#M000300">decompose</a>&nbsp;&nbsp;
+      <a href="#M000309">decompose_codepoints</a>&nbsp;&nbsp;
+      <a href="#M000297">downcase</a>&nbsp;&nbsp;
+      <a href="#M000302">g_length</a>&nbsp;&nbsp;
+      <a href="#M000307">g_pack</a>&nbsp;&nbsp;
+      <a href="#M000306">g_unpack</a>&nbsp;&nbsp;
+      <a href="#M000305">in_char_class?</a>&nbsp;&nbsp;
+      <a href="#M000281">include?</a>&nbsp;&nbsp;
+      <a href="#M000282">index</a>&nbsp;&nbsp;
+      <a href="#M000280">insert</a>&nbsp;&nbsp;
+      <a href="#M000291">length</a>&nbsp;&nbsp;
+      <a href="#M000285">ljust</a>&nbsp;&nbsp;
+      <a href="#M000288">lstrip</a>&nbsp;&nbsp;
+      <a href="#M000271">method_missing</a>&nbsp;&nbsp;
+      <a href="#M000270">new</a>&nbsp;&nbsp;
+      <a href="#M000299">normalize</a>&nbsp;&nbsp;
+      <a href="#M000295">ord</a>&nbsp;&nbsp;
+      <a href="#M000308">reorder_characters</a>&nbsp;&nbsp;
+      <a href="#M000272">respond_to?</a>&nbsp;&nbsp;
+      <a href="#M000292">reverse</a>&nbsp;&nbsp;
+      <a href="#M000284">rjust</a>&nbsp;&nbsp;
+      <a href="#M000287">rstrip</a>&nbsp;&nbsp;
+      <a href="#M000290">size</a>&nbsp;&nbsp;
+      <a href="#M000293">slice</a>&nbsp;&nbsp;
+      <a href="#M000279">split</a>&nbsp;&nbsp;
+      <a href="#M000289">strip</a>&nbsp;&nbsp;
+      <a href="#M000303">tidy_bytes</a>&nbsp;&nbsp;
+      <a href="#M000311">tidy_bytes</a>&nbsp;&nbsp;
+      <a href="#M000304">u_unpack</a>&nbsp;&nbsp;
+      <a href="#M000296">upcase</a>&nbsp;&nbsp;
+      <a href="#M000274">wants?</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">Comparable</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_SBASE</td>
+          <td>=</td>
+          <td class="context-item-value">0xAC00</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Hangul character boundaries and properties
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_LBASE</td>
+          <td>=</td>
+          <td class="context-item-value">0x1100</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_VBASE</td>
+          <td>=</td>
+          <td class="context-item-value">0x1161</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_TBASE</td>
+          <td>=</td>
+          <td class="context-item-value">0x11A7</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_LCOUNT</td>
+          <td>=</td>
+          <td class="context-item-value">19</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_VCOUNT</td>
+          <td>=</td>
+          <td class="context-item-value">21</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_TCOUNT</td>
+          <td>=</td>
+          <td class="context-item-value">28</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_NCOUNT</td>
+          <td>=</td>
+          <td class="context-item-value">HANGUL_VCOUNT * HANGUL_TCOUNT</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_SCOUNT</td>
+          <td>=</td>
+          <td class="context-item-value">11172</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_SLAST</td>
+          <td>=</td>
+          <td class="context-item-value">HANGUL_SBASE + HANGUL_SCOUNT</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_JAMO_FIRST</td>
+          <td>=</td>
+          <td class="context-item-value">0x1100</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HANGUL_JAMO_LAST</td>
+          <td>=</td>
+          <td class="context-item-value">0x11FF</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">UNICODE_WHITESPACE</td>
+          <td>=</td>
+          <td class="context-item-value">[         (0x0009..0x000D).to_a, # White_Space # Cc   [5] &lt;control-0009&gt;..&lt;control-000D&gt;         0x0020,                # White_Space # Zs       SPACE         0x0085,                # White_Space # Cc       &lt;control-0085&gt;         0x00A0,                # White_Space # Zs       NO-BREAK SPACE         0x1680,                # White_Space # Zs       OGHAM SPACE MARK         0x180E,                # White_Space # Zs       MONGOLIAN VOWEL SEPARATOR         (0x2000..0x200A).to_a, # White_Space # Zs  [11] EN QUAD..HAIR SPACE         0x2028,                # White_Space # Zl       LINE SEPARATOR         0x2029,                # White_Space # Zp       PARAGRAPH SEPARATOR         0x202F,                # White_Space # Zs       NARROW NO-BREAK SPACE         0x205F,                # White_Space # Zs       MEDIUM MATHEMATICAL SPACE         0x3000,                # White_Space # Zs       IDEOGRAPHIC SPACE       ].flatten.freeze</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+All the unicode whitespace
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">UNICODE_LEADERS_AND_TRAILERS</td>
+          <td>=</td>
+          <td class="context-item-value">UNICODE_WHITESPACE + [65279]</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+BOM (byte order mark) can also be seen as whitespace, it&#8216;s a
+non-rendering character used to distinguish between little and big endian.
+This is not an issue in utf-8, so it must be ignored.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">UNICODE_TRAILERS_PAT</td>
+          <td>=</td>
+          <td class="context-item-value">/(#{codepoints_to_pattern(UNICODE_LEADERS_AND_TRAILERS)})+\Z/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">UNICODE_LEADERS_PAT</td>
+          <td>=</td>
+          <td class="context-item-value">/\A(#{codepoints_to_pattern(UNICODE_LEADERS_AND_TRAILERS)})+/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">UTF8_PAT</td>
+          <td>=</td>
+          <td class="context-item-value">ActiveSupport::Multibyte::VALID_CHARACTER['UTF-8']</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">wrapped_string</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">to_s</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">wrapped_string</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">to_str</td>
+        </tr>
+                        </table>
+      </div>
+    </div>
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">wrapped_string</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000310" class="method-detail">
+        <a name="M000310"></a>
+
+        <div class="method-heading">
+          <a href="#M000310" class="method-signature">
+          <span class="method-name">compose_codepoints</span><span class="method-args">(codepoints)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Compose decomposed characters to the composed form.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000310-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000310-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 550</span>
+550:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">compose_codepoints</span>(<span class="ruby-identifier">codepoints</span>)
+551:           <span class="ruby-identifier">pos</span> = <span class="ruby-value">0</span>
+552:           <span class="ruby-identifier">eoa</span> = <span class="ruby-identifier">codepoints</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+553:           <span class="ruby-identifier">starter_pos</span> = <span class="ruby-value">0</span>
+554:           <span class="ruby-identifier">starter_char</span> = <span class="ruby-identifier">codepoints</span>[<span class="ruby-value">0</span>]
+555:           <span class="ruby-identifier">previous_combining_class</span> = <span class="ruby-value">-1</span>
+556:           <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">pos</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">eoa</span>
+557:             <span class="ruby-identifier">pos</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+558:             <span class="ruby-identifier">lindex</span> = <span class="ruby-identifier">starter_char</span> <span class="ruby-operator">-</span> <span class="ruby-constant">HANGUL_LBASE</span>
+559:             <span class="ruby-comment cmt"># -- Hangul</span>
+560:             <span class="ruby-keyword kw">if</span> <span class="ruby-value">0</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">lindex</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">lindex</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">HANGUL_LCOUNT</span>
+561:               <span class="ruby-identifier">vindex</span> = <span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">starter_pos</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] <span class="ruby-operator">-</span> <span class="ruby-constant">HANGUL_VBASE</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-identifier">vindex</span> = <span class="ruby-value">-1</span>
+562:               <span class="ruby-keyword kw">if</span> <span class="ruby-value">0</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">vindex</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">vindex</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">HANGUL_VCOUNT</span>
+563:                 <span class="ruby-identifier">tindex</span> = <span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">starter_pos</span><span class="ruby-operator">+</span><span class="ruby-value">2</span>] <span class="ruby-operator">-</span> <span class="ruby-constant">HANGUL_TBASE</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-identifier">tindex</span> = <span class="ruby-value">-1</span>
+564:                 <span class="ruby-keyword kw">if</span> <span class="ruby-value">0</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">tindex</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">tindex</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">HANGUL_TCOUNT</span>
+565:                   <span class="ruby-identifier">j</span> = <span class="ruby-identifier">starter_pos</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>
+566:                   <span class="ruby-identifier">eoa</span> <span class="ruby-operator">-=</span> <span class="ruby-value">2</span>
+567:                 <span class="ruby-keyword kw">else</span>
+568:                   <span class="ruby-identifier">tindex</span> = <span class="ruby-value">0</span>
+569:                   <span class="ruby-identifier">j</span> = <span class="ruby-identifier">starter_pos</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+570:                   <span class="ruby-identifier">eoa</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+571:                 <span class="ruby-keyword kw">end</span>
+572:                 <span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">starter_pos</span><span class="ruby-operator">..</span><span class="ruby-identifier">j</span>] = (<span class="ruby-identifier">lindex</span> <span class="ruby-operator">*</span> <span class="ruby-constant">HANGUL_VCOUNT</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">vindex</span>) <span class="ruby-operator">*</span> <span class="ruby-constant">HANGUL_TCOUNT</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">tindex</span> <span class="ruby-operator">+</span> <span class="ruby-constant">HANGUL_SBASE</span>
+573:               <span class="ruby-keyword kw">end</span>
+574:               <span class="ruby-identifier">starter_pos</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+575:               <span class="ruby-identifier">starter_char</span> = <span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">starter_pos</span>]
+576:             <span class="ruby-comment cmt"># -- Other characters</span>
+577:             <span class="ruby-keyword kw">else</span>
+578:               <span class="ruby-identifier">current_char</span> = <span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">pos</span>]
+579:               <span class="ruby-identifier">current</span> = <span class="ruby-constant">UCD</span>.<span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">current_char</span>]
+580:               <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">combining_class</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">previous_combining_class</span>
+581:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ref</span> = <span class="ruby-constant">UCD</span>.<span class="ruby-identifier">composition_map</span>[<span class="ruby-identifier">starter_char</span>]
+582:                   <span class="ruby-identifier">composition</span> = <span class="ruby-identifier">ref</span>[<span class="ruby-identifier">current_char</span>]
+583:                 <span class="ruby-keyword kw">else</span>
+584:                   <span class="ruby-identifier">composition</span> = <span class="ruby-keyword kw">nil</span>
+585:                 <span class="ruby-keyword kw">end</span>
+586:                 <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">composition</span>.<span class="ruby-identifier">nil?</span>
+587:                   <span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">starter_pos</span>] = <span class="ruby-identifier">composition</span>
+588:                   <span class="ruby-identifier">starter_char</span> = <span class="ruby-identifier">composition</span>
+589:                   <span class="ruby-identifier">codepoints</span>.<span class="ruby-identifier">delete_at</span> <span class="ruby-identifier">pos</span>
+590:                   <span class="ruby-identifier">eoa</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+591:                   <span class="ruby-identifier">pos</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+592:                   <span class="ruby-identifier">previous_combining_class</span> = <span class="ruby-value">-1</span>
+593:                 <span class="ruby-keyword kw">else</span>
+594:                   <span class="ruby-identifier">previous_combining_class</span> = <span class="ruby-identifier">current</span>.<span class="ruby-identifier">combining_class</span>
+595:                 <span class="ruby-keyword kw">end</span>
+596:               <span class="ruby-keyword kw">else</span>
+597:                 <span class="ruby-identifier">previous_combining_class</span> = <span class="ruby-identifier">current</span>.<span class="ruby-identifier">combining_class</span>
+598:               <span class="ruby-keyword kw">end</span>
+599:               <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">combining_class</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+600:                 <span class="ruby-identifier">starter_pos</span> = <span class="ruby-identifier">pos</span>
+601:                 <span class="ruby-identifier">starter_char</span> = <span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">pos</span>]
+602:               <span class="ruby-keyword kw">end</span>
+603:             <span class="ruby-keyword kw">end</span>
+604:           <span class="ruby-keyword kw">end</span>
+605:           <span class="ruby-identifier">codepoints</span>
+606:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000275" class="method-detail">
+        <a name="M000275"></a>
+
+        <div class="method-heading">
+          <a href="#M000275" class="method-signature">
+          <span class="method-name">consumes?</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns <tt>true</tt> when the proxy class can handle the string. Returns
+<tt>false</tt> otherwise.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000275-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000275-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 123</span>
+123:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">consumes?</span>(<span class="ruby-identifier">string</span>)
+124:         <span class="ruby-comment cmt"># Unpack is a little bit faster than regular expressions.</span>
+125:         <span class="ruby-identifier">string</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">'U*'</span>)
+126:         <span class="ruby-keyword kw">true</span>
+127:       <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ArgumentError</span>
+128:         <span class="ruby-keyword kw">false</span>
+129:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000309" class="method-detail">
+        <a name="M000309"></a>
+
+        <div class="method-heading">
+          <a href="#M000309" class="method-signature">
+          <span class="method-name">decompose_codepoints</span><span class="method-args">(type, codepoints)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Decompose composed characters to the decomposed form.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000309-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000309-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 529</span>
+529:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">decompose_codepoints</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">codepoints</span>)
+530:           <span class="ruby-identifier">codepoints</span>.<span class="ruby-identifier">inject</span>([]) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">decomposed</span>, <span class="ruby-identifier">cp</span><span class="ruby-operator">|</span>
+531:             <span class="ruby-comment cmt"># if it's a hangul syllable starter character</span>
+532:             <span class="ruby-keyword kw">if</span> <span class="ruby-constant">HANGUL_SBASE</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">cp</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">cp</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">HANGUL_SLAST</span>
+533:               <span class="ruby-identifier">sindex</span> = <span class="ruby-identifier">cp</span> <span class="ruby-operator">-</span> <span class="ruby-constant">HANGUL_SBASE</span>
+534:               <span class="ruby-identifier">ncp</span> = [] <span class="ruby-comment cmt"># new codepoints</span>
+535:               <span class="ruby-identifier">ncp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">HANGUL_LBASE</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">sindex</span> <span class="ruby-operator">/</span> <span class="ruby-constant">HANGUL_NCOUNT</span>
+536:               <span class="ruby-identifier">ncp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">HANGUL_VBASE</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">sindex</span> <span class="ruby-operator">%</span> <span class="ruby-constant">HANGUL_NCOUNT</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">HANGUL_TCOUNT</span>
+537:               <span class="ruby-identifier">tindex</span> = <span class="ruby-identifier">sindex</span> <span class="ruby-operator">%</span> <span class="ruby-constant">HANGUL_TCOUNT</span>
+538:               <span class="ruby-identifier">ncp</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-constant">HANGUL_TBASE</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">tindex</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">tindex</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+539:               <span class="ruby-identifier">decomposed</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">ncp</span>
+540:             <span class="ruby-comment cmt"># if the codepoint is decomposable in with the current decomposition type</span>
+541:             <span class="ruby-keyword kw">elsif</span> (<span class="ruby-identifier">ncp</span> = <span class="ruby-constant">UCD</span>.<span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">cp</span>].<span class="ruby-identifier">decomp_mapping</span>) <span class="ruby-keyword kw">and</span> (<span class="ruby-operator">!</span><span class="ruby-constant">UCD</span>.<span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">cp</span>].<span class="ruby-identifier">decomp_type</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:compatability</span>)
+542:               <span class="ruby-identifier">decomposed</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">decompose_codepoints</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">ncp</span>.<span class="ruby-identifier">dup</span>)
+543:             <span class="ruby-keyword kw">else</span>
+544:               <span class="ruby-identifier">decomposed</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cp</span>
+545:             <span class="ruby-keyword kw">end</span>
+546:           <span class="ruby-keyword kw">end</span>
+547:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000307" class="method-detail">
+        <a name="M000307"></a>
+
+        <div class="method-heading">
+          <a href="#M000307" class="method-signature">
+          <span class="method-name">g_pack</span><span class="method-args">(unpacked)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Reverse operation of <a href="Chars.html#M000306">g_unpack</a>.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  Chars.g_pack(Chars.g_unpack('क्षि')) #=&gt; 'क्षि'
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000307-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000307-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 500</span>
+500:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">g_pack</span>(<span class="ruby-identifier">unpacked</span>)
+501:           (<span class="ruby-identifier">unpacked</span>.<span class="ruby-identifier">flatten</span>).<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U*'</span>)
+502:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000306" class="method-detail">
+        <a name="M000306"></a>
+
+        <div class="method-heading">
+          <a href="#M000306" class="method-signature">
+          <span class="method-name">g_unpack</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Unpack the string at grapheme boundaries. Returns a list of character
+lists.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  Chars.g_unpack('क्षि') #=&gt; [[2325, 2381], [2359], [2367]]
+  Chars.g_unpack('Café') #=&gt; [[67], [97], [102], [233]]
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000306-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000306-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 466</span>
+466:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">g_unpack</span>(<span class="ruby-identifier">string</span>)
+467:           <span class="ruby-identifier">codepoints</span> = <span class="ruby-identifier">u_unpack</span>(<span class="ruby-identifier">string</span>)
+468:           <span class="ruby-identifier">unpacked</span> = []
+469:           <span class="ruby-identifier">pos</span> = <span class="ruby-value">0</span>
+470:           <span class="ruby-identifier">marker</span> = <span class="ruby-value">0</span>
+471:           <span class="ruby-identifier">eoc</span> = <span class="ruby-identifier">codepoints</span>.<span class="ruby-identifier">length</span>
+472:           <span class="ruby-keyword kw">while</span>(<span class="ruby-identifier">pos</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">eoc</span>)
+473:             <span class="ruby-identifier">pos</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+474:             <span class="ruby-identifier">previous</span> = <span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">pos</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>]
+475:             <span class="ruby-identifier">current</span> = <span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">pos</span>]
+476:             <span class="ruby-keyword kw">if</span> (
+477:                 <span class="ruby-comment cmt"># CR X LF</span>
+478:                 <span class="ruby-identifier">one</span> = ( <span class="ruby-identifier">previous</span> <span class="ruby-operator">==</span> <span class="ruby-constant">UCD</span>.<span class="ruby-identifier">boundary</span>[<span class="ruby-identifier">:cr</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">==</span> <span class="ruby-constant">UCD</span>.<span class="ruby-identifier">boundary</span>[<span class="ruby-identifier">:lf</span>] ) <span class="ruby-keyword kw">or</span>
+479:                 <span class="ruby-comment cmt"># L X (L|V|LV|LVT)</span>
+480:                 <span class="ruby-identifier">two</span> = ( <span class="ruby-constant">UCD</span>.<span class="ruby-identifier">boundary</span>[<span class="ruby-identifier">:l</span>] <span class="ruby-operator">===</span> <span class="ruby-identifier">previous</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">in_char_class?</span>(<span class="ruby-identifier">current</span>, [<span class="ruby-identifier">:l</span>,<span class="ruby-identifier">:v</span>,<span class="ruby-identifier">:lv</span>,<span class="ruby-identifier">:lvt</span>]) ) <span class="ruby-keyword kw">or</span>
+481:                 <span class="ruby-comment cmt"># (LV|V) X (V|T)</span>
+482:                 <span class="ruby-identifier">three</span> = ( <span class="ruby-identifier">in_char_class?</span>(<span class="ruby-identifier">previous</span>, [<span class="ruby-identifier">:lv</span>,<span class="ruby-identifier">:v</span>]) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">in_char_class?</span>(<span class="ruby-identifier">current</span>, [<span class="ruby-identifier">:v</span>,<span class="ruby-identifier">:t</span>]) ) <span class="ruby-keyword kw">or</span>
+483:                 <span class="ruby-comment cmt"># (LVT|T) X (T)</span>
+484:                 <span class="ruby-identifier">four</span> = ( <span class="ruby-identifier">in_char_class?</span>(<span class="ruby-identifier">previous</span>, [<span class="ruby-identifier">:lvt</span>,<span class="ruby-identifier">:t</span>]) <span class="ruby-keyword kw">and</span> <span class="ruby-constant">UCD</span>.<span class="ruby-identifier">boundary</span>[<span class="ruby-identifier">:t</span>] <span class="ruby-operator">===</span> <span class="ruby-identifier">current</span> ) <span class="ruby-keyword kw">or</span>
+485:                 <span class="ruby-comment cmt"># X Extend</span>
+486:                 <span class="ruby-identifier">five</span> = (<span class="ruby-constant">UCD</span>.<span class="ruby-identifier">boundary</span>[<span class="ruby-identifier">:extend</span>] <span class="ruby-operator">===</span> <span class="ruby-identifier">current</span>)
+487:               )
+488:             <span class="ruby-keyword kw">else</span>
+489:               <span class="ruby-identifier">unpacked</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">marker</span><span class="ruby-operator">..</span><span class="ruby-identifier">pos</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>]
+490:               <span class="ruby-identifier">marker</span> = <span class="ruby-identifier">pos</span>
+491:             <span class="ruby-keyword kw">end</span>
+492:           <span class="ruby-keyword kw">end</span> 
+493:           <span class="ruby-identifier">unpacked</span>
+494:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000305" class="method-detail">
+        <a name="M000305"></a>
+
+        <div class="method-heading">
+          <a href="#M000305" class="method-signature">
+          <span class="method-name">in_char_class?</span><span class="method-args">(codepoint, classes)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Detect whether the codepoint is in a certain character class. Returns
+<tt>true</tt> when it&#8216;s in the specified character class and
+<tt>false</tt> otherwise. Valid character classes are: <tt>:cr</tt>,
+<tt>:lf</tt>, <tt>:l</tt>, <tt>:v</tt>, <tt>:lv</tt>, <tt>:lvt</tt> and
+<tt>:t</tt>.
+</p>
+<p>
+Primarily used by the grapheme cluster support.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000305-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000305-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 457</span>
+457:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">in_char_class?</span>(<span class="ruby-identifier">codepoint</span>, <span class="ruby-identifier">classes</span>)
+458:           <span class="ruby-identifier">classes</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-constant">UCD</span>.<span class="ruby-identifier">boundary</span>[<span class="ruby-identifier">c</span>] <span class="ruby-operator">===</span> <span class="ruby-identifier">codepoint</span> } <span class="ruby-operator">?</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>
+459:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000270" class="method-detail">
+        <a name="M000270"></a>
+
+        <div class="method-heading">
+          <a href="#M000270" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a <a href="Chars.html#M000270">new</a> <a
+href="Chars.html">Chars</a> instance by wrapping <em>string</em>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000270-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000270-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 84</span>
+84:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">string</span>)
+85:           <span class="ruby-ivar">@wrapped_string</span> = <span class="ruby-identifier">string</span>
+86:           <span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">frozen?</span>
+87:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000308" class="method-detail">
+        <a name="M000308"></a>
+
+        <div class="method-heading">
+          <a href="#M000308" class="method-signature">
+          <span class="method-name">reorder_characters</span><span class="method-args">(codepoints)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Re-order codepoints so the string becomes canonical.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000308-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000308-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 513</span>
+513:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reorder_characters</span>(<span class="ruby-identifier">codepoints</span>)
+514:           <span class="ruby-identifier">length</span> = <span class="ruby-identifier">codepoints</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+515:           <span class="ruby-identifier">pos</span> = <span class="ruby-value">0</span>
+516:           <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">pos</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">length</span> <span class="ruby-keyword kw">do</span>
+517:             <span class="ruby-identifier">cp1</span>, <span class="ruby-identifier">cp2</span> = <span class="ruby-constant">UCD</span>.<span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">pos</span>]], <span class="ruby-constant">UCD</span>.<span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">pos</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>]]
+518:             <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">cp1</span>.<span class="ruby-identifier">combining_class</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cp2</span>.<span class="ruby-identifier">combining_class</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">cp2</span>.<span class="ruby-identifier">combining_class</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+519:               <span class="ruby-identifier">codepoints</span>[<span class="ruby-identifier">pos</span><span class="ruby-operator">..</span><span class="ruby-identifier">pos</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] = <span class="ruby-identifier">cp2</span>.<span class="ruby-identifier">code</span>, <span class="ruby-identifier">cp1</span>.<span class="ruby-identifier">code</span>
+520:               <span class="ruby-identifier">pos</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">pos</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-value">-1</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>)
+521:             <span class="ruby-keyword kw">else</span>
+522:               <span class="ruby-identifier">pos</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+523:             <span class="ruby-keyword kw">end</span>
+524:           <span class="ruby-keyword kw">end</span>
+525:           <span class="ruby-identifier">codepoints</span>
+526:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000311" class="method-detail">
+        <a name="M000311"></a>
+
+        <div class="method-heading">
+          <a href="#M000311" class="method-signature">
+          <span class="method-name">tidy_bytes</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Replaces all ISO-8859-1 or CP1252 characters by their UTF-8 equivalent
+resulting in a valid UTF-8 string.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000311-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000311-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 609</span>
+609:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tidy_bytes</span>(<span class="ruby-identifier">string</span>)
+610:           <span class="ruby-identifier">string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">//</span><span class="ruby-identifier">u</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+611:             <span class="ruby-identifier">c</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:force_encoding</span>)
+612: 
+613:             <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Multibyte</span><span class="ruby-operator">::</span><span class="ruby-constant">VALID_CHARACTER</span>[<span class="ruby-value str">'UTF-8'</span>].<span class="ruby-identifier">match</span>(<span class="ruby-identifier">c</span>)
+614:               <span class="ruby-identifier">n</span> = <span class="ruby-identifier">c</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">'C'</span>)[<span class="ruby-value">0</span>]
+615:               <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">128</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">chr</span> <span class="ruby-operator">:</span>
+616:               <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">160</span> <span class="ruby-operator">?</span> [<span class="ruby-constant">UCD</span>.<span class="ruby-identifier">cp1252</span>[<span class="ruby-identifier">n</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">n</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U'</span>) <span class="ruby-operator">:</span>
+617:               <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">192</span> <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;\xC2&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">chr</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;\xC3&quot;</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">n</span><span class="ruby-operator">-</span><span class="ruby-value">64</span>).<span class="ruby-identifier">chr</span>
+618:             <span class="ruby-keyword kw">else</span>
+619:               <span class="ruby-identifier">c</span>
+620:             <span class="ruby-keyword kw">end</span>
+621:           <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">join</span>
+622:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000304" class="method-detail">
+        <a name="M000304"></a>
+
+        <div class="method-heading">
+          <a href="#M000304" class="method-signature">
+          <span class="method-name">u_unpack</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Unpack the string at codepoints boundaries. Raises an <a
+href="EncodingError.html">EncodingError</a> when the encoding of the string
+isn&#8216;t valid UTF-8.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  Chars.u_unpack('Café') #=&gt; [67, 97, 102, 233]
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000304-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000304-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 444</span>
+444:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">u_unpack</span>(<span class="ruby-identifier">string</span>)
+445:           <span class="ruby-keyword kw">begin</span>
+446:             <span class="ruby-identifier">string</span>.<span class="ruby-identifier">unpack</span> <span class="ruby-value str">'U*'</span>
+447:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ArgumentError</span>
+448:             <span class="ruby-identifier">raise</span> <span class="ruby-constant">EncodingError</span>, <span class="ruby-value str">'malformed UTF-8 character'</span>
+449:           <span class="ruby-keyword kw">end</span>
+450:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000274" class="method-detail">
+        <a name="M000274"></a>
+
+        <div class="method-heading">
+          <a href="#M000274" class="method-signature">
+          <span class="method-name">wants?</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns <tt>true</tt> if the <a href="Chars.html">Chars</a> class can and
+should act as a proxy for the string <em>string</em>. Returns
+<tt>false</tt> otherwise.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000274-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000274-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 118</span>
+118:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">wants?</span>(<span class="ruby-identifier">string</span>)
+119:         <span class="ruby-identifier">$KCODE</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'UTF8'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">consumes?</span>(<span class="ruby-identifier">string</span>)
+120:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000277" class="method-detail">
+        <a name="M000277"></a>
+
+        <div class="method-heading">
+          <a href="#M000277" class="method-signature">
+          <span class="method-name">+</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a <a href="Chars.html#M000270">new</a> <a
+href="Chars.html">Chars</a> object containing the <em>other</em> object
+concatenated to the string.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  ('Café'.mb_chars + ' périferôl').to_s #=&gt; &quot;Café périferôl&quot;
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000277-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000277-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 147</span>
+147:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">+</span>(<span class="ruby-identifier">other</span>)
+148:         <span class="ruby-keyword kw">self</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">other</span>
+149:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000276" class="method-detail">
+        <a name="M000276"></a>
+
+        <div class="method-heading">
+          <a href="#M000276" class="method-signature">
+          <span class="method-name">&lt;=&gt;</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns <tt>-1</tt>, <tt>0</tt> or <tt>+1</tt> depending on whether the <a
+href="Chars.html">Chars</a> object is to be sorted before, equal or after
+the object on the right side of the operation. It accepts any object that
+implements <tt>to_s</tt>. See <tt>String#&lt;=&gt;</tt> for more details.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'é'.mb_chars &lt;=&gt; 'ü'.mb_chars #=&gt; -1
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000276-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000276-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 139</span>
+139:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+140:         <span class="ruby-ivar">@wrapped_string</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_s</span>
+141:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000278" class="method-detail">
+        <a name="M000278"></a>
+
+        <div class="method-heading">
+          <a href="#M000278" class="method-signature">
+          <span class="method-name">=~</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Like <tt>String#=~</tt> only it returns the character offset (in
+codepoints) instead of the byte offset.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'Café périferôl'.mb_chars =~ /ô/ #=&gt; 12
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000278-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000278-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 155</span>
+155:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">=~</span>(<span class="ruby-identifier">other</span>)
+156:         <span class="ruby-identifier">translate_offset</span>(<span class="ruby-ivar">@wrapped_string</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">other</span>)
+157:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000294" class="method-detail">
+        <a name="M000294"></a>
+
+        <div class="method-heading">
+          <span class="method-name">[]</span><span class="method-args">(*args)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Chars.html#M000293">slice</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000283" class="method-detail">
+        <a name="M000283"></a>
+
+        <div class="method-heading">
+          <a href="#M000283" class="method-signature">
+          <span class="method-name">[]=</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Like <tt>String#[]=</tt>, except instead of byte offsets you specify
+character offsets.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  s = &quot;Müller&quot;
+  s.mb_chars[2] = &quot;e&quot; # Replace character with offset 2
+  s
+  #=&gt; &quot;Müeler&quot;
+
+  s = &quot;Müller&quot;
+  s.mb_chars[1, 2] = &quot;ö&quot; # Replace 2 characters at character offset 1
+  s
+  #=&gt; &quot;Möler&quot;
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000283-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000283-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 216</span>
+216:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+217:         <span class="ruby-identifier">replace_by</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span>
+218:         <span class="ruby-comment cmt"># Indexed replace with regular expressions already works</span>
+219:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Regexp</span>)
+220:           <span class="ruby-ivar">@wrapped_string</span>[<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>] = <span class="ruby-identifier">replace_by</span>
+221:         <span class="ruby-keyword kw">else</span>
+222:           <span class="ruby-identifier">result</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>)
+223:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Fixnum</span>)
+224:             <span class="ruby-identifier">raise</span> <span class="ruby-constant">IndexError</span>, <span class="ruby-node">&quot;index #{args[0]} out of string&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">length</span>
+225:             <span class="ruby-identifier">min</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+226:             <span class="ruby-identifier">max</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-identifier">min</span> <span class="ruby-operator">:</span> (<span class="ruby-identifier">min</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+227:             <span class="ruby-identifier">range</span> = <span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+228:             <span class="ruby-identifier">replace_by</span> = [<span class="ruby-identifier">replace_by</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">replace_by</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Fixnum</span>)
+229:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Range</span>)
+230:             <span class="ruby-identifier">raise</span> <span class="ruby-constant">RangeError</span>, <span class="ruby-node">&quot;#{args[0]} out of range&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">min</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">length</span>
+231:             <span class="ruby-identifier">range</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+232:           <span class="ruby-keyword kw">else</span>
+233:             <span class="ruby-identifier">needle</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_s</span>
+234:             <span class="ruby-identifier">min</span> = <span class="ruby-identifier">index</span>(<span class="ruby-identifier">needle</span>)
+235:             <span class="ruby-identifier">max</span> = <span class="ruby-identifier">min</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-identifier">needle</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+236:             <span class="ruby-identifier">range</span> = <span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+237:           <span class="ruby-keyword kw">end</span>
+238:           <span class="ruby-identifier">result</span>[<span class="ruby-identifier">range</span>] = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-identifier">replace_by</span>)
+239:           <span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">result</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U*'</span>))
+240:         <span class="ruby-keyword kw">end</span>
+241:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000273" class="method-detail">
+        <a name="M000273"></a>
+
+        <div class="method-heading">
+          <a href="#M000273" class="method-signature">
+          <span class="method-name">acts_like_string?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Enable more predictable duck-typing on String-like classes. See
+Object#acts_like?.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000273-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000273-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 112</span>
+112:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">acts_like_string?</span>
+113:         <span class="ruby-keyword kw">true</span>
+114:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000298" class="method-detail">
+        <a name="M000298"></a>
+
+        <div class="method-heading">
+          <a href="#M000298" class="method-signature">
+          <span class="method-name">capitalize</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Converts the first character to uppercase and the remainder to lowercase.
+</p>
+<p>
+Example:
+</p>
+<pre>
+ 'über'.mb_chars.capitalize.to_s #=&gt; &quot;Über&quot;
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000298-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000298-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 366</span>
+366:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">capitalize</span>
+367:         (<span class="ruby-identifier">slice</span>(<span class="ruby-value">0</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">chars</span>(<span class="ruby-value str">''</span>)).<span class="ruby-identifier">upcase</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">slice</span>(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">chars</span>(<span class="ruby-value str">''</span>)).<span class="ruby-identifier">downcase</span>
+368:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000286" class="method-detail">
+        <a name="M000286"></a>
+
+        <div class="method-heading">
+          <a href="#M000286" class="method-signature">
+          <span class="method-name">center</span><span class="method-args">(integer, padstr=' ')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Works just like <tt>String#center</tt>, only integer specifies characters
+instead of bytes.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  &quot;¾ cup&quot;.mb_chars.center(8).to_s
+  #=&gt; &quot; ¾ cup  &quot;
+
+  &quot;¾ cup&quot;.mb_chars.center(8, &quot; &quot;).to_s # Use non-breaking whitespace
+  #=&gt; &quot; ¾ cup  &quot;
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000286-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000286-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 278</span>
+278:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">center</span>(<span class="ruby-identifier">integer</span>, <span class="ruby-identifier">padstr</span>=<span class="ruby-value str">' '</span>)
+279:         <span class="ruby-identifier">justify</span>(<span class="ruby-identifier">integer</span>, <span class="ruby-identifier">:center</span>, <span class="ruby-identifier">padstr</span>)
+280:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000301" class="method-detail">
+        <a name="M000301"></a>
+
+        <div class="method-heading">
+          <a href="#M000301" class="method-signature">
+          <span class="method-name">compose</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Performs composition on all the characters.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'é'.length #=&gt; 3
+  'é'.mb_chars.compose.to_s.length #=&gt; 2
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000301-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000301-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 408</span>
+408:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">compose</span>
+409:         <span class="ruby-identifier">chars</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">compose_codepoints</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>)).<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U*'</span>))
+410:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000300" class="method-detail">
+        <a name="M000300"></a>
+
+        <div class="method-heading">
+          <a href="#M000300" class="method-signature">
+          <span class="method-name">decompose</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Performs canonical decomposition on all the characters.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'é'.length #=&gt; 2
+  'é'.mb_chars.decompose.to_s.length #=&gt; 3
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000300-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000300-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 399</span>
+399:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">decompose</span>
+400:         <span class="ruby-identifier">chars</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">decompose_codepoints</span>(<span class="ruby-identifier">:canonical</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>)).<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U*'</span>))
+401:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000297" class="method-detail">
+        <a name="M000297"></a>
+
+        <div class="method-heading">
+          <a href="#M000297" class="method-signature">
+          <span class="method-name">downcase</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convert characters in the string to lowercase.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'VĚDA A VÝZKUM'.mb_chars.downcase.to_s #=&gt; &quot;věda a výzkum&quot;
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000297-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000297-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 358</span>
+358:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">downcase</span>
+359:         <span class="ruby-identifier">apply_mapping</span> <span class="ruby-identifier">:lowercase_mapping</span>
+360:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000302" class="method-detail">
+        <a name="M000302"></a>
+
+        <div class="method-heading">
+          <a href="#M000302" class="method-signature">
+          <span class="method-name">g_length</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the number of grapheme clusters in the string.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'क्षि'.mb_chars.length #=&gt; 4
+  'क्षि'.mb_chars.g_length #=&gt; 3
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000302-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000302-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 417</span>
+417:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">g_length</span>
+418:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">g_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>).<span class="ruby-identifier">length</span>
+419:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000281" class="method-detail">
+        <a name="M000281"></a>
+
+        <div class="method-heading">
+          <a href="#M000281" class="method-signature">
+          <span class="method-name">include?</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns <tt>true</tt> if contained string contains <em>other</em>. Returns
+<tt>false</tt> otherwise.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'Café'.mb_chars.include?('é') #=&gt; true
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000281-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000281-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 188</span>
+188:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">include?</span>(<span class="ruby-identifier">other</span>)
+189:         <span class="ruby-comment cmt"># We have to redefine this method because Enumerable defines it.</span>
+190:         <span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">other</span>)
+191:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000282" class="method-detail">
+        <a name="M000282"></a>
+
+        <div class="method-heading">
+          <a href="#M000282" class="method-signature">
+          <span class="method-name">index</span><span class="method-args">(needle, offset=0)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the position <em>needle</em> in the string, counting in codepoints.
+Returns <tt>nil</tt> if <em>needle</em> isn&#8216;t found.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'Café périferôl'.mb_chars.index('ô') #=&gt; 12
+  'Café périferôl'.mb_chars.index(/\w/u) #=&gt; 0
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000282-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000282-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 198</span>
+198:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>(<span class="ruby-identifier">needle</span>, <span class="ruby-identifier">offset</span>=<span class="ruby-value">0</span>)
+199:         <span class="ruby-identifier">index</span> = <span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">needle</span>, <span class="ruby-identifier">offset</span>)
+200:         <span class="ruby-identifier">index</span> <span class="ruby-value">? </span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">index</span>)).<span class="ruby-identifier">size</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+201:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000280" class="method-detail">
+        <a name="M000280"></a>
+
+        <div class="method-heading">
+          <a href="#M000280" class="method-signature">
+          <span class="method-name">insert</span><span class="method-args">(offset, fragment)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Inserts the passed string at specified codepoint offsets.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'Café'.mb_chars.insert(4, ' périferôl').to_s #=&gt; &quot;Café périferôl&quot;
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000280-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000280-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 172</span>
+172:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">insert</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">fragment</span>)
+173:         <span class="ruby-identifier">unpacked</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>)
+174:         <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">offset</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">unpacked</span>.<span class="ruby-identifier">length</span>
+175:           <span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">replace</span>(
+176:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>).<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-operator">*</span><span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-identifier">fragment</span>)).<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U*'</span>)
+177:           )
+178:         <span class="ruby-keyword kw">else</span>
+179:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">IndexError</span>, <span class="ruby-node">&quot;index #{offset} out of string&quot;</span>
+180:         <span class="ruby-keyword kw">end</span>
+181:         <span class="ruby-keyword kw">self</span>
+182:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000291" class="method-detail">
+        <a name="M000291"></a>
+
+        <div class="method-heading">
+          <span class="method-name">length</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Chars.html#M000290">size</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000285" class="method-detail">
+        <a name="M000285"></a>
+
+        <div class="method-heading">
+          <a href="#M000285" class="method-signature">
+          <span class="method-name">ljust</span><span class="method-args">(integer, padstr=' ')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Works just like <tt>String#ljust</tt>, only integer specifies characters
+instead of bytes.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  &quot;¾ cup&quot;.mb_chars.rjust(8).to_s
+  #=&gt; &quot;¾ cup   &quot;
+
+  &quot;¾ cup&quot;.mb_chars.rjust(8, &quot; &quot;).to_s # Use non-breaking whitespace
+  #=&gt; &quot;¾ cup   &quot;
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000285-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000285-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 265</span>
+265:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ljust</span>(<span class="ruby-identifier">integer</span>, <span class="ruby-identifier">padstr</span>=<span class="ruby-value str">' '</span>)
+266:         <span class="ruby-identifier">justify</span>(<span class="ruby-identifier">integer</span>, <span class="ruby-identifier">:left</span>, <span class="ruby-identifier">padstr</span>)
+267:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000288" class="method-detail">
+        <a name="M000288"></a>
+
+        <div class="method-heading">
+          <a href="#M000288" class="method-signature">
+          <span class="method-name">lstrip</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Strips entire range of Unicode whitespace from the left of the string.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000288-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000288-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 288</span>
+288:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">lstrip</span>
+289:         <span class="ruby-identifier">chars</span>(<span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">UNICODE_LEADERS_PAT</span>, <span class="ruby-value str">''</span>))
+290:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000271" class="method-detail">
+        <a name="M000271"></a>
+
+        <div class="method-heading">
+          <a href="#M000271" class="method-signature">
+          <span class="method-name">method_missing</span><span class="method-args">(method, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Forward all undefined methods to the wrapped string.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000271-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000271-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 95</span>
+ 95:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+ 96:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/!$/</span>
+ 97:           <span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+ 98:           <span class="ruby-keyword kw">self</span>
+ 99:         <span class="ruby-keyword kw">else</span>
+100:           <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+101:           <span class="ruby-identifier">result</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">chars</span>(<span class="ruby-identifier">result</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">result</span>
+102:         <span class="ruby-keyword kw">end</span>
+103:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000299" class="method-detail">
+        <a name="M000299"></a>
+
+        <div class="method-heading">
+          <a href="#M000299" class="method-signature">
+          <span class="method-name">normalize</span><span class="method-args">(form=ActiveSupport::Multibyte.default_normalization_form)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the KC normalization of the string by default. NFKC is considered
+the best normalization form for passing strings to databases and
+validations.
+</p>
+<ul>
+<li><tt>str</tt> - The string to perform normalization on.
+
+</li>
+<li><tt>form</tt> - The form you want to <a
+href="Chars.html#M000299">normalize</a> in. Should be one of the following:
+<tt>:c</tt>, <tt>:kc</tt>, <tt>:d</tt>, or <tt>:kd</tt>. Default is
+ActiveSupport::Multibyte.default_normalization_form
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000299-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000299-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 377</span>
+377:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">normalize</span>(<span class="ruby-identifier">form</span>=<span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Multibyte</span>.<span class="ruby-identifier">default_normalization_form</span>)
+378:         <span class="ruby-comment cmt"># See http://www.unicode.org/reports/tr15, Table 1</span>
+379:         <span class="ruby-identifier">codepoints</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>)
+380:         <span class="ruby-identifier">chars</span>(<span class="ruby-keyword kw">case</span> <span class="ruby-identifier">form</span>
+381:           <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:d</span>
+382:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">reorder_characters</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">decompose_codepoints</span>(<span class="ruby-identifier">:canonical</span>, <span class="ruby-identifier">codepoints</span>))
+383:           <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:c</span>
+384:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">compose_codepoints</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">reorder_characters</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">decompose_codepoints</span>(<span class="ruby-identifier">:canonical</span>, <span class="ruby-identifier">codepoints</span>)))
+385:           <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:kd</span>
+386:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">reorder_characters</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">decompose_codepoints</span>(<span class="ruby-identifier">:compatability</span>, <span class="ruby-identifier">codepoints</span>))
+387:           <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:kc</span>
+388:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">compose_codepoints</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">reorder_characters</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">decompose_codepoints</span>(<span class="ruby-identifier">:compatability</span>, <span class="ruby-identifier">codepoints</span>)))
+389:           <span class="ruby-keyword kw">else</span>
+390:             <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{form} is not a valid normalization variant&quot;</span>, <span class="ruby-identifier">caller</span>
+391:         <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U*'</span>))
+392:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000295" class="method-detail">
+        <a name="M000295"></a>
+
+        <div class="method-heading">
+          <a href="#M000295" class="method-signature">
+          <span class="method-name">ord</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Converts first character in the string to Unicode value
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'こんにちは'.mb_chars.ord #=&gt; 12371
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000295-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000295-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 342</span>
+342:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ord</span>
+343:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>)[<span class="ruby-value">0</span>]
+344:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000272" class="method-detail">
+        <a name="M000272"></a>
+
+        <div class="method-heading">
+          <a href="#M000272" class="method-signature">
+          <span class="method-name">respond_to?</span><span class="method-args">(method, include_private=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns <tt>true</tt> if <em>obj</em> responds to the given method. Private
+methods are included in the search only if the optional second parameter
+evaluates to <tt>true</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000272-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000272-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 107</span>
+107:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">include_private</span>=<span class="ruby-keyword kw">false</span>)
+108:         <span class="ruby-keyword kw">super</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">include_private</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword kw">false</span>
+109:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000292" class="method-detail">
+        <a name="M000292"></a>
+
+        <div class="method-heading">
+          <a href="#M000292" class="method-signature">
+          <span class="method-name">reverse</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Reverses all characters in the string.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'Café'.mb_chars.reverse.to_s #=&gt; 'éfaC'
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000292-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000292-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 307</span>
+307:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reverse</span>
+308:         <span class="ruby-identifier">chars</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>).<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U*'</span>))
+309:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000284" class="method-detail">
+        <a name="M000284"></a>
+
+        <div class="method-heading">
+          <a href="#M000284" class="method-signature">
+          <span class="method-name">rjust</span><span class="method-args">(integer, padstr=' ')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Works just like <tt>String#rjust</tt>, only integer specifies characters
+instead of bytes.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  &quot;¾ cup&quot;.mb_chars.rjust(8).to_s
+  #=&gt; &quot;   ¾ cup&quot;
+
+  &quot;¾ cup&quot;.mb_chars.rjust(8, &quot; &quot;).to_s # Use non-breaking whitespace
+  #=&gt; &quot;   ¾ cup&quot;
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000284-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000284-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 252</span>
+252:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rjust</span>(<span class="ruby-identifier">integer</span>, <span class="ruby-identifier">padstr</span>=<span class="ruby-value str">' '</span>)
+253:         <span class="ruby-identifier">justify</span>(<span class="ruby-identifier">integer</span>, <span class="ruby-identifier">:right</span>, <span class="ruby-identifier">padstr</span>)
+254:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000287" class="method-detail">
+        <a name="M000287"></a>
+
+        <div class="method-heading">
+          <a href="#M000287" class="method-signature">
+          <span class="method-name">rstrip</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Strips entire range of Unicode whitespace from the right of the string.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000287-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000287-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 283</span>
+283:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rstrip</span>
+284:         <span class="ruby-identifier">chars</span>(<span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">UNICODE_TRAILERS_PAT</span>, <span class="ruby-value str">''</span>))
+285:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000290" class="method-detail">
+        <a name="M000290"></a>
+
+        <div class="method-heading">
+          <a href="#M000290" class="method-signature">
+          <span class="method-name">size</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the number of codepoints in the string
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000290-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000290-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 298</span>
+298:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">size</span>
+299:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>).<span class="ruby-identifier">size</span>
+300:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000293" class="method-detail">
+        <a name="M000293"></a>
+
+        <div class="method-heading">
+          <a href="#M000293" class="method-signature">
+          <span class="method-name">slice</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Implements Unicode-aware <a href="Chars.html#M000293">slice</a> with
+codepoints. Slicing on one point returns the codepoints for that character.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'こんにちは'.mb_chars.slice(2..3).to_s #=&gt; &quot;にち&quot;
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000293-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000293-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 316</span>
+316:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">slice</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+317:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+318:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;wrong number of arguments (#{args.size} for 1)&quot;</span> <span class="ruby-comment cmt"># Do as if we were native</span>
+319:         <span class="ruby-keyword kw">elsif</span> (<span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Regexp</span>)))
+320:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;cannot convert #{args.first.class} into Integer&quot;</span> <span class="ruby-comment cmt"># Do as if we were native</span>
+321:         <span class="ruby-keyword kw">elsif</span> (<span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>))
+322:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;cannot convert #{args[1].class} into Integer&quot;</span> <span class="ruby-comment cmt"># Do as if we were native</span>
+323:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Range</span>
+324:           <span class="ruby-identifier">cps</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>).<span class="ruby-identifier">slice</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+325:           <span class="ruby-identifier">result</span> = <span class="ruby-identifier">cps</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">cps</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U*'</span>)
+326:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Regexp</span>
+327:           <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+328:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Numeric</span>)
+329:           <span class="ruby-identifier">character</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>)[<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]]
+330:           <span class="ruby-identifier">result</span> = <span class="ruby-identifier">character</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> [<span class="ruby-identifier">character</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U'</span>)
+331:         <span class="ruby-keyword kw">else</span>
+332:           <span class="ruby-identifier">result</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">u_unpack</span>(<span class="ruby-ivar">@wrapped_string</span>).<span class="ruby-identifier">slice</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>).<span class="ruby-identifier">pack</span>(<span class="ruby-value str">'U*'</span>)
+333:         <span class="ruby-keyword kw">end</span>
+334:         <span class="ruby-identifier">result</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">chars</span>(<span class="ruby-identifier">result</span>)
+335:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000279" class="method-detail">
+        <a name="M000279"></a>
+
+        <div class="method-heading">
+          <a href="#M000279" class="method-signature">
+          <span class="method-name">split</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Works just like <tt>String#split</tt>, with the exception that the items in
+the resulting list are <a href="Chars.html">Chars</a> instances instead of
+String. This makes chaining methods easier.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'Café périferôl'.mb_chars.split(/é/).map { |part| part.upcase.to_s } #=&gt; [&quot;CAF&quot;, &quot; P&quot;, &quot;RIFERÔL&quot;]
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000279-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000279-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 164</span>
+164:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">split</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+165:         <span class="ruby-ivar">@wrapped_string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">mb_chars</span> }
+166:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000289" class="method-detail">
+        <a name="M000289"></a>
+
+        <div class="method-heading">
+          <a href="#M000289" class="method-signature">
+          <span class="method-name">strip</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Strips entire range of Unicode whitespace from the right and left of the
+string.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000289-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000289-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 293</span>
+293:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">strip</span>
+294:         <span class="ruby-identifier">rstrip</span>.<span class="ruby-identifier">lstrip</span>
+295:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000303" class="method-detail">
+        <a name="M000303"></a>
+
+        <div class="method-heading">
+          <a href="#M000303" class="method-signature">
+          <span class="method-name">tidy_bytes</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Replaces all ISO-8859-1 or CP1252 characters by their UTF-8 equivalent
+resulting in a valid UTF-8 string.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000303-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000303-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 422</span>
+422:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tidy_bytes</span>
+423:         <span class="ruby-identifier">chars</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">tidy_bytes</span>(<span class="ruby-ivar">@wrapped_string</span>))
+424:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000296" class="method-detail">
+        <a name="M000296"></a>
+
+        <div class="method-heading">
+          <a href="#M000296" class="method-signature">
+          <span class="method-name">upcase</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convert characters in the string to uppercase.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  'Laurent, òu sont les tests?'.mb_chars.upcase.to_s #=&gt; &quot;LAURENT, ÒU SONT LES TESTS?&quot;
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000296-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000296-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/rails/activesupport/lib/active_support/multibyte/chars.rb, line 350</span>
+350:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">upcase</span>
+351:         <span class="ruby-identifier">apply_mapping</span> <span class="ruby-identifier">:uppercase_mapping</span>
+352:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

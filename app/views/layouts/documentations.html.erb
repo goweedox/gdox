@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title>Documentations: <%= controller.action_name %></title>
+
+		<%= stylesheet_link_tag 'view_mode', 'scaffold', 'admin' %>
+		<%= javascript_include_tag "screenstepslive.js" ,"jquery.min.js" %>
+			<!--<meta  name="vs_targetSchema"  content="http://schemas.microsoft.com/intellisense/ie5">-->
+	  <script  id="clientEventHandlersJS"  language="javascript">
+			function ShowWebSite(val)
+			{
+				document.all.ifrm.src=val;
+	    			document.all.ifrm.style.visibility="visible";
+			}
+
+			function Button1_onclick() {
+				var v = document.all("txtWebSite").value;
+				ShowWebSite(v);
+			}
+		</script>
+	      
+	  <script type="text/javascript" charset="utf-8">
+				ScreenStepsLiveSearchOptions = {
+					domain: "caresharing.screenstepslive.com",
+					space: "helpdes",
+					update_element: "search_results",
+					username: "codrschool",
+					password: "codrschool",
+					use_ssl: false
+				}
+
+				jQuery.noConflict();
+				jQuery(document).ready(function($) {
+					jQuery('#screenstepslive-search').submit(function(e){
+						//alert("sud");
+						e.preventDefault();
+						search_string = jQuery('#screenstepslive-search input#screenstepslive-search-field').val();
+						SearchScreenStepsLiveSpace(search_string);
+					})
+				});
+		</script>
+</head>
+
+<body>
+	<div id="header">
+		<div id="url_area">
+			<form  id="inputUrlForm">
+				<h2> Enter website: </h2><input  type="text"  id="txtWebSite"  NAME="txtWebSite"  value="http://">
+			 	<input  type="button"  value="Show"  id="Button1"  name="Button1"  onclick="return Button1_onclick()">
+			</form>	
+		</div>
+
+		<h1>
+		<%= image_tag("gowee.jpg") %>
+		</h1>
+	</div>
+
+	<div id="columns">
+		<div id="content">
+			<iframe id="ifrm" name="ifrm" src="" scrolling="auto">
+				Iframe not supported!
+			</iframe>
+				
+			<div id="lessons_area">
+				<center><h2>&nbsp;Lessons Area </h2></center>
+				<%= yield %>					
+
+				<form id="screenstepslive-search" action="">
+					<p>
+					<input type="text" id="screenstepslive-search-field" value="" name="text"></input>
+					<input type="submit" value="Search">
+					</p>
+				</form>	
+				<h3>Search Results</h3>
+				<div id="search_results"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="extlinks"> 
+		Powered by <a href="http://www.codrschool.com/internship-program/2010-interns"> CodrSchool</a>&nbsp;&nbsp;
+		| &nbsp;&nbsp;&copy;  Copyright 2010 	
+	</div>
+
+</body>
+</html>
