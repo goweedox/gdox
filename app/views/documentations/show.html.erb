@@ -1,5 +1,4 @@
 <% @creator = User.find(@documentation.user_id) %>
-
 <p>
 	<h3><%=h @documentation.title %></h3>
 </p>
@@ -14,7 +13,9 @@
 	<%=h @documentation.description %>
 </p>
 
-<%= link_to 'Edit', edit_documentation_path(@documentation) %>
+<% if @current.id == @documentation.user_id %>
+	<%= link_to 'Edit', edit_documentation_path(@documentation) %>
+<% end %>
 
 <br /><br />
 <h5>Search for available lessons in Screensteps live:</h5>

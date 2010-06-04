@@ -15,6 +15,7 @@ class DocumentationsController < ApplicationController
   # GET /documentations/1
   # GET /documentations/1.xml
   def show
+		@current = User.find(session[:user_id])
     @documentation = Documentation.find(params[:id])
 
     respond_to do |format|
@@ -36,7 +37,11 @@ class DocumentationsController < ApplicationController
 
   # GET /documentations/1/edit
   def edit
-    @documentation = Documentation.find(params[:id])
+		@documentation = Documentation.find(params[:id])
+		@current = User.find(session[:user_id])
+		if @current.id != @documentation.user_id
+			redirect_to(:controller => "documentations", :action => "#{@documentation.user_id}")
+		end
   end
 
   # POST /documentations
