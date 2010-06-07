@@ -85,7 +85,7 @@ module ScreenStepsLiveAPI
       lesson = Lesson.find(id, :params => { :space_id => space_id, :manual_id => self.id })
       lesson.space_id = self.space_id
       lesson.manual_id = self.id
-      lessons
+      lesson
     end
     
     def search(text, options = {})
@@ -138,7 +138,7 @@ module ScreenStepsLiveAPI
   end
 end
 
-=begin
+
 __END__
  
 require 'screenstepslive_api'
@@ -169,4 +169,3 @@ lesson_id = manual.chapters.first.lessons.first.id
 mnaual.lesson(lesson_id)
 
 Same method works for buckets.
-=end
