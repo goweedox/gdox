@@ -1,3 +1,3 @@
 class Lesson < ActiveRecord::Base
-  belongs_to :documentations
+  belongs_to :annotation
 end
