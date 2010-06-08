@@ -6,20 +6,9 @@
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<title>Documentations: <%= controller.action_name %></title>
 
-		<%= stylesheet_link_tag 'view_mode', 'scaffold', 'admin' %>
+		<%= stylesheet_link_tag 'view_mode', 'scaffold' %>
 		<%= javascript_include_tag "screenstepslive.js" ,"jquery.min.js" %>
-	  <script  id="clientEventHandlersJS"  language="javascript">
-			function ShowWebSite(val)
-			{
-				document.all.ifrm.src=val;
-	    			document.all.ifrm.style.visibility="visible";
-			}
 
-			function Button1_onclick() {
-				var v = document.all("txtWebSite").value;
-				ShowWebSite(v);
-			}
-		</script>
 	      
 	  <script type="text/javascript" charset="utf-8">
 			ScreenStepsLiveSearchOptions = {
@@ -44,45 +33,14 @@
 
 <body>
 	<div id="header">
-		<div id="url_area">
-			<form  id="inputUrlForm">
-				<h2> Enter website: </h2><input  type="text"  id="txtWebSite"  NAME="txtWebSite"  value="http://">
-			 	<input  type="button"  value="Show"  id="Button1"  name="Button1"  onclick="return Button1_onclick()">
-			</form>	
-		</div>
-
-		<h1>
-		<%= image_tag("gowee.jpg") %>
-		</h1>
+	  <span id="banner"><%= image_tag("gdox.jpg") %></span>
+    
 	</div>
 
-	<div id="columns">
-		<div id="content">
-			<iframe id="ifrm" name="ifrm" src="" scrolling="auto">
-				Iframe not supported!
-			</iframe>
-				
-			<div id="lessons_area">
-				<center><h2>&nbsp;Lessons Area </h2></center>
-				<%= yield %>	
-				<br /><br />
-       <!-- <h5>Search for available lessons in Screensteps live:</h5>
-				<form id="screenstepslive-search" action="">
-					<p>
-					<input type="text" id="screenstepslive-search-field" value="" name="text"></input>
-					<input type="submit" value="Search">
-					</p>
-				</form>	
-				<h3>Search Results</h3>
-				<div id="search_results"></div>
-				-->
-			</div>
+	<div id="content">
+		<div id="main_content">
+		  <%= yield %>
 		</div>
-	</div>
-
-	<div id="extlinks"> 
-		Powered by <a href="http://www.codrschool.com/internship-program/2010-interns" target="_blank"> CodrSchool</a>&nbsp;&nbsp;
-		| &nbsp;&nbsp;&copy;  Copyright 2010 	
 	</div>
 
 </body>
