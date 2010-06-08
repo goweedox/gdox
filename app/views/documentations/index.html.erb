@@ -1,27 +1,35 @@
-<div id="user-list">
-<h3>Listing Documentations</h3>
+<div id="screenie_area">
+  <div id="user-list">
+    <h3>Listing Documentations</h3>
 
-<table>
-<% @documentations.each do |documentation| %>
-	<tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+    <table>
+    <% @documentations.each do |documentation| %>
+	    <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
 
-	<td class="list-names">
-		<dl>
-			<dt><%=h documentation.title %></dt>
-			<dd><%=h truncate(documentation.description.gsub(/<.*?>/,''), :length => 80) %></dd>
-		</dl>
-	</td>
+	    <td class="list-names">
+		    <dl>
+			    <dt><%=h documentation.title %></dt>
+			    <dd><%=h truncate(documentation.description.gsub(/<.*?>/,''), :length => 80) %></dd>
+		    </dl>
+	    </td>
 
-	<td class="list-actions">
-		<%= link_to 'Show', documentation %>
-   	<%= link_to 'Edit', edit_documentation_path(documentation) %>
-   	<%= link_to 'Destroy', documentation, :confirm => 'Are you sure?', :method => :delete %></td>
-	</td>
+	    <td class="list-actions">
+		    <%= link_to 'Show', documentation %>
+     	  <%= link_to 'Edit', edit_documentation_path(documentation) %>
+     	  <%= link_to 'Destroy', documentation, :confirm => 'Are you sure?', :method => :delete %></td>
+	    </td>
 	
-	</tr>
-<% end %>
-</table>
-</div>
-<br/>
+	    </tr>
+    <% end %>
+    </table>
+  
+    <br/>
 
-<%= button_to 'New documentation', new_documentation_path %>
+    <%= button_to 'Create New Dox', new_documentation_path %>
+  </div>
+</div>
+
+<div id="lessons_area">
+  <h1> LESSONS AREA </h1>
+</div>
+

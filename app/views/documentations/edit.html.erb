@@ -1,4 +1,5 @@
-<% form_for(@documentation) do |f| %>
+<div id="screenie_area">
+  <% form_for(@documentation) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -13,4 +14,11 @@
     <%= f.submit "Update" %>
 		<%= link_to 'Back', :controller => 'documentations', :action => "#{@documentation.id}" %>
   </p>
-<% end %>
+  <% end %>
+</div>
+
+<div id="lessons_area">
+  <h1> LESSONS AREA </h1>
+</div>
+
+

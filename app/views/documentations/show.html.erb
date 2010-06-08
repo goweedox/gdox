@@ -1,30 +1,34 @@
-<% @creator = User.find(@documentation.user_id) %>
-<p>
-	<h3><%=h @documentation.title %></h3>
-</p>
-
-<p>
-	<b>Created by:</b>
-	<%=h @creator.name %>
-</p>
-
-<p>
-	<b>Description</b><br/>
-	<%=h @documentation.description %>
-</p>
-
-<% if @current.id == @documentation.user_id %>
-	<%= link_to 'Edit', edit_documentation_path(@documentation) %>
-<% end %>
-
-<br /><br />
-<h5>Search for available lessons in Screensteps live:</h5>
-<form id="screenstepslive-search" action="">
+<div id="screenie_area">
+  <% @creator = User.find(@documentation.user_id) %>
   <p>
-  <input type="text" id="screenstepslive-search-field" value="" name="text"></input>
-  <input type="submit" value="Search">
+	  <h3><%=h @documentation.title %></h3>
   </p>
-</form>	
-<h3>Search Results</h3>
-<div id="search_results"></div>
+
+  <p>
+	  <b>Created by:</b>
+	  <%=h @creator.name %>
+  </p>
+
+  <p>
+	  <b>Description</b><br/>
+	  <%=h @documentation.description %>
+  </p>
+
+  <% if @current.id == @documentation.user_id %>
+	  <%= link_to 'Edit', edit_documentation_path(@documentation) %>
+  <% end %>
+
+  <br /><br />
+  <h5>Search for available lessons in Screensteps live:</h5>
+  <form id="screenstepslive-search" action="">
+    <p>
+    <input type="text" id="screenstepslive-search-field" value="" name="text"></input>
+    <input type="submit" value="Search">
+    </p>
+  </form>	
+  <h3>Search Results</h3>
+  <div id="search_results"></div>
+<div id="lessons_area">
+  Lessons Area
+</div>
 

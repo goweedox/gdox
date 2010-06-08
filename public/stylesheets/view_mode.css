@@ -1,6 +1,6 @@
 body
 {
-	background: #FFF;
+	background: #333;
 	color: #FFFFFF;
 	margin:0;
 	padding:0;
@@ -9,74 +9,94 @@ body
 
 #header
 {
-	background: #333;
-	height: 20%;
+	background: transparent;
+	height: 150px;
 	width: 100%;
-	margin: 0px;
-	padding: 1px;
 	position: absolute; top:0px;
 }
 
-#menu {
-	border: 5px solid gray;
-	padding-left: 8px;
-	padding-right: 7px;
-	padding-top: .2em;
-	padding-bottom: .2em;
-	margin-bottom: .5em;
-	margin-right: auto;
-	margin-left: auto;
-	width: 155px;
-	background: #4aa1d3;
-	float: right;
-}
-
-#url_area
+#banner
 {
-	/*background: #333;*/
-	width: 63%;
-	height: 95%;
-	position: absolute; left:1%;
-}
-
-#inputUrlForm
-{
-	
+  position: absolute; top: 6%; right: 1%;
 }
 
 #content
 {
 	background: #333;
 	width: 100%;
-	height: 79%;
-	margin: 0px;
-	padding: 1px;
-	position: absolute; top: 21%;
+	position: absolute; top: 150px;
 }
 
-#ifrm
+#main_content
 {
-	width: 63%;
-	height: 100%;
-	position: absolute; left:1%; 
-	z-index: 999;
+  background: #00BFFF;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#lessons_area
-{
-	padding-right: 5px;
-	padding-left: 5px;
-	background: #00BFFF;
-	width: 34%;
-	height: 100%;
-	position: absolute; right: 1%;
-	overflow: auto;
-	/*border: 15px solid: white;*/
+#screenie_area{
+  background: transparent;
+  color: #000;
+  padding: 1%;
+  width: 64%;
+  position: relative; left:0%;
+  overflow: auto;
 }
 
-h1 /* Gowee Dox: should be logo image*/
-{
-	position: absolute; right: 1px; top: 1px;
-	font-size: 60px;
-	margin-right: 20px;
+#lessons_area{
+  background: transparent;
+  color: #000;
+  padding: 1%;
+  width: 30%;
+  position: absolute; top: 0%; left: 67%;
+  overflow: auto;
 }
+
+/*Style for show_users*/
+#user-list{
+  padding: 10px;
+  background: #FFF;
+  width: 90%;
+  
+}
+#user-list table {
+  border-collapse: collapse;
+}
+
+#user-list table tr td {
+  padding: 3px;
+  vertical-align: top;
+}
+
+#user-list .list-names {
+  width: 100%;
+}
+
+#user-list .list-names dl {
+  margin: 2;
+}
+
+#user-list .list-names dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    larger;
+}
+
+#user-list .list-names dd {
+  margin: 0;
+}
+
+#user-list .list-actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#user-list .list-line-even {
+  background: #a9bbcb;
+}
+
+#user-list .list-line-odd {
+  background: #87a8c5;
+/*end*/
