@@ -137,35 +137,3 @@ module ScreenStepsLiveAPI
     self.path = "spaces/:space_id"
   end
 end
-
-
-__END__
- 
-require 'screenstepslive_api'
-ScreenStepsLiveAPI.account = 'youraccount'
-ScreenStepsLiveAPI.user = 'username'
-ScreenStepsLiveAPI.password = 'your_password'
- 
-space = ScreenStepsLiveAPI::Space.find(:first)
-
-OR if your permalink is "mypermalink"
-
-space = ScreenStepsLiveAPI::Space.find("mypermalink")
-
-space.assets gives you all of the assets (Dividers, Manuals, Buckets) for a space
-
-asset = space.assets.first
-
-asset.asset_type returns the asset type. 
-
-If it is a manual then we can call:
-
-manual = space.manual(asset.id)
-
-Then we can get the first lesson like so:
-
-lesson_id = manual.chapters.first.lessons.first.id
-
-mnaual.lesson(lesson_id)
-
-Same method works for buckets.
