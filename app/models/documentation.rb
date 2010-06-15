@@ -51,15 +51,15 @@ class Documentation < ActiveRecord::Base
     end
     
     result = lesson.title + lesson.description
-    l = lesson.steps
+    steps = lesson.steps
     
     ctr = 0
-    until l[ctr].nil?
-      unless l[ctr].title.nil?
-        result += l[ctr].title
+    until steps[ctr].nil?
+      unless steps[ctr].title.nil?
+        result += steps[ctr].title
       end
-      unless l[ctr].instructions.nil?
-        result += l[ctr].instructions
+      unless steps[ctr].instructions.nil?
+        result += steps[ctr].instructions
       end
       ctr += 1 
     end
