@@ -3,14 +3,13 @@ require 'screenstepslive_api'
 class Documentation < ActiveRecord::Base
   belongs_to :user
   has_many  :screenies
-
+  
   validates_presence_of :title
   validates_presence_of :description
-  validates_presence_of :url
+  #validates_presence_of :url
   #attr_accessor :url	
 	
   def lesson(url)
-    ScreenStepsLiveAPI.account = 'codrschool'
     ScreenStepsLiveAPI.user = 'codrschool'
     ScreenStepsLiveAPI.password = 'codrschool'
     temp = url.split("/")
@@ -41,7 +40,7 @@ class Documentation < ActiveRecord::Base
       i += 1
     end
     
-    
+    ScreenStepsLiveAPI.account = account  
     space = ScreenStepsLiveAPI::Space.find(space_id_or_permalink)
     if flag == 1
       manual = space.manual(manual_id_or_permalink)
@@ -52,20 +51,19 @@ class Documentation < ActiveRecord::Base
     end
     
     result = lesson.title + lesson.description
-    #l = lesson.steps.first
-    #result += l.title + l.instructions
-    result = lesson.steps
+    l = lesson.steps
     
-=begin
-    until l.nil?
-      unless l.title.nil?
-        result += l.title
+    ctr = 0
+    until l[ctr].nil?
+      unless l[ctr].title.nil?
+        result += l[ctr].title
       end
-      unless l.instructions.nil?
-        result += l.instructions
-      end  
+      unless l[ctr].instructions.nil?
+        result += l[ctr].instructions
+      end
+      ctr += 1 
     end
-=end    
+    
     result
   end
 	
