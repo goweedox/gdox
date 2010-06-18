@@ -1,6 +1,3 @@
-a:link {text-decoration:none; color: #333;}
-a:visited {text-decoration:none; color: #333;}
-
 #content
 {
 	background: gray;
@@ -16,6 +13,11 @@ a:visited {text-decoration:none; color: #333;}
   padding: 3px;
   width: 1200px;
 }
+
+#main_content a:link, 
+#main_content a:visited { 
+ color: #333;  
+} 
 
 .main_content
 {
