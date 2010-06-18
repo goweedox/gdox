@@ -11,10 +11,19 @@
 
 ActiveRecord::Schema.define(:version => 20100618085147) do
 
+  create_table "annotations", :force => true do |t|
+    t.integer  "loc_x",      :null => false
+    t.integer  "loc_y",      :null => false
+    t.integer  "screen_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "documentations", :force => true do |t|
     t.integer  "user_id",     :null => false
     t.string   "title"
     t.text     "description"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20100618085147) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url"
   end
 
   create_table "screenshots", :force => true do |t|
