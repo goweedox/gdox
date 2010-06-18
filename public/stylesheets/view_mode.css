@@ -19,6 +19,30 @@
  color: #333;  
 } 
 
+#dox_title{
+  padding: 0px;
+  margin: 0px;
+  color: #fff;
+  width: 800px;
+  line-height: 28px;
+}
+
+#controls_area{
+  position: absolute; top: 1px;
+}
+
+.controls {
+  
+}
+
+.controls ul{
+  list-style: none;
+}
+
+.controls li{
+  display: inline;
+}
+
 .main_content
 {
   display: inline-block;

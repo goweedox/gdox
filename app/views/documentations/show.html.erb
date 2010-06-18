@@ -1,10 +1,24 @@
+<div id="controls_area" class="controls">
+  <ul>
+    <li> <%= image_tag("controls/add.png", :border=>0) %></li>
+    <li> <%= image_tag("controls/delete.png", :border=>0) %></li>
+    <li> <%= image_tag("controls/screenie.png", :border=>0) %></li>
+  </ul>
+</div>
+
+<div id="dox_title">
+	  <% @creator = User.find(@documentation.user_id) %>
+	  <h1 style="display: inline;"><%=h @documentation.title %></h1></span>
+	  <h5 style="display:inline;"><i> &nbsp; by <%=h @creator.name %></i></h5><span>
+</div>
+
 <div id="screenie_area" class="main_content">
 
 	<% for screenshot in @documentation.screenshots %>
 		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %> <br />
 	<% end %>
 
-	<div id="screenshots">
+<div id="screenshots">
   	<%= render :partial => 'screenshot', :collection => @documentation.screenshots %>
 	</div>
 
@@ -20,16 +34,6 @@
 </div> 
 
 <div id="lessons_area" class="main_content">
-    <% @creator = User.find(@documentation.user_id) %>
-  <p>
-	  <h3><%=h @documentation.title %></h3>
-  </p>
-
-  <p>
-	  <b>Created by:</b>
-	  <%=h @creator.name %>
-  </p>
-
   <p>
 	  <b>Description</b><br/>
 	  <%=h @documentation.description %>
