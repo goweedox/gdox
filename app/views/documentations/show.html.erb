@@ -1,5 +1,8 @@
-<div id="screenie_area">
-  <% @creator = User.find(@documentation.user_id) %>
+<div id="screenie_area" class="main_content">
+
+</div> 
+<div id="lessons_area" class="main_content">
+    <% @creator = User.find(@documentation.user_id) %>
   <p>
 	  <h3><%=h @documentation.title %></h3>
   </p>
@@ -18,17 +21,14 @@
 	  <%= link_to 'Edit', edit_documentation_path(@documentation) %>
   <% end %>
 
-  <br /><br />
-  <h5>Search for available lessons in Screensteps live:</h5>
-  <form id="screenstepslive-search" action="">
-    <p>
-    <input type="text" id="screenstepslive-search-field" value="" name="text"></input>
-    <input type="submit" value="Search">
-    </p>
-  </form>	
-  <h3>Search Results</h3>
-  <div id="search_results"></div>
-<div id="lessons_area">
-  Lessons Area
+    <h5>Search for available lessons in Screensteps live:</h5>
+      <form id="screenstepslive-search" action="">
+        <p>
+        <input type="text" id="screenstepslive-search-field" value="" name="text"></input>
+        <input type="submit" value="Search">
+        </p>
+      </form>	
+      <h3>Search Results</h3>
+    <div id="search_results"></div>
 </div>
 

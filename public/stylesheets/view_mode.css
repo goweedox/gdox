@@ -1,55 +1,42 @@
-body
-{
-	background: #333;
-	color: #FFFFFF;
-	margin:0;
-	padding:0;
-	font-family: Arial;
-}
-
-#header
-{
-	background: transparent;
-	height: 150px;
-	width: 100%;
-	position: absolute; top:0px;
-}
-
-#banner
-{
-  position: absolute; top: 6%; right: 1%;
-}
+a:link {text-decoration:none; color: #333;}
+a:visited {text-decoration:none; color: #333;}
 
 #content
 {
-	background: #333;
-	width: 100%;
-	position: absolute; top: 150px;
+	background: gray;
+	width: 100%;	
 }
 
 #main_content
 {
-  background: #00BFFF;
-  width: 98%;
+  background: inherit;
+  color: #333;
   margin-left: auto;
   margin-right: auto;
+  padding: 3px;
+  width: 1200px;
+}
+
+.main_content
+{
+  display: inline-block;
 }
 
 #screenie_area{
-  background: transparent;
-  color: #000;
-  padding: 1%;
-  width: 64%;
-  position: relative; left:0%;
+  background: white;
+  color: #333;
+  padding: 5px;
+  width: 800px;
+  height: 600px;
   overflow: auto;
 }
 
 #lessons_area{
-  background: transparent;
-  color: #000;
-  padding: 1%;
-  width: 30%;
-  position: absolute; top: 0%; left: 67%;
+  background: white;
+  color: #333;
+  padding: 5px;
+  width: 300px;
+  height: 600px;
   overflow: auto;
 }
 

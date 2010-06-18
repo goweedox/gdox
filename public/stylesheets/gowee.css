@@ -1,69 +1,23 @@
 body {
 	background: #333;
-	margin:0000; 
-	padding:0000; 
+	margin:0; 
+	padding:0; 
 	color: #000000;
 	font-family: verdana, arial, helvetica, sans-serif;
-  	font-size:   15px;
-  	line-height: 18px;
+  font-size: 2em;
+  line-height: 18px;
 }
 
-
-/* Styles for flash message */
-#notice {
-  	
-  	padding-top: .2em;
-  	background-color: #f0f0f0;
-  	font: bold smaller sans-serif;
-	text-align: center;
-	padding-left: 5px;
-	padding-right: 5px;
-}
-/* end */
-
-#banner {
-	/*padding-top: 10px;*/
-	padding-top: 1em;
-	margin-right: auto;
-	margin-left: auto;
-	padding-left: 5px;
-	padding-right: 5px;
-	width: 800px;
-}
-
-#main {
-	border: 5px solid gray;
-	margin-right: auto;
-	margin-left: auto;
-	width: 800px;
-	background: #4aa1d3;
-	padding-bottom: 5em;
-	padding-top: 0.1px;
-	padding-left: 7px;
-	padding-right: 7px;
-}
-
-#menu {
-	border: 5px solid gray;
-	padding-left: 7px;
-	padding-right: 7px;
-	padding-top: .2em;
-	padding-bottom: .2em;
-	margin-bottom: .5em;
-	margin-right: auto;
-	margin-left: auto;
-	width: 800px;
-	background: #4aa1d3;
-}
-
-#extlinks
+#main_content
 {
-	text-align: center;
-	padding-top: 10px;
-	color: #FFFFFF;
-	font-family: "Arial", serif;
-	font-size: 15px;
+	background: inherit;
+	width: 800px;
+	height: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 3px;
 }
+
 /*Style for show_users*/
 #user-list table {
         border-collapse: collapse;

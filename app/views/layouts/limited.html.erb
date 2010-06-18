@@ -5,10 +5,8 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Gowee Dox</title>
-  	<style type="text/css">
-	a { text-decoration:none; color: #FFFFFF; }
-	</style>
-  <%= stylesheet_link_tag 'gowee', 'jquery.ui.all', 'custom-theme/jquery-ui-1.8.1.custom.css' %>
+
+  <%= stylesheet_link_tag 'shared','gowee', 'jquery.ui.all', 'custom-theme/jquery-ui-1.8.1.custom.css' %>
   <%= javascript_include_tag "jquery-1.4.2", "ui/jquery.ui.core", "ui/jquery.ui.widget", "ui/jquery.ui.tabs"%>
   
 	<script type="text/javascript">
@@ -38,10 +36,9 @@
 		<%= yield :layout %>
 	</div>
 
-	<div id="extlinks"> 
-		Powered by <a href="http://www.codrschool.com/internship-program/2010-interns" target="_blank"> CodrSchool</a>&nbsp;&nbsp;
-		| &nbsp;&nbsp;&copy;  Copyright 2010 	
-	</div>
+	<div id="footer"> 
+    <%= render  :partial=> 'shared/footer' %>
+  </div>
 </body>
 
 </html>
