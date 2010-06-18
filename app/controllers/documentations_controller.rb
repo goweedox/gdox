@@ -28,6 +28,7 @@ class DocumentationsController < ApplicationController
   # GET /documentations/new.xml
   def new
 		@documentation = Documentation.new
+		@documentation.screenshots.build
 
 		respond_to do |format|
 		  format.html # new.html.erb
@@ -41,6 +42,10 @@ class DocumentationsController < ApplicationController
 		@current = User.find(session[:user_id])
 		if @current.id != @documentation.user_id
 			redirect_to(:controller => "documentations", :action => "#{@documentation.user_id}")
+		end
+
+		if @documentation.screenshots.first.nil?
+		  @documentation.screenshots.build
 		end
   end
 
@@ -64,7 +69,13 @@ class DocumentationsController < ApplicationController
   # PUT /documentations/1
   # PUT /documentations/1.xml
   def update
+		params[:screenshot_ids] ||= []
     @documentation = Documentation.find(params[:id])
+
+		unless params[:screenshot_ids].empty?
+		  Screenshot.destroy_pics(params[:id], params[:screenshot_ids])
+		end
+
 
     respond_to do |format|
       if @documentation.update_attributes(params[:documentation])

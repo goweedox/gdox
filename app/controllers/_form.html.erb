@@ -1,0 +1,26 @@
+<%= f.error_messages %>
+<%= f.hidden_field :user_id, :value=>"#{session[:user_id]}"%>
+<p>
+  <%= f.label :title %><br />
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :description %><br />
+  <%= f.text_area :description %>
+</p>
+<p>
+
+<% @documentation.screenshots.each do | screenshot | %>
+  <div class="dox_screenies">
+    <%= image_tag(screenshot.data.url(:thumb), :alt => '') %>
+    <%= check_box_tag "screenshot_ids[]", screenshot.id %>
+  </div>
+<% end unless @documentation.screenshots.first.new_record? rescue nil %>
+    
+<div id="screenshots">
+  <%= render :partial => 'screenshot', :collection => @documentation.screenshots %>
+</div>
+ 
+<%= link_to_function "Add Screenie" do |page|
+  page.insert_html :bottom, :screenshots, :partial => 'screenshot', :object => Screenshot.new
+end %>

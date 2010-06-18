@@ -1,5 +1,19 @@
 <div id="screenie_area" class="main_content">
-  <% form_for(@documentation) do |f| %>
+
+	<div id="screenshots">
+  	<%= render :partial => 'screenshot', :collection => @documentation.screenshots %>
+	</div>
+
+	<% for screenshot in @documentation.screenshots %>
+		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %> <br />
+	<% end %>
+
+</div>
+
+<div id="lessons_area" class="main_content">
+  <h1> LESSONS AREA </h1>
+
+	<% form_for(@documentation) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -15,10 +29,6 @@
 		<%= link_to 'Back', :controller => 'documentations', :action => "#{@documentation.id}" %>
   </p>
   <% end %>
-</div>
-
-<div id="lessons_area" class="main_content">
-  <h1> LESSONS AREA </h1>
 </div>
 
 

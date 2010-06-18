@@ -1,6 +1,24 @@
 <div id="screenie_area" class="main_content">
 
+	<% for screenshot in @documentation.screenshots %>
+		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %> <br />
+	<% end %>
+
+	<div id="screenshots">
+  	<%= render :partial => 'screenshot', :collection => @documentation.screenshots %>
+	</div>
+
+	<% form_for @documentation, :html => { :multipart => true } do |f| %>
+		<p>
+		<%= f.submit "Upload" %>
+		<%= link_to_function "Add Screenshot" do |page|
+			page.insert_html :bottom, :screenshots, :partial => 'screenshot', :object => Screenshot.new
+		end %>
+		</p>
+	<% end %>
+
 </div> 
+
 <div id="lessons_area" class="main_content">
     <% @creator = User.find(@documentation.user_id) %>
   <p>

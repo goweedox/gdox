@@ -9,7 +9,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100513124117) do
+ActiveRecord::Schema.define(:version => 20100618085147) do
+
+  create_table "documentations", :force => true do |t|
+    t.integer  "user_id",     :null => false
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lessons", :force => true do |t|
+    t.integer  "anno_id",    :null => false
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "screenshots", :force => true do |t|
+    t.integer  "documentation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
+  end
+
+  add_index "screenshots", ["documentation_id"], :name => "index_screenshots_on_documentation_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

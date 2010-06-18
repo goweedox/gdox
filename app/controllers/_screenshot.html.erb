@@ -1,0 +1,9 @@
+<div class="screenshot">
+<% fields_for "documentation[screenshot_attributes][]", screenshot do |p| %>
+  <p>
+    <%= p.label :Screenshot %><br />
+    <%= p.file_field :data, :index => nil %>
+    <%= link_to_function "delete", "remove_field($(this), ('.screenshot'))" %>
+  </p>
+<% end %>
+</div>
