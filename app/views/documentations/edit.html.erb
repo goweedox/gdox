@@ -12,8 +12,8 @@
 
 <div id="about_dox" class="info">
 	 <% @creator = User.find(@documentation.user_id) %>
-	 <span id="title" class="about_dox" style="display:inline;"><h1><%= in_place_text_field :documentation, 'title' %></h1></span>
-	 <span id="author" class="about_dox" style="display:inline;"><i> &nbsp; by <%=h @creator.name %></i></span> 
+	 <span id="title" class="about_dox"><h1><%= in_place_text_field :documentation, 'title' %></h1></span>
+	 <span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i></span> 
 	 <div id="info" class="about_dox"> <i><%= in_place_text_area :documentation, 'description' %></i> </div> 
 </div>
 
