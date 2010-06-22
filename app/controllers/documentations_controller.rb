@@ -60,7 +60,7 @@ class DocumentationsController < ApplicationController
     respond_to do |format|
       if @documentation.save
         flash[:notice] = 'Documentation was successfully created.'
-        format.html { redirect_to(@documentation) }
+        format.html { redirect_to(:controller => 'documentations', :id => "#{@documentation.id}", :action => 'edit') }
         format.xml  { render :xml => @documentation, :status => :created, :location => @documentation }
       else
         format.html { render :action => "new" }
@@ -72,18 +72,12 @@ class DocumentationsController < ApplicationController
   # PUT /documentations/1
   # PUT /documentations/1.xml
   def update
-		params[:screenshot_ids] ||= []
     @documentation = Documentation.find(params[:id])
-
-		unless params[:screenshot_ids].empty?
-		  Screenshot.destroy_pics(params[:id], params[:screenshot_ids])
-		end
-
 
     respond_to do |format|
       if @documentation.update_attributes(params[:documentation])
         flash[:notice] = 'Documentation was successfully updated.'
-        format.html { redirect_to(@documentation) }
+        format.html { redirect_to(:controller => 'documentations', :id => "#{@documentation.id}", :action => 'edit') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

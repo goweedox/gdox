@@ -1,35 +1,24 @@
 <div style="height:3px; clear:both; visiblity: hidden;"></div>
 
 <div id="about_dox" class="info">
-	 <% @creator = User.find(@documentation.user_id) %>
-	 <span id="title" class="about_dox"><h1><%= @documentation.title %></h1></span>
-	 <span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i></span> 
-	 <div id="info" class="about_dox"> <i><%= @documentation.description %></i> </div> 
+	<% @creator = User.find(@documentation.user_id) %>
+	<span id="title" class="about_dox"><h1><%= @documentation.title %></h1></span>
+	<span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i></span> 
+	<div id="info" class="about_dox"> <i><%= @documentation.description %></i> </div> 
+	<% if @current.id == @documentation.user_id %>
+	  <br/><%= link_to 'Edit', edit_documentation_path(@documentation) %>
+  <% end %>
 </div>
 
 <div id="screenie_area" class="main_content">
   
 	<% for screenshot in @documentation.screenshots %>
-		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %> <br />
-	<% end %>
-
-  <% form_for @documentation, :html => { :multipart => true } do |f| %>
-		<p>
-		<%= f.submit "Upload" %>
-		<%= link_to_function "Add Screenshot" do |page|
-			page.insert_html :bottom, :screenshots, :partial => 'screenshot', :object => Screenshot.new
-		end %>
-		</p>
+		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "785" %> <br /><br />
 	<% end %>
 
 </div> 
 
 <div id="lessons_area" class="main_content">
-
-  <% if @current.id == @documentation.user_id %>
-	  <%= link_to 'Edit', edit_documentation_path(@documentation) %>
-  <% end %>
-
     <h5>Search for available lessons in Screensteps live:</h5>
       <form id="screenstepslive-search" action="">
         <p>
@@ -40,4 +29,3 @@
       <h3>Search Results</h3>
     <div id="search_results"></div>
 </div>
-

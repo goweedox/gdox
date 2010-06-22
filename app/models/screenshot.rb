@@ -15,5 +15,4 @@ class Screenshot < ActiveRecord::Base
 	def self.destroy_pics(documentation, screenshots)
 		Screenshot.find(screenshots, :conditions => {:documentation_id => documentation}).each(&:destroy)
 	end
-
 end

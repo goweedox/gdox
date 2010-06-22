@@ -6,33 +6,32 @@
     <li> <%= image_tag("controls/user.png", :border=>0) %></li>
     <li> <a onclick="Effect.BlindDown('upload_panel'); return false;" href="#">
       <%= image_tag("controls/up.png", :border=>0) %></a></li>
-    <button class="rounded"> <span> Save Changes </span> </button>
+    <button class="rounded"> <span>Save Changes</a></span> </button>
   </ul>
 </div>
 
 <div id="about_dox" class="info">
-	 <% @creator = User.find(@documentation.user_id) %>
-	 <span id="title" class="about_dox"><h1><%= in_place_text_field :documentation, 'title' %></h1></span>
-	 <span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i></span> 
-	 <div id="info" class="about_dox"> <i><%= in_place_text_area :documentation, 'description' %></i> </div> 
+	<% @creator = User.find(@documentation.user_id) %>
+	<span id="title" class="about_dox"><h1><%= in_place_text_field :documentation, 'title' %></h1></span>
+	<span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i></span> 
+	<div id="info" class="about_dox"> <i><%= in_place_text_area :documentation, 'description' %></i> </div> 
+	<br /><%= link_to 'Save', :controller => "documentations", :action => "#{@documentation.id}" %>
 </div>
 
   
 <div id="screenie_area" class="main_content">
-
-  <div id="upload_panel" style="display:none;" class="screenshot">
-  	<%= render :partial => 'screenshot', :collection => @documentation.screenshots %>
+	<div id="upload_panel">
+		<% form_for @documentation, :html => { :multipart => true } do |f| %>
+			<%= add_screenshot(f) %><br/><br/>
+		<% end %>
 	</div>
 
 	<% for screenshot in @documentation.screenshots %>
-		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %> <br />
+		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "785" %> <br /><br />
 	<% end %>
-
 </div>
 
 <div id="lessons_area" class="main_content">
-
-		<%= link_to 'Back', :controller => 'documentations', :action => "#{@documentation.id}" %>
 
 </div>
 

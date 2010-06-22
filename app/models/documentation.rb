@@ -3,17 +3,10 @@ require 'screenstepslive_api'
 class Documentation < ActiveRecord::Base
   belongs_to :user
   has_many  :screenshots
+	accepts_nested_attributes_for :screenshots, :allow_destroy => true
   
   validates_presence_of :title
   validates_presence_of :description
-  #validates_presence_of :url
-  #attr_accessor :url	
-
-	def screenshot_attributes=(screenshot_attributes)
-		screenshot_attributes.each do |attributes|
-		  screenshots.build(attributes)
-		end
-	end
 	
   def lesson(url)
     ScreenStepsLiveAPI.user = 'codrschool'
