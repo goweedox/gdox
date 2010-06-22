@@ -33,6 +33,13 @@ body
 	margin-right: auto;
 }
 
+#content
+{
+  
+	background: #00bfff;
+	width: 100%;	
+}
+
 .menu{
   height: inherit;
   background: #333;
@@ -48,16 +55,6 @@ body
 .menu li{
   display: inline;
   padding-left:7px;
-}
-
-span.menu{
-  float: bottom right;
-}
-
-#content
-{
-	background: #00bfff;
-	width: 100%;	
 }
 
 /* Styles for flash message */

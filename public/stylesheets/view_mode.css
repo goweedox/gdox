@@ -10,8 +10,9 @@
   color: #333;
   margin-left: auto;
   margin-right: auto;
-  padding: 3px;
-  width: 1200px;
+  padding-left: 3px;
+  padding-right: 3px;
+  width: 1130px;
 }
 
 #main_content a:link, 
@@ -20,27 +21,39 @@
 } 
 
 #dox_title{
-  padding: 0px;
+  padding: 5px 0px 0px 0px;
   margin: 0px;
-  color: #fff;
+  background: white;
+  color: black;
   width: 800px;
   line-height: 28px;
 }
 
 #controls_area{
-  position: absolute; top: 1px;
+  background: #333;
+  color:  #00bfff;
+  padding: 6px;
+  margin-right: 2px;
+  width: 500px;
 }
 
 .controls {
-  
+  /* to make round corners */
+  -moz-border-radius-bottomleft:2ex;
+  -moz-border-radius-bottomright:2ex;
+  -webkit-border-bottom-left-radius:2ex;
+  -webkit-border-bottom-right-radius:2ex;
 }
 
 .controls ul{
   list-style: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 .controls li{
   display: inline;
+  padding-left: 3px;
 }
 
 .main_content
@@ -51,6 +64,7 @@
 #screenie_area{
   background: white;
   color: #333;
+  margin-top: 5px;
   padding: 5px;
   width: 800px;
   height: 600px;
@@ -87,7 +101,7 @@
 }
 
 #user-list .list-names dl {
-  margin: 2;
+  margin: 2px;
 }
 
 #user-list .list-names dt {
@@ -97,7 +111,7 @@
 }
 
 #user-list .list-names dd {
-  margin: 0;
+  margin: 0px;
 }
 
 #user-list .list-actions {
@@ -113,3 +127,4 @@
 #user-list .list-line-odd {
   background: #87a8c5;
 /*end*/
+}
