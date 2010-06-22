@@ -12,7 +12,7 @@
   margin-right: auto;
   padding-left: 3px;
   padding-right: 3px;
-  width: 1130px;
+  width: 1124px;
 }
 
 #main_content a:link, 
@@ -21,11 +21,17 @@
 } 
 
 #about_dox{
-  padding: 5px 0px 0px 0px;
-  margin: 0px;
+  padding: 1px 5px 0px 5px;
+  margin-top: 9px;
   background: white;
   color: black;
-  width: 800px;
+  width: 1114px;
+  
+  /* to make round corners */
+  -moz-border-radius-topleft:2ex;
+  -moz-border-radius-topright:2ex;
+  -webkit-border-top-left-radius:2ex;
+  -webkit-border-top-right-radius:2ex;
 }
 
 .about_dox#title{
@@ -34,28 +40,30 @@
 
 .about_dox#author{
   float: right;
-  font-size: 10px;
 }
 
 .about_dox#info{
-  float: left;
   clear: both;
+  width: 1110px;
+  overflow: auto;
 }
 
 #controls_area{
   background: #333;
   color:  #00bfff;
-  padding: 0px 15px 10px 10px;
+  padding: 0px 15px 5px 10px;
   margin-right: 2px;
   width: 500px;
-}
-
-.controls {
-  /* to make round corners */
+  
+    /* to make round corners */
   -moz-border-radius-bottomleft:2ex;
   -moz-border-radius-bottomright:2ex;
   -webkit-border-bottom-left-radius:2ex;
   -webkit-border-bottom-right-radius:2ex;
+}
+
+.controls {
+  display: inline-block;
 }
 
 .controls ul{
@@ -66,7 +74,7 @@
 
 .controls li{
   display: inline;
-  padding-left: 3px;
+  padding-left: 5px;
 }
 
 .main_content
