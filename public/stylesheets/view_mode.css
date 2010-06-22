@@ -20,19 +20,32 @@
  color: #333;  
 } 
 
-#dox_title{
+#about_dox{
   padding: 5px 0px 0px 0px;
   margin: 0px;
   background: white;
   color: black;
   width: 800px;
-  line-height: 28px;
+}
+
+.about_dox#title{
+  float: left;
+}
+
+.about_dox#author{
+  float: right;
+  font-size: 10px;
+}
+
+.about_dox#info{
+  float: left;
+  clear: both;
 }
 
 #controls_area{
   background: #333;
   color:  #00bfff;
-  padding: 6px;
+  padding: 0px 15px 10px 10px;
   margin-right: 2px;
   width: 500px;
 }
@@ -78,6 +91,56 @@
   width: 300px;
   height: 600px;
   overflow: auto;
+}
+
+h1 h2 h3 h4 h5
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+button {
+  float: right;
+  border: 0 none;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0 15px 0 0;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  width: auto;
+}
+
+button.rounded {
+  background: transparent url( /images/btn_right.png ) no-repeat scroll right top;
+  clear: left;
+  font-size: 0.8em;
+}
+
+button span {
+  display: block;
+  padding: 0 0 0 15px;
+  position: relative;
+  white-space: nowrap;
+  height: 30px;
+  line-height: 30px;
+}
+
+button.rounded span {
+  background: transparent url( /images/btn_left.png ) no-repeat scroll left top;
+  color: #FFFFFF;
+}
+
+button.rounded:hover {
+  background-position: 100% -30px;
+}
+
+button.rounded:hover span {
+  background-position: 0% -30px;
+}
+
+button::-moz-focus-inner {
+  border: none;
 }
 
 /*Style for show_users*/

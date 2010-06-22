@@ -1,9 +1,12 @@
 <div id="screenie_area" class="main_content">
-  <div id="dox_title">
-	    <% @creator = User.find(@documentation.user_id) %>
-	    <h1 style="display: inline;"><%=h @documentation.title %></h1></span>
-	    <h5 style="display: inline;"><i> &nbsp; by <%=h @creator.name %></i></h5><span>
+  <div id="about_dox">
+	  <% @creator = User.find(@documentation.user_id) %>
+	  
+	  <div id="title" class="about_dox"><h1><%= @documentation.title %></h1></div>
+	  <div id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i></div> 
+	  <div id="info" class="about_dox"> <i><%=h @documentation.description %></i> </div> 
   </div>
+
   
 	<% for screenshot in @documentation.screenshots %>
 		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %> <br />
@@ -21,10 +24,6 @@
 </div> 
 
 <div id="lessons_area" class="main_content">
-  <p>
-	  <b>Description</b><br/>
-	  <%=h @documentation.description %>
-  </p>
 
   <% if @current.id == @documentation.user_id %>
 	  <%= link_to 'Edit', edit_documentation_path(@documentation) %>

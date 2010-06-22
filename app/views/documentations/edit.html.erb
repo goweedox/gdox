@@ -4,16 +4,20 @@
     <li> <%= image_tag("controls/add.png", :border=>0) %></li>
     <li> <%= image_tag("controls/delete.png", :border=>0) %></li>
     <li> <%= image_tag("controls/user.png", :border=>0) %></li>
-    <li> <a onclick="Effect.BlindDown('upload_panel'); return false;" href="#"><%= image_tag("controls/up.png", :border=>0) %></a></li>
+    <li> <a onclick="Effect.BlindDown('upload_panel'); return false;" href="#">
+      <%= image_tag("controls/up.png", :border=>0) %></a>
+    </li>
   </ul>
-  <button style="display:inline; float: right;"> Save Changes </button>
+  <button class="rounded"> <span> Save Changes </span> </button>
 </div>
 
 <div id="screenie_area" class="main_content">
-  <div id="dox_title">
+  <div id="about_dox">
 	  <% @creator = User.find(@documentation.user_id) %>
-	  <h1 style="display: inline;"><%=h @documentation.title %></h1>
-	  <h5 style="display: inline;"><i> &nbsp; by <%=h @creator.name %></i></h5>
+	  
+	  <div id="title" class="about_dox"><h1><%= in_place_text_field :documentation, 'title' %></h1></div>
+	  <div id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i></div> 
+	  <div id="info" class="about_dox"> <i><%= in_place_text_area :documentation, 'description' %></i> </div> 
   </div>
 
   <div id="upload_panel" style="display:none;" class="screenshot">
@@ -27,24 +31,9 @@
 </div>
 
 <div id="lessons_area" class="main_content">
-  <h1> LESSONS AREA </h1>
 
-	<% form_for(@documentation) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
 		<%= link_to 'Back', :controller => 'documentations', :action => "#{@documentation.id}" %>
-  </p>
-  <% end %>
+
 </div>
 
 

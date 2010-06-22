@@ -1,5 +1,7 @@
 class DocumentationsController < ApplicationController
 	before_filter :authorize, :except => :login
+  in_place_edit_for :documentation, :title
+  in_place_edit_for :documentation, :description
 
   # GET /documentations
   # GET /documentations.xml
@@ -39,6 +41,7 @@ class DocumentationsController < ApplicationController
   # GET /documentations/1/edit
   def edit
 		@documentation = Documentation.find(params[:id])
+		    
 		@current = User.find(session[:user_id])
 		if @current.id != @documentation.user_id
 			redirect_to(:controller => "documentations", :action => "#{@documentation.user_id}")
