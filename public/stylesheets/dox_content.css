@@ -6,19 +6,15 @@
   dapat changed na ang name! 
 */
 #controls{
-  position: absolute; top: 0px; left: 1px;
+  position: fixed; top: 0px; left: 1px;
+  background: #333;
   display: inline;
-  background: transparent;
-  color:  #00bfff;
-  padding: 5px 15px 5px 10px;
+  padding-top: 10px;
   margin-right: 2px;
-  width: 500px;
-  
-    /* to make round corners */
-  -moz-border-radius-bottomleft:2ex;
-  -moz-border-radius-bottomright:2ex;
-  -webkit-border-bottom-left-radius:2ex;
-  -webkit-border-bottom-right-radius:2ex;
+}
+
+.controls{
+  background: #333;
 }
 
 .controls ul{
@@ -33,9 +29,9 @@
 }
 
 #about_dox{
+  margin-top: 50px;
   padding: 10px;
-  background: transparent;
-  color: black;
+  border-bottom: 2px solid black;
   
   /* to make round corners */
   -moz-border-radius-topleft:2ex;
@@ -55,36 +51,25 @@
 }
 
 .about_dox#info{
-  clear: both;
   overflow: auto;
 }
 
-#separator{
-  background: black;
-  color: gray;
-  width: 100%;
-  height: 10px;
-}
-
 #screenie_area{
-  background: gray;
-  color: #333;
   margin-top: 5px;
   padding: 5px;
   width: 60%;
   height: 100%;
-  min-width: 800px;
+  min-width: 500px;
   overflow: auto;
+  border-bottom: 2px solid black;
 }
 
 #lessons_area{
-  background: gray;
-  color: #333;
   padding: 5px;
   width: 30%;
-  height: 100%;
+  min-width: 300px;
   overflow: auto;
-  min-width: 500px;
+  border-bottom: 2px solid black;
 }
 
 

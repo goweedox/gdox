@@ -13,40 +13,47 @@ a:hover {text-decoration:underline;}
 a:active {text-decoration:none;}
 
 #header{
-  background: black;
-  padding: 0px 0px 0px 10px;
-  height: 40px;  
+  position: fixed; top: 0px;
+  background: #333;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  height: 50px; 
+  min-width: 800px;
 }
 
-.menu{
-  background: transparent;
-  float: right;
-  width: 300px;
+#menu{
+  position: fixed; top: 0px; right: 0px;
+  background: #333;
+  padding: 0px;
+  margin-top: 7px;
+  margin-right: 10px;
 }
+
 .menu ul{
+  padding: 0px;
+  margin: 0px;
   list-style: none;
 }
 
 .menu li{
-  display: inline;
+  margin: 0px;
+  padding-top: 0px;
+  padding-right: 3px;
+  display: inline-block;
 }
 
 #container{
   width: 100%;
-  background: #333;
-}
-
-#footer{
-  text-align: center;
-  background: black;
-  width: 100%;
+  background: transparent;
 }
 
 #content 
 {
-  background: transparent;
-  color: #333;
+  min-width: 800px;
+  max-width: 100%;
   padding: 20px;
+
 }
 
 #content a:link, 
@@ -56,5 +63,17 @@ a:active {text-decoration:none;}
 
 .main_content{
   display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#footer{
+  text-align: center;
+  background: transparent;
+  color: black;
+  padding-top: 7px;
+  width: 100%;
+  height: 70px;
+
 }
 
