@@ -8,7 +8,7 @@
 
 		<%= javascript_include_tag :defaults %>
 		<%= stylesheet_link_tag 'doxlayout','edit_mode', 'scaffold', 'in_place_styles' %>
-		<%= javascript_include_tag "jquery1.4.2", "screenstepslive.js" %>
+		<%= javascript_include_tag 'jquery1.4.2', 'screenstepslive.js', 'jquery.min.js' %>
 
 		<script>
       jQuery.noConflict();
@@ -24,7 +24,6 @@
 				use_ssl: false
 			}
 
-			jQuery.noConflict();
 			jQuery(document).ready(function($) {
 				jQuery('#screenstepslive-search').submit(function(e){
 					e.preventDefault();
