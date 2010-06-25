@@ -4,11 +4,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-	<title>Documentations: <%= controller.action_name %></title>
+	<% if controller.action_name == 'edit' %>
+		<% title = 'Edit Mode' %>
+	<% elsif controller.action_name == 'show' %>
+		<% title = 'View Mode' %>
+	<% end %>
+	<title>Documentations : <%= title %></title>
 
-		<%= javascript_include_tag :defaults %>
-		<%= stylesheet_link_tag 'doxlayout','edit_mode', 'scaffold', 'in_place_styles' %>
-		<%= javascript_include_tag 'jquery1.4.2', 'screenstepslive.js', 'jquery.min.js' %>
+	<%= javascript_include_tag :defaults %>
+	<%= stylesheet_link_tag 'doxlayout','edit_mode', 'scaffold' %>
+	<%= javascript_include_tag 'jquery1.4.2', 'screenstepslive.js', 'jquery.min.js' %>
 
 		<script>
       jQuery.noConflict();
