@@ -27,7 +27,6 @@ class WelcomeController < ApplicationController
   end
   
   def index
-			flash.now[:notice] = "Please click sign-up to create another account if you can't login. Sorry for the inconvenience. Thanks."	
 	  if session[:user_id] 
 	    redirect_to(:controller => "admin", :action => "index")
 	  end

@@ -1,40 +1,38 @@
-<h2><%=h @current.name %></h2>
-Welcome to your account! <br /><br />
-
-<% flag = false %>
-<div id="tabs">
-	<ul>
-		<li><a href="#tabs-1">My Dox</a></li>
-		<li><a href="#tabs-2">Available Dox</a></li>
-	</ul>
-	<div id="tabs-1">
-		<% @documentations.each do |documentation| %>
-			<% if (session[:user_id] == documentation.user_id) %>
-				<li><b><dt><%= link_to "#{documentation.title}", documentation %></dt></b></li>
-				<dd><%=h documentation.description %></dd>
-				<%= link_to 'Edit', documentation %> |
-				<%= link_to 'Delete', documentation, :confirm => 'Are you sure you want to delete this DOX? This cannot be undone.', :method => :delete %>
-				<br/><br/>
-				<% flag = true %>
+<div id="dox">
+	<% flag = false %>
+	<div id="tabs">
+		<ul>
+			<li><a href="#tabs-1">My Dox</a></li>
+			<li><a href="#tabs-2">Available Dox</a></li>
+		</ul>
+		<div id="tabs-1">
+			<% @documentations.each do |documentation| %>
+				<% if (session[:user_id] == documentation.user_id) %>
+					<li><b><dt><%= link_to "#{documentation.title}", documentation %></dt></b></li>
+					<dd><%=h documentation.description %></dd>
+					<%= link_to 'Edit', documentation %> |
+					<%= link_to 'Delete', documentation, :confirm => 'Are you sure you want to delete this DOX? This cannot be undone.', :method => :delete %>
+					<br/><br/>
+					<% flag = true %>
+				<% end %>
 			<% end %>
-		<% end %>
 
-		<% if flag != true %>
-				<b>You don't have any Dox yet!</b>
-		<% end %>
+			<% if flag != true %>
+					<b>You don't have any Dox yet!</b>
+			<% end %>
 
-		<br /><br />
-		<%= button_to 'New Dox', new_documentation_path%>	
-	</div>
+			<br /><br />
+			<%= button_to 'New Dox', new_documentation_path%>	
+		</div>
 	
-	<div id="tabs-2">
-		<% @documentations.each do |documentation| %>
-			<% @creator = User.find(documentation.user_id) %>
+		<div id="tabs-2">
+			<% @documentations.each do |documentation| %>
+				<% @creator = User.find(documentation.user_id) %>
 
-			<li><b><dt><%= link_to "#{documentation.title}", documentation %></dt></b></li>
-			<i>by: <%=h @creator.name %></i>
-			<dd><%=h truncate(documentation.description.gsub(/<.*?>/,''), :length => 150) %></dd><br />
-		<% end %>
+				<li><b><dt><%= link_to "#{documentation.title}", documentation %></dt></b></li>
+				<i>by: <%=h @creator.name %></i>
+				<dd><%=h truncate(documentation.description.gsub(/<.*?>/,''), :length => 150) %></dd><br />
+			<% end %>
+		</div>
 	</div>
-
 </div>

@@ -13,7 +13,7 @@ module DocumentationsHelper
 		  link_to_function("Cancel", "this.up('fieldset').remove()")
 		else
 		  form_builder.hidden_field(:_delete) +
-		  link_to_function("Cancel", "this.up('fieldset').hide(); $(this).previous().value = '1'")
+		  link_to_function("Cancel", "this.up('fieldset').hide(); $(this).previous().value = '1';")
 		end
 	end
 end

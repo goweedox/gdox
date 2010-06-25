@@ -26,4 +26,7 @@ class AdminController < ApplicationController
       format.xml  { render :xml => @users }
     end
   end
+
+	def test
+	end
 end

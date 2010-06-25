@@ -1,17 +1,18 @@
 #content
 {
-	background: gray;
+	background: transparent;
 	width: 100%;	
 }
 
 #main_content
 {
-  background: inherit;
+  background: transparent;
   color: #333;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 3px;
-  padding-right: 3px;
+  padding-left: 4px;
+  padding-right: 0px;
+  padding-bottom: 10px;
   width: 1130px;
 }
 
@@ -21,9 +22,9 @@
 } 
 
 #about_dox{
+  border: 3px solid #11103c;
   padding: 1px 5px 0px 5px;
-  margin-top: 9px;
-  background: white;
+  background: #92b7d3;
   color: black;
   width: 1114px;
   
@@ -48,42 +49,14 @@
   overflow: auto;
 }
 
-#controls_area{
-  background: #333;
-  color:  #00bfff;
-  padding: 0px 15px 5px 10px;
-  margin-right: 2px;
-  width: 500px;
-  
-    /* to make round corners */
-  -moz-border-radius-bottomleft:2ex;
-  -moz-border-radius-bottomright:2ex;
-  -webkit-border-bottom-left-radius:2ex;
-  -webkit-border-bottom-right-radius:2ex;
-}
-
-.controls {
-  display: inline-block;
-}
-
-.controls ul{
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-.controls li{
-  display: inline;
-  padding-left: 5px;
-}
-
 .main_content
 {
   display: inline-block;
 }
 
 #screenie_area{
-  background: white;
+  border: 3px solid #11103c;
+  background: #92b7d3;
   color: #333;
   margin-top: 5px;
   padding: 5px;
@@ -93,10 +66,11 @@
 }
 
 #lessons_area{
-  background: white;
+  border: 3px solid #11103c;
+  background: #92b7d3;
   color: #333;
   padding: 5px;
-  width: 300px;
+  width: 293px;
   height: 600px;
   overflow: auto;
 }
@@ -117,85 +91,4 @@ button {
   height: 30px;
   line-height: 30px;
   width: auto;
-}
-
-button.rounded {
-  background: transparent url( /images/btn_right.png ) no-repeat scroll right top;
-  clear: left;
-  font-size: 0.8em;
-}
-
-button span {
-  display: block;
-  padding: 0 0 0 15px;
-  position: relative;
-  white-space: nowrap;
-  height: 30px;
-  line-height: 30px;
-}
-
-button.rounded span {
-  background: transparent url( /images/btn_left.png ) no-repeat scroll left top;
-  color: #FFFFFF;
-}
-
-button.rounded:hover {
-  background-position: 100% -30px;
-}
-
-button.rounded:hover span {
-  background-position: 0% -30px;
-}
-
-button::-moz-focus-inner {
-  border: none;
-}
-
-/*Style for show_users*/
-#user-list{
-  padding: 10px;
-  background: #FFF;
-  width: 90%;
-  
-}
-#user-list table {
-  border-collapse: collapse;
-}
-
-#user-list table tr td {
-  padding: 3px;
-  vertical-align: top;
-}
-
-#user-list .list-names {
-  width: 100%;
-}
-
-#user-list .list-names dl {
-  margin: 2px;
-}
-
-#user-list .list-names dt {
-	color:        #244;
-	font-weight:  bold;
-	font-size:    larger;
-}
-
-#user-list .list-names dd {
-  margin: 0px;
-}
-
-#user-list .list-actions {
-  font-size:    x-small;
-  text-align:   right;
-  padding-left: 1em;
-}
-
-#user-list .list-line-even {
-  background: #a9bbcb;
-}
-
-#user-list .list-line-odd {
-  background: #87a8c5;
-/*end*/
 }

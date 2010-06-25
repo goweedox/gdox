@@ -19,7 +19,6 @@ class UsersController < ApplicationController
       format.xml  { render :xml => @user }
     end
 	end
-		
 
   # GET /users/1
   # GET /users/1.xml
@@ -57,7 +56,6 @@ class UsersController < ApplicationController
     end
   end
 
-    
   # PUT /users/1
   # PUT /users/1.xml
   def update

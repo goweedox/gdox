@@ -1,28 +1,42 @@
-#main_content
-{
-  border: 3px solid white;
-  padding: 1px 5px 0px 5px;
-  background: #92b7d3;
-  color: black;
-  width: 1114px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
-  padding: 3px;
-  
-  /* to make round corners */
-  -moz-border-radius-topleft:2ex;
-  -moz-border-radius-topright:2ex;
-  -webkit-border-top-left-radius:2ex;
-  -webkit-border-top-right-radius:2ex;
+#content {
+	background: transparent;
+	width: 100%;	
 }
 
-#dox {
-  padding: 1px 5px 0px 5px;
-  background: inherit;
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+#main_content
+{
+	background: #92b7d3;
+	width: 700px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+	text-align: justify;
+	
+	-moz-border-radius-topleft:1ex;
+	-webkit-border-top-left-radius:1ex;
+	-moz-border-radius-topright:1ex;
+	-webkit-border-top-right-radius:1ex;
+}
+
+#footer
+{
+	/*border-top: 5px solid #11103c;*/
+	background: #2a4f7e;
+	width: 700px;
+	height: 40px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 8px;
+	padding-left: 30px;
+	padding-top: 8px;
+	padding-right: 30px;
+	
+
 }
 
 /*Style for show_users*/

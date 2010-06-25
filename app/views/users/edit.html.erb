@@ -1,24 +1,26 @@
-<h1>Edit User Information</h1>
+<div id="dox">
+	<h1>Edit User Information</h1>
 
-<% form_for(@user) do |f| %>
-  <%= f.error_messages %>
+	<% form_for(@user) do |f| %>
+		<%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :hashed_password %><br />
-    <%= f.text_field :hashed_password %>
-  </p>
-  <p>
-    <%= f.label :salt %><br />
-    <%= f.text_field :salt %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+		<p>
+		  <%= f.label :name %>
+		  <%= f.text_field :name %>
+		</p>
+		<p>
+		  <%= f.label :Password %>
+		  <%= f.text_field :hashed_password %>
+		</p>
+		<p>
+		  <%= f.label :salt %>
+		  <%= f.text_field :salt %>
+		</p>
+		<p>
+		  <%= f.submit "Update" %>
+		</p>
+	<% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', :controller => 'admin', :action => 'show_users' %>
+	<%= link_to 'Show', @user %> |
+	<%= link_to 'Back', :controller => 'admin', :action => 'show_users' %>
+</div>

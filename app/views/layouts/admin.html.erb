@@ -15,24 +15,29 @@
 		$("#tabs").tabs();
 	});
 	</script>
+
 </head>
 	
 <body>
+	<div id="top_wrap">
+		<div id="always_top">
+			<%= link_to 'Home', :controller => 'admin', :action => 'index' %>  |
+	    <%= link_to 'Users', :controller => 'admin', :action => 'show_users' %> |   
+	    <%= link_to 'Logout', :controller => 'admin', :action => 'logout' %> 
+		</div>
+	</div>
 	<div id="header">	
 	  <div id="menu" class="menu">
-	    <ul>	    
-	      <li> <%= link_to 'Home', :controller => 'admin', :action => 'index' %> </li> 
-    	  <li> <%= link_to 'Users', :controller => 'admin', :action => 'show_users' %> </li>	    
-    	  <li> <%= link_to 'Logout', :controller => 'admin', :action => 'logout' %> </li>  	  
-        <li> <%= link_to image_tag("goweedox.jpg", :border=>0), :action => 'admin', :action => 'index' %></li>
-	    </ul>	 
-	</div>	
+	    <ul>
+        <li> <%= link_to image_tag("gdox.png", :border=>0), :action => 'admin', :action => 'index' %></li>
+	    </ul>
+	</div>
 	
 	<div id="content">
-	  <% if flash[:notice] -%>
-    	<div id="notice"><%= flash[:notice] %></div>
-    <% end -%>
 	  <div id="main_content">
+			<% if flash[:notice] -%>
+		  	<div id="notice"><%= flash[:notice] %></div>
+		  <% end -%>
 	    <%= yield %>
 	  </div>
 	</div>

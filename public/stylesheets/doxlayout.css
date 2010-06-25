@@ -5,54 +5,87 @@ a:active {text-decoration:none;}
 
 body
 {
-	background: #333;
-	margin:0; 
-	padding:0; 
-	color: #fff;
-	font-family: verdana, arial, helvetica, sans-serif;
+  
+  background: url("/images/fade.jpg") repeat-x scroll 0 0 white;
+  margin:0;
+  padding:0; 
+  color: #fff;
+  font-family: verdana, arial, helvetica, sans-serif;
   font-size: 2em;
   line-height: 18px;
 }
 
 #footer
 {
-  /*border-top: 1px solid gray;*/
-  color: #fff;
-  width: 800px;
+  /*border-top: 5px solid #11103c;*/
+  border: 3px solid #11103c;
+  background: #2a4f7e;
+  width: 1114px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
+  padding: 1px 5px 0px 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+/*
+  -moz-border-radius-topleft:4ex;
+  -moz-border-radius-topright:4ex;
+  -webkit-border-top-left-radius:4ex;
+  -webkit-border-top-right-radius:4ex;
+*/ 
+  -moz-border-radius-bottomleft:2ex;
+  -moz-border-radius-bottomright:2ex;
+  -webkit-border-bottom-left-radius:2ex;  
+  -webkit-border-bottom-right-radius:2ex; 
 }
 
-#header
-{
-	background: #333;
-	height: 70px;
-	width: 100%;
+#top_wrap {
+	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-#content
+#always_top {
+	background: #333;
+	padding-top:10px;
+	height: 30px;
+	width: 168px;
+	padding-left: 15px;
+	
+	-moz-border-radius-bottomright:1ex;
+	-moz-border-radius-bottomleft:1ex;
+	-webkit-border-bottom-right-radius:1ex;
+	-webkit-border-bottom-left-radius:1ex; 
+}
+
+#header
 {
-  
-	background: #00bfff;
-	width: 100%;	
+  background: transparent;
+  height: 90px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.menu{
+#content {
+  background: transparent;
+  width: 100%;	
+}
+
+.menu {
   height: inherit;
-  background: #333;
-	width: 800px;
-	margin: 0 auto;
-	text-align: right;
+  background: transparent;
+  width: 800px;
+  margin: 0 auto;
+  text-align: right;
 }
 
-.menu ul{
+.menu ul {
   list-style: none;
 }
 
-.menu li{
+.menu li {
   display: inline;
   padding-left:7px;
 }
@@ -60,12 +93,13 @@ body
 /* Styles for flash message */
 #notice {
   padding-top: .3em;
-  background: inherit;
+  padding-bottom: .3em;
+  background: #fc4a6c;
+  width: 700px;
   color: #fff;
   font: bold small sans-serif;
   text-align: center;
-  padding-left: 5px;
-  padding-right: 5px;
+
 }
 /* end */
 
@@ -121,9 +155,9 @@ text_field {
 }
    
 button {  
-   background: #080;  
+   background: #06a;  
    color: #fff;
-   border: 2px solid #060;  
+   border: 2px solid #037;  
    font-size: 12px;  
    font-weight: bold;  
    margin-left: 0px;  

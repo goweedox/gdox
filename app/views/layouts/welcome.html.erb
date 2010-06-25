@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title> Welcome to Gowee Dox!</title>
 
-  <%= stylesheet_link_tag 'doxlayout','gowee', 'scaffold', 'jquery.ui.all', 'custom-theme/jquery-ui-1.8.1.custom.css' %>
+  <%= stylesheet_link_tag 'doxlayout', 'welcome', 'scaffold', 'jquery.ui.all', 'custom-theme/jquery-ui-1.8.1.custom.css' %>
   <%= javascript_include_tag "jquery-1.4.2", "ui/jquery.ui.core", "ui/jquery.ui.widget", "ui/jquery.ui.tabs"%>
   
 	<script type="text/javascript">
@@ -20,17 +20,19 @@
 	<div id="header">	
 	  <div id="menu" class="menu">
 	    <ul>	    
+				<li> <%= link_to  " Home ", :controller => 'welcome',:action => 'index' %> </li> 
 	      <li> <%= link_to  " Sign Up ", :controller => 'welcome',:action => 'signup' %> </li> 
     	  <li> <%= link_to  " Login ", :controller => 'welcome',:action => 'login' %> </li>	    
-    	  <li> <%= link_to image_tag("goweedox.jpg", :border=>0), :action => 'welcome', :action => 'index' %> </li>  	 
+    	  <li> <%= link_to image_tag("gdox.png", :border=>0), :action => 'welcome', :action => 'index' %> </li>  	 
 	    </ul> 
     </div>
 	</div>	
 	<div id="content">
-	  <% if flash[:notice] -%>
-    	<div id="notice"><%= flash[:notice] %></div>
-    <% end -%>
 	  <div id="main_content">
+	 		<% if flash[:notice] -%>
+		  	<div id="notice"><%= flash[:notice] %></div>
+		  <% end -%>
+
 	    <%= yield -%>
 	  </div>
 	</div>
