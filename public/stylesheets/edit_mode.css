@@ -1,202 +1,60 @@
-#content
-{
-	background: transparent;
-	width: 100%;	
-}
-
-#main_content
-{
-  background: inherit;
-  color: #333;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 3px;
-  padding-right: 3px;
-  padding-bottom: 10px;
-  width: 1130px;
-}
-
-#main_content a:link, 
-#main_content a:visited { 
- color: #333;  
-} 
-
-#about_dox{
-  padding: 1px 5px 0px 5px;
-  margin-top: 9px;
-  background: white;
-  color: black;
-  width: 1114px;
+/* LAYOUT FOR DOCUMENTATIONS (edit & show)
+  => HEADER
+  => CONTAINER
+  => FOOTER
   
-  /* to make round corners */
-  -moz-border-radius-topleft:2ex;
-  -moz-border-radius-topright:2ex;
-  -webkit-border-top-left-radius:2ex;
-  -webkit-border-top-right-radius:2ex;
+
+  dapat changed na ang name! 
+*/
+
+a:link {text-decoration:none; color: #fff;}
+a:visited {text-decoration:none; color: #fff;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:none;}
+
+#header{
+  background: black;
+  padding: 0px 0px 0px 10px;
+  height: 40px;  
 }
 
-.about_dox#title{
-  float: left;
-}
-
-.about_dox#author{
+.menu{
+  background: transparent;
   float: right;
-}
-
-.about_dox#info{
-  clear: both;
-  width: 1110px;
-  overflow: auto;
-}
-
-#controls_area{
-  background: white;
-  color:  #00bfff;
-  padding: 5px 15px 5px 10px;
-  margin-right: 2px;
-  width: 500px;
-  
-    /* to make round corners */
-  -moz-border-radius-bottomleft:2ex;
-  -moz-border-radius-bottomright:2ex;
-  -webkit-border-bottom-left-radius:2ex;
-  -webkit-border-bottom-right-radius:2ex;
-}
-
-.controls {
-  display: inline-block;
-}
-
-.controls ul{
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-.controls li{
-  display: inline;
-  padding-left: 5px;
-}
-
-.main_content
-{
-  display: inline-block;
-}
-
-#screenie_area{
-  background: white;
-  color: #333;
-  margin-top: 5px;
-  padding: 5px;
-  width: 800px;
-  height: 600px;
-  overflow: auto;
-}
-
-#lessons_area{
-  background: white;
-  color: #333;
-  padding: 5px;
   width: 300px;
-  height: 600px;
-  overflow: auto;
+}
+.menu ul{
+  list-style: none;
 }
 
-h1 h2 h3 h4 h5
-{
-  margin: 0px;
-  padding: 0px;
+.menu li{
+  display: inline;
 }
 
-button {
-  float: right;
-  border: 0 none;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 0 15px 0 0;
+#container{
+  width: 100%;
+  background: #333;
+}
+
+#footer{
   text-align: center;
-  height: 30px;
-  line-height: 30px;
-  width: auto;
-}
-
-button.rounded {
-  background: transparent url( /images/btn_right.png ) no-repeat scroll right top;
-  clear: left;
-  font-size: 0.8em;
-}
-
-button span {
-  display: block;
-  padding: 0 0 0 15px;
-  position: relative;
-  white-space: nowrap;
-  height: 30px;
-  line-height: 30px;
-}
-
-button.rounded span {
-  background: transparent url( /images/btn_left.png ) no-repeat scroll left top;
-  color: #FFFFFF;
-}
-
-button.rounded:hover {
-  background-position: 100% -30px;
-}
-
-button.rounded:hover span {
-  background-position: 0% -30px;
-}
-
-button::-moz-focus-inner {
-  border: none;
-}
-
-/*Style for show_users*/
-#user-list{
-  padding: 10px;
-  background: #FFF;
-  width: 90%;
-  
-}
-#user-list table {
-  border-collapse: collapse;
-}
-
-#user-list table tr td {
-  padding: 3px;
-  vertical-align: top;
-}
-
-#user-list .list-names {
+  background: black;
   width: 100%;
 }
 
-#user-list .list-names dl {
-  margin: 2px;
+#content 
+{
+  background: transparent;
+  color: #333;
+  padding: 20px;
 }
 
-#user-list .list-names dt {
-	color:        #244;
-	font-weight:  bold;
-	font-size:    larger;
+#content a:link, 
+#content a:visited { 
+ color: #333;  
+} 
+
+.main_content{
+  display: inline-block;
 }
 
-#user-list .list-names dd {
-  margin: 0px;
-}
-
-#user-list .list-actions {
-  font-size:    x-small;
-  text-align:   right;
-  padding-left: 1em;
-}
-
-#user-list .list-line-even {
-  background: #a9bbcb;
-}
-
-#user-list .list-line-odd {
-  background: #87a8c5;
-/*end*/
-}

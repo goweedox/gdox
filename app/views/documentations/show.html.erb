@@ -1,22 +1,8 @@
-<head>
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-	<title>Documentations: <%= controller.action_name %></title>
-
-		<%= stylesheet_link_tag 'view_mode', 'scaffold', 'in_place_styles' %>
-		<%= javascript_include_tag 'screenstepslive.js' , 'jquery.min.js' %>
-
-		<script>
-      jQuery.noConflict();
- 		</script>
-</head>
-
-
-<div style="height:3px; clear:both; visiblity: hidden;"></div>
-
-<div id="about_dox" class="info">
+<div id="about_dox" class="content">
 	<% @creator = User.find(@documentation.user_id) %>
-	<span id="title" class="about_dox"><h1><%= @documentation.title %></h1></span>
-	<span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i></span> 
+	<div id="title" class="about_dox"> <%= @documentation.title %> 	
+	  <span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i> </span> </div>
+ 
 	<div id="info" class="about_dox"> <i><%= @documentation.description %></i> </div> 
 	<% if @current.id == @documentation.user_id %>
 	  <br/><%= link_to 'Edit', edit_documentation_path(@documentation) %>
