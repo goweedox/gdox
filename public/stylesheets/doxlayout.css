@@ -17,8 +17,7 @@ body
 
 #footer
 {
-  /*border-top: 5px solid #11103c;*/
-  border: 3px solid #11103c;
+  /*border: 3px solid #11103c;*/
   background: #2a4f7e;
   width: 1114px;
   text-align: center;
@@ -34,10 +33,10 @@ body
   -webkit-border-top-left-radius:4ex;
   -webkit-border-top-right-radius:4ex;
 */ 
-  -moz-border-radius-bottomleft:2ex;
-  -moz-border-radius-bottomright:2ex;
-  -webkit-border-bottom-left-radius:2ex;  
-  -webkit-border-bottom-right-radius:2ex; 
+  -moz-border-radius-bottomleft:1ex;
+  -moz-border-radius-bottomright:1ex;
+  -webkit-border-bottom-left-radius:1ex;  
+  -webkit-border-bottom-right-radius:1ex; 
 }
 
 #top_wrap {
@@ -92,15 +91,13 @@ body
 
 /* Styles for flash message */
 #notice {
+  border: 2px solid red;
   padding-top: .3em;
   padding-bottom: .3em;
-  background: #fc4a6c;
+  background: #d29393;
   width: 700px;
   color: #fff;
   font: bold small sans-serif;
   text-align: center;
-
 }
 /* end */
-
-
