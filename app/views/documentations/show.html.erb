@@ -1,30 +1,30 @@
-<div id="about_dox" class="content">
-	<% @creator = User.find(@documentation.user_id) %>
-	<div id="title" class="about_dox"> <%= @documentation.title %> 	
-	  <span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i> </span> </div>
- 
-	<div id="info" class="about_dox"> <i><%= @documentation.description %></i> </div> 
-	<% if @current.id == @documentation.user_id %>
-	  <br/><%= link_to 'Edit', edit_documentation_path(@documentation) %>
-  <% end %>
-</div>
+<div id="content_container">
+	<div id="about_dox">
+		<% @creator = User.find(@documentation.user_id) %>
+		<div id="title" class="about_dox"> <%= @documentation.title %> 	
+			<span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i> </span> </div><br/>
+	 
+		<div id="info" class="about_dox"> <i><%= @documentation.description %></i> </div> 
+		<% if @current.id == @documentation.user_id %>
+			<br/><%= link_to 'Edit', edit_documentation_path(@documentation) %>
+		<% end %>
+	</div>
 
-<div id="screenie_area" class="main_content">
-  
-	<% for screenshot in @documentation.screenshots %>
-		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "785" %> <br /><br />
-	<% end %>
+	<div id="screenie_area" class="main_content">
+		<% for screenshot in @documentation.screenshots %>
+			<%= image_tag screenshot.data.url(:original), :alt => "", :width => "785" %> <br /><br />
+		<% end %>
+	</div> 
 
-</div> 
-
-<div id="lessons_area" class="main_content">
-    <h5>Search for available lessons in Screensteps live:</h5>
-      <form id="screenstepslive-search" action="">
-        <p>
-        <input type="text" id="screenstepslive-search-field" value="" name="text"></input>
-        <input type="submit" value="Search">
-        </p>
-      </form>	
-      <h3>Search Results</h3>
-    <div id="search_results"></div>
+	<div id="lessons_area" class="main_content">
+		  <h5>Search for available lessons in Screensteps live:</h5>
+		    <form id="screenstepslive-search" action="">
+		      <p>
+		      <input type="text" id="screenstepslive-search-field" value="" name="text"></input>
+		      <input type="submit" value="Search">
+		      </p>
+		    </form>	
+		    <h3>Search Results</h3>
+		  <div id="search_results"></div>
+	</div>
 </div>

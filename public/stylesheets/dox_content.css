@@ -6,8 +6,9 @@
   dapat changed na ang name! 
 */
 #controls{
+  border: 2px solid gray;
   position: fixed; top: 10px; left: 5px;
-  background: white;
+  background: transparent;
   display: inline;
   padding-top: 10px;
   padding-bottom: 5px;
@@ -83,4 +84,11 @@
   min-width: 300px;
   overflow: auto;
   border-bottom: 2px solid black;
+}
+
+#content_container {
+  width: 1000px;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
 }

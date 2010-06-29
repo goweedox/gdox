@@ -19,11 +19,12 @@ label {
   -webkit-border-bottom-left-radius:1ex; 
 }
    
-input {  
+input {
    background: #fff;  
    border: 2px solid #037;  
    /*border-left: 0px;*/
    padding: 5px 5px;  
+   border-left: 0px;
    margin-top: 0;  
    margin-bottom: 5px;  
    
@@ -31,10 +32,6 @@ input {
   -moz-border-radius-bottomright:1ex;
   -webkit-border-top-right-radius:1ex;
   -webkit-border-bottom-right-radius:1ex;
-  -moz-border-radius-topleft:1ex;
-  -moz-border-radius-bottomleft:1ex;
-  -webkit-border-top-left-radius:1ex;
-  -webkit-border-bottom-left-radius:1ex; 
 }
 
 text_field {
@@ -55,17 +52,26 @@ text_field {
 }
 
 text_area {
-   background: #fff;  
-   border: 2px solid #037;   
-   padding: 5px 5px;  
-   margin-top: 0;
-   margin-bottom: 5px;  
-   margin-left: 5px;
-   
+   	height:100px;
+	float: left;
+	width: 800px;
+	
+	background: #fff;  
+	border: 2px solid #037;  
+	padding: 5px 5px;  
+	margin-top: 0;  
+	margin-bottom: 5px;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	   
   -moz-border-radius-topright:1ex;
   -moz-border-radius-bottomright:1ex;
   -webkit-border-top-right-radius:1ex;
   -webkit-border-bottom-right-radius:1ex;
+  -moz-border-radius-topleft:1ex;
+  -moz-border-radius-bottomleft:1ex;
+  -webkit-border-top-left-radius:1ex;
+  -webkit-border-bottom-left-radius:1ex;
 }
 
    
@@ -78,12 +84,17 @@ button {
    margin-left: 0px;  
    padding: 5px 10px; 
    
-  -moz-border-radius-topleft:2ex;
-  -moz-border-radius-bottomleft:2ex;
-  -webkit-border-top-left-radius:2ex;
-  -webkit-border-bottom-left-radius:2ex; 
-  -moz-border-radius-topright:2ex;
-  -moz-border-radius-bottomright:2ex;
-  -webkit-border-top-right-radius:2ex;
-  -webkit-border-bottom-right-radius:2ex; 
+  -moz-border-radius-topleft:1ex;
+  -moz-border-radius-bottomleft:1ex;
+  -webkit-border-top-left-radius:1ex;
+  -webkit-border-bottom-left-radius:1ex; 
+  -moz-border-radius-topright:1ex;
+  -moz-border-radius-bottomright:1ex;
+  -webkit-border-top-right-radius:1ex;
+  -webkit-border-bottom-right-radius:1ex; 
+}
+
+button:hover {
+  background-color: #2a4f7e;
+  color: black;
 }

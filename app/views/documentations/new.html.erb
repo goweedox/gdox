@@ -1,11 +1,40 @@
-<div id="about_dox" class="content">
-	<h2>New documentation</h2>
+<head>
+	<%= stylesheet_link_tag 'in_place_styles' %>
+</head>
 
+<div id="controls" class="controls">
+    <%= render  :partial=> 'shared/headerEdit' %>
+</div>
+<div id="content_container">
+	<% form_for @documentation, :html => { :multipart => true } do |f| %>
+			<%= render :partial => 'form', :locals => {:f => f} %>
+
+		<div id="about_dox">
+			
+		<div id="title" class="about_dox"> <%= in_place_text_field :documentation, 'title' %></div><br/><br/>
+		<div id="info" class="about_dox"> <i><%= in_place_text_area :documentation, 'description' %></i> </div> 
+			<%= f.submit "Save" %>
+		</div>
+	<% end %>
+
+<div id="screenie_area" class="main_content">
+	<div id="upload_panel" >
 		<% form_for @documentation, :html => { :multipart => true } do |f| %>
-			<%= render :partial => 'form', :locals => {:f => f} %>		
-			<%= f.submit "Create" %>
+			<%= add_screenshot(f) %><br/><br/>
 		<% end %>
-
-		<%= link_to 'Back', documentations_path %>
 	</div>
+
+	<% for screenshot in @documentation.screenshots %>
+		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "785" %> <br /><br />
+	<% end %>
+</div>
+
+<div id="lessons_area" class="main_content">
+<!--
+	<button id="bttn" onclick="addAnotation()">Clicky!</button>
+	<div id="draggable"><p>Drag me to hell</p></div>
+	<div id="whitebox"></div>
+	<div id="droppable"><p>This is Hell</p></div>
+-->
+</div>
 </div>
