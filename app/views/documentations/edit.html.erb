@@ -15,8 +15,7 @@
 
 <div id="about_dox">
 	<% @creator = User.find(@documentation.user_id) %>
-	<div id="title" class="about_dox"> <%= in_place_text_field :documentation, 'title' %> 	
-	  <span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i></span> </div>
+	<div id="title" class="about_dox"> <%= in_place_text_field :documentation, 'title' %></div><br/><br/>
 	<div id="info" class="about_dox"> <i><%= in_place_text_area :documentation, 'description' %></i> </div> 
 	<br /><%= link_to 'Save', :controller => "documentations", :action => "#{@documentation.id}" %>
 </div>
@@ -34,5 +33,10 @@
 </div>
 
 <div id="lessons_area" class="main_content">
-
+<!--
+	<button id="bttn" onclick="addAnotation()">Clicky!</button>
+	<div id="draggable"><p>Drag me to hell</p></div>
+	<div id="whitebox"></div>
+	<div id="droppable"><p>This is Hell</p></div>
+-->
 </div>
