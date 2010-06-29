@@ -42,7 +42,7 @@
 }
 
 #about_dox{
-  background: transparent;
+  background: white;
   padding: 10px;
   border-bottom: 2px solid black;
 
@@ -68,27 +68,20 @@
 }
 
 #screenie_area{
-  background: transparent;
+  background: white;
   padding: 5px;
   width: 810px;
   overflow: auto;
   border-right-style:solid;
-  
-  /* to make round corners */
-  -moz-border-radius-bottomleft:4ex;
-  -webkit-border-bottom-left-radius:4ex;
+
 }
 
 #lessons_area{
-  background: #D6D6D6;
+  background: transparent;
   padding: 5px;
   width: 267px;
   overflow: auto;
 
-  
-    /* to make round corners */
-  -moz-border-radius-bottomright:4ex;
-  -webkit-border-bottom-right-radius:4ex;
 }
 
 
