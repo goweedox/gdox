@@ -1,4 +1,4 @@
-return if defined?(STATES)
+returning if defined?(STATES)
 class Object
   def proper_case
     to_s.humanize.split(/\s/).map { |e| e.capitalize }.join(" ")
