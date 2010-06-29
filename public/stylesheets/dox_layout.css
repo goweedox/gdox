@@ -1,0 +1,79 @@
+/* LAYOUT FOR DOCUMENTATIONS (edit & show)
+  => HEADER
+  => CONTAINER
+  => FOOTER
+  
+
+  dapat changed na ang name! 
+*/
+
+a:link {text-decoration:none; color: #fff;}
+a:visited {text-decoration:none; color: #fff;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:none;}
+
+#header{
+  position: fixed; top: 0px;
+  background: #333;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  height: 50px; 
+  min-width: 800px;
+}
+
+#menu{
+  position: fixed; top: 0px; right: 0px;
+  background: #333;
+  padding: 0px;
+  margin-top: 7px;
+  margin-right: 10px;
+}
+
+.menu ul{
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+.menu li{
+  margin: 0px;
+  padding-top: 0px;
+  padding-right: 3px;
+  display: inline-block;
+}
+
+#container{
+  width: 100%;
+  background: transparent;
+}
+
+#content 
+{
+  min-width: 800px;
+  max-width: 100%;
+  padding: 20px;
+
+}
+
+#content a:link, 
+#content a:visited { 
+ color: #333;  
+} 
+
+.main_content{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#footer{
+  text-align: center;
+  background: transparent;
+  color: black;
+  padding-top: 7px;
+  width: 100%;
+  height: 70px;
+
+}
+

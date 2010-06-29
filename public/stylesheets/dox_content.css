@@ -1,0 +1,75 @@
+/* CONTENT FOR DOCUMENTATIONS (edit & show)
+  => control panel
+  => screenie area
+  => lessons area
+
+  dapat changed na ang name! 
+*/
+#controls{
+  position: fixed; top: 0px; left: 1px;
+  background: #333;
+  display: inline;
+  padding-top: 10px;
+  margin-right: 2px;
+}
+
+.controls{
+  background: #333;
+}
+
+.controls ul{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.controls li{
+  display: inline;
+  padding-left: 5px;
+}
+
+#about_dox{
+  margin-top: 50px;
+  padding: 10px;
+  border-bottom: 2px solid black;
+  
+  /* to make round corners */
+  -moz-border-radius-topleft:2ex;
+  -moz-border-radius-topright:2ex;
+  -webkit-border-top-left-radius:2ex;
+  -webkit-border-top-right-radius:2ex;
+}
+
+.about_dox#title{
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.about_dox#author{
+  font-size: 12px;
+}
+
+.about_dox#info{
+  overflow: auto;
+}
+
+#screenie_area{
+  margin-top: 5px;
+  padding: 5px;
+  width: 60%;
+  height: 100%;
+  min-width: 500px;
+  overflow: auto;
+  border-bottom: 2px solid black;
+}
+
+#lessons_area{
+  padding: 5px;
+  width: 30%;
+  min-width: 300px;
+  overflow: auto;
+  border-bottom: 2px solid black;
+}
+
+

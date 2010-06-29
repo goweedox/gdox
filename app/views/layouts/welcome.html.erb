@@ -4,9 +4,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title> Welcome to Gowee Dox!</title>
+	<% if controller.action_name == 'login' %>
+		<% title = 'Gowee Dox : Log In' %>
+	<% elsif controller.action_name == 'signup' %>
+		<% title = 'Gowee Dox : Sign-Up' %>
+	<% else title = 'Welcome to Gowee Dox!' %>
+	<% end %>
+  <title> <%= title %> </title>
 
-  <%= stylesheet_link_tag 'doxlayout', 'welcome', 'scaffold', 'jquery.ui.all', 'custom-theme/jquery-ui-1.8.1.custom.css' %>
+  <%= stylesheet_link_tag 'extras','doxlayout', 'welcome', 'scaffold', 'jquery.ui.all', 'custom-theme/jquery-ui-1.8.1.custom.css' %>
   <%= javascript_include_tag "jquery-1.4.2", "ui/jquery.ui.core", "ui/jquery.ui.widget", "ui/jquery.ui.tabs"%>
   
 	<script type="text/javascript">

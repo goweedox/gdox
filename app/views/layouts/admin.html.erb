@@ -5,9 +5,14 @@
 <head>
 	<% @current = User.find(session[:user_id]) %>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Gowee Dox | <%=h @current.name %></title>
+
+	<% if controller.action_name == 'show_users' %>
+		<% title = 'USERS' %>
+	<% else title = @current.name %>
+	<% end %>
+  <title>Gowee Dox | <%= title %></title>
   
-  <%= stylesheet_link_tag 'doxlayout','gowee', 'scaffold', 'jquery.ui.all', 'custom-theme/jquery-ui-1.8.1.custom.css' %>
+  <%= stylesheet_link_tag 'extras','doxlayout','welcome', 'scaffold', 'jquery.ui.all', 'custom-theme/jquery-ui-1.8.1.custom.css' %>
   <%= javascript_include_tag "jquery-1.4.2", "ui/jquery.ui.core", "ui/jquery.ui.widget", "ui/jquery.ui.tabs"%>
   
 	<script type="text/javascript">

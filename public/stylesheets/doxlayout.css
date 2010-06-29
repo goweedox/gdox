@@ -17,8 +17,7 @@ body
 
 #footer
 {
-  /*border-top: 5px solid #11103c;*/
-  border: 3px solid #11103c;
+  /*border: 3px solid #11103c;*/
   background: #2a4f7e;
   width: 1114px;
   text-align: center;
@@ -34,10 +33,10 @@ body
   -webkit-border-top-left-radius:4ex;
   -webkit-border-top-right-radius:4ex;
 */ 
-  -moz-border-radius-bottomleft:2ex;
-  -moz-border-radius-bottomright:2ex;
-  -webkit-border-bottom-left-radius:2ex;  
-  -webkit-border-bottom-right-radius:2ex; 
+  -moz-border-radius-bottomleft:1ex;
+  -moz-border-radius-bottomright:1ex;
+  -webkit-border-bottom-left-radius:1ex;  
+  -webkit-border-bottom-right-radius:1ex; 
 }
 
 #top_wrap {
@@ -92,83 +91,13 @@ body
 
 /* Styles for flash message */
 #notice {
+  border: 2px solid red;
   padding-top: .3em;
   padding-bottom: .3em;
-  background: #fc4a6c;
+  background: #d29393;
   width: 700px;
   color: #fff;
   font: bold small sans-serif;
   text-align: center;
-
 }
 /* end */
-
-label {  
-   display: block;  
-   float: left;  
-   width: 100px;  
-   padding: 4px 5px;  
-   border: 2px solid #037;  
-   background: #06a;  
-   color: #fff;  
-   font-family: Verdana, sans-serif;   
-   font-size: 12px;  
-   margin-bottom: 5px;  
-   font-weight: bold;  
-   clear: both;  
-   text-align: right;   
-   
-  -moz-border-radius-topleft:1ex;
-  -moz-border-radius-bottomleft:1ex;
-  -webkit-border-top-left-radius:1ex;
-  -webkit-border-bottom-left-radius:1ex; 
-}
-   
-input {  
-   background: #fff;  
-   border: 2px solid #037;  
-   border-left: 0px;  
-   padding: 5px 5px;  
-   margin-top: 0;  
-   margin-bottom: 5px;  
-   margin-left: 0;
-   
-  -moz-border-radius-topright:1ex;
-  -moz-border-radius-bottomright:1ex;
-  -webkit-border-top-right-radius:1ex;
-  -webkit-border-bottom-right-radius:1ex; 
-}
-
-text_field {
-   background: #fff;  
-   border: 2px solid #037;  
-   border-left: 0px;  
-   padding: 5px 5px;  
-   margin-top: 0;  
-   margin-bottom: 5px;  
-   margin-left: 0;
-   
-  -moz-border-radius-topright:1ex;
-  -moz-border-radius-bottomright:1ex;
-  -webkit-border-top-right-radius:1ex;
-  -webkit-border-bottom-right-radius:1ex; 
-}
-   
-button {  
-   background: #06a;  
-   color: #fff;
-   border: 2px solid #037;  
-   font-size: 12px;  
-   font-weight: bold;  
-   margin-left: 0px;  
-   padding: 5px 10px; 
-   
-  -moz-border-radius-topleft:2ex;
-  -moz-border-radius-bottomleft:2ex;
-  -webkit-border-top-left-radius:2ex;
-  -webkit-border-bottom-left-radius:2ex; 
-  -moz-border-radius-topright:2ex;
-  -moz-border-radius-bottomright:2ex;
-  -webkit-border-top-right-radius:2ex;
-  -webkit-border-bottom-right-radius:2ex; 
-}

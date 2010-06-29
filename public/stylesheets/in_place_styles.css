@@ -7,13 +7,52 @@
 }
 .inplace_text_area{
 	height:100px;
+	float: left;
+	width: 800px;
+	
+	background: #fff;  
+	border: 2px solid #037;  
+	padding: 5px 5px;  
+	margin-top: 0;  
+	margin-bottom: 5px;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	   
+  -moz-border-radius-topright:1ex;
+  -moz-border-radius-bottomright:1ex;
+  -webkit-border-top-right-radius:1ex;
+  -webkit-border-bottom-right-radius:1ex;
+  -moz-border-radius-topleft:1ex;
+  -moz-border-radius-bottomleft:1ex;
+  -webkit-border-top-left-radius:1ex;
+  -webkit-border-bottom-left-radius:1ex;
 }
+
+.inplace input {  
+   background: #fff;  
+   border: 1px solid #037;  
+   padding: 5px 5px;  
+   margin-top: 0;  
+   margin-bottom: 5px;
+   font-family: verdana, arial, helvetica, sans-serif;
+   font-size: 13px;
+   
+  -moz-border-radius-topright:1ex;
+  -moz-border-radius-bottomright:1ex;
+  -webkit-border-top-right-radius:1ex;
+  -webkit-border-bottom-right-radius:1ex;
+  -moz-border-radius-topleft:1ex;
+  -moz-border-radius-bottomleft:1ex;
+  -webkit-border-top-left-radius:1ex;
+  -webkit-border-bottom-left-radius:1ex;
+}
+
 .inplace_submit{
 	width:30px;
 	font-size:11px;
 }
 .inplace_text_field{
-	width: 500px;
+	width: 800px;
 }
 .in_place_editor_form input{
 	float: left;
@@ -25,9 +64,11 @@
 	background:#fff;
 	width:207px !important;
 }
+
 .inplace_label{
 	font-weight: bold;
 }
+
 .inplace_div{
 	width:260px;
 	float: left;
@@ -57,6 +98,9 @@
 	height:25px;
 	margin-top:5px;
 	margin-left:10px;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 .inplace_checkbox{
@@ -75,7 +119,7 @@
 	display: block;
 	float: left;
 	width:auto;
-		margin:0 !important;
+	margin:0 !important;
 	margin-right:10px !important;
 	margin-top:0px !important;
 }
@@ -93,7 +137,7 @@ input.fieldWithError, select.fieldWithError, textarea.fieldWithError{
 	background:#FECFCD;
 	color:red;
 	border: 2px solid red;
-		margin-bottom:20px;
+	margin-bottom:20px;
 }
 
 #error_messages h2{
