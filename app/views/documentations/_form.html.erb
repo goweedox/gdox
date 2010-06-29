@@ -1,8 +1,10 @@
 <%= f.error_messages %>
 <%= f.hidden_field :user_id, :value=>"#{session[:user_id]}"%>
 <p>
-  <%= f.hidden_field :title, :value=> nil %>
+  <%= f.label :title %>
+  <%= f.text_field :title, :style=>'width: 300px;' %>
 </p>
 <p>
-  <%= f.hidden_field :description,  :value=> "Dox Description"%>
+  <%= f.label :description %>
+  <%= f.text_area :description, :style=>'width: 300px;' %>
 </p>

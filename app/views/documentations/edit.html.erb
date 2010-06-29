@@ -14,7 +14,7 @@
 		<br /><%= link_to 'Save', :controller => "documentations", :action => "#{@documentation.id}" %>
 	</div>
 
-	<div id="screenie_area" class="main_content">
+	<div id="screenie_area" class="content">
 		<div id="upload_panel" >
 			<% form_for @documentation, :html => { :multipart => true } do |f| %>
 				<%= add_screenshot(f) %><br/><br/>
@@ -26,7 +26,8 @@
 		<% end %>
 	</div>
 
-	<div id="lessons_area" class="main_content">
+	<div id="lessons_area" class="content">
+
 	<!--
 		<button id="bttn" onclick="addAnotation()">Clicky!</button>
 		<div id="draggable"><p>Drag me to hell</p></div>
@@ -34,4 +35,6 @@
 		<div id="droppable"><p>This is Hell</p></div>
 	-->
 	</div>
+	
+	<div style="clear:both;"></div>
 </div>

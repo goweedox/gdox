@@ -10,21 +10,28 @@
 		<% end %>
 	</div>
 
-	<div id="screenie_area" class="main_content">
+	<div id="screenie_area" class="content">
+	  		<!--div id="upload_panel" >
+			<% form_for @documentation, :html => { :multipart => true } do |f| %>
+				<%= add_screenshot(f) %><br/><br/>
+			<% end %>
+		</div-->
 		<% for screenshot in @documentation.screenshots %>
 			<%= image_tag screenshot.data.url(:original), :alt => "", :width => "785" %> <br /><br />
 		<% end %>
 	</div> 
 
-	<div id="lessons_area" class="main_content">
-		  <h5>Search for available lessons in Screensteps live:</h5>
-		    <form id="screenstepslive-search" action="">
-		      <p>
-		      <input type="text" id="screenstepslive-search-field" value="" name="text"></input>
-		      <input type="submit" value="Search">
-		      </p>
-		    </form>	
-		    <h3>Search Results</h3>
-		  <div id="search_results"></div>
+	<div id="lessons_area" class="content">
+    <h5>Search for available lessons in Screensteps live:</h5>
+    <form id="screenstepslive-search" action="">
+      <p>
+        <input type="text" id="screenstepslive-search-field" value="" name="text"></input>
+        <input type="submit" value="Search">
+      </p>
+    </form>	
+    <h3>Search Results</h3>
+    <div id="search_results"></div>
 	</div>
+	
+		<div style="clear:both;"></div>
 </div>
