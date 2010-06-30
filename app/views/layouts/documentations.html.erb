@@ -25,23 +25,31 @@
     jQuery.noConflict();
 	</script>
 
-  <script type="text/javascript" charset="utf-8">
-	  ScreenStepsLiveSearchOptions = {
-		  domain: "caresharing.screenstepslive.com",
-		  space: "helpdes",
-		  update_element: "search_results",
-		  username: "codrschool",
-		  password: "codrschool",
-		  use_ssl: false
-	  }
-
-	  jQuery(document).ready(function($) {
-		  jQuery('#screenstepslive-search').submit(function(e){
-			  e.preventDefault();
-			  search_string = jQuery('#screenstepslive-search input#screenstepslive-search-field').val();
-			  SearchScreenStepsLiveSpace(search_string);
-			})
-	  });
+  <script type="text/javascript" charset="utf-8">    
+    function getInfo() {
+    domain_name = document.screensteps_info.domain.value;
+    space_name = document.screensteps_info.space.value;
+    
+    //setting the domain name, space and username and password with api access
+    ScreenStepsLiveSearchOptions = {
+      domain: domain_name,
+      space: space_name,
+      update_element: "search_results",
+      username: "codrschool",
+      password: "codrschool",
+      use_ssl: false
+    }
+    
+    jQuery(document).ready(function($) {
+      jQuery('#screenstepslive-search').submit(function(e){
+	      e.preventDefault();
+	      search_string = jQuery('#screenstepslive-search input#screenstepslive-search-field').val();
+	      SearchScreenStepsLiveSpace(search_string);	
+        
+      })
+    });
+    <input type="text" id="screenstepslive-search-field" value="" name="text"></input>
+   }
   </script>
 
 	<script type="text/javascript" charset="utf-8">
