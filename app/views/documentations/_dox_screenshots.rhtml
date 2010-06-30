@@ -1,9 +1,19 @@
 <!--
-<button id="bttn" onclick="addAnotation()">Clicky!</button>
-<div id="draggable"><p>Drag me to hell</p></div>
-<div id="whitebox"></div>
-<div id="droppable"><p>This is Hell</p></div>
+<head>	
+	<script type="text/javascript">
+	$(function() {
+		$("#draggable").draggable();
+	});
+	</script>
+</head>
+
+<div class="demo">
+	<div id="draggable" class="ui-widget-content">
+		<p>Drag me around</p>
+	</div>
+</div>
 -->
+
 <% for screenshot in @documentation.screenshots %>
-  <%= image_tag screenshot.data.url(:original), :alt => "", :width => "785" %> <br /><br />
+	<%= image_tag screenshot.data.url(:original), :alt => "", :width => "785" %> <br /><br />
 <% end %>

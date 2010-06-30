@@ -1,9 +1,3 @@
-/* CONTENT FOR DOCUMENTATIONS (edit & show)
-  => control panel
-  => screenie area
-  => lessons area
-
-*/
 #controls{
   border: 2px solid gray;
   position: fixed; top: 10px; left: 5px;
@@ -47,7 +41,7 @@
   border-bottom: 2px solid black;
 }
 
-.about_dox#title{
+.about_dox#title {
   font-weight: bold;
   font-size: 20px;
   color: black;
@@ -56,7 +50,7 @@
   font-family: Arial;
 }
 
-.about_dox#author{
+.about_dox#author {
   font-size: 12px;
   text-shadow: 0px 1px 0px transparent;
   font-weight: normal;
@@ -87,4 +81,34 @@
   padding: 5px;
   width: 267px;
   overflow: auto;
+}
+
+#mode_button {
+  width: 50px;
+  border: .15em solid #40d0d4;
+  background: #abf2f2;
+  font: Arial;
+  font-size: 15px;
+  font-weight: normal;
+  color: black;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  text-align: center;
+  
+  -moz-border-radius-topleft:2ex;
+  -moz-border-radius-topright:2ex;
+  -webkit-border-top-left-radius:2ex;
+  -webkit-border-top-right-radius:2ex;
+  -moz-border-radius-bottomleft:2ex;
+  -moz-border-radius-bottomright:2ex;
+  -webkit-border-bottom-left-radius:2ex;  
+  -webkit-border-bottom-right-radius:2ex; 
+  
+  -moz-box-shadow: 1px 1px 4px gray;
+  -webkit-box-shadow: 1px 1px 4px gray;
+  box-shadow: 1px 1px 4px gray;
+}
+
+#mode_button:hover {
+  background: #96e4e4;
 }

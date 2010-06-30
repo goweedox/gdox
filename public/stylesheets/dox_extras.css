@@ -77,13 +77,13 @@ text_area {
   -webkit-border-bottom-left-radius:1ex;
 }
 
-   
-button {  
+.buttonTo {
    background: #06a;  
    color: #fff;
    border: 2px solid #037;  
    font-size: 12px;  
-   font-weight: bold;  
+   font-weight: bold;
+   text-shadow: 0px -1px 0px black;
    margin-left: 0px;  
    padding: 5px 10px; 
    
@@ -97,7 +97,6 @@ button {
   -webkit-border-bottom-right-radius:1ex; 
 }
 
-button:hover {
-  background-color: #2a4f7e;
-  color: black;
+.buttonTo:hover {
+  background: #3c6cb4; 
 }

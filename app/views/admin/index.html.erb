@@ -5,13 +5,17 @@
 		<li><a href="#tabs-2"><span>Available Dox</span></a></li>
 	</ul>
 	<div id="tabs-1">
+		<%= button_to "New Dox", new_documentation_path, {:class => "buttonTo" } %><br/>
 		<% @documentations.each do |documentation| %>
 			<% if (session[:user_id] == documentation.user_id) %>
-				<li><b><dt><%= link_to "#{documentation.title}", documentation %></dt></b></li>
-				<dd><%=h documentation.description %></dd>
-				<%= link_to 'Edit', :controller => "documentations", :id =>  "#{documentation.id}", :action => "edit" %> |
-				<%= link_to 'Delete', documentation, :confirm => 'Are you sure you want to delete this DOX? This cannot be undone.', :method => :delete %>
-				<br/><br/>
+				<div id="dox_list">
+					<b><dt><%= link_to "#{documentation.title}", documentation %></dt></b>
+					<%=h documentation.description %>
+					<div id="menu" class="dox_list">
+						<%= link_to 'Edit', :controller => "documentations", :id =>  "#{documentation.id}", :action => "edit" %> |
+						<%= link_to 'Delete', documentation, :confirm => 'Are you sure you want to delete this DOX? This cannot be undone.', :method => :delete %>
+					</div>
+				</div>
 				<% flag = true %>
 			<% end %>
 		<% end %>
@@ -19,18 +23,16 @@
 		<% if flag != true %>
 				<b>You don't have any Dox yet!</b>
 		<% end %>
-
-		<br /><br />
-		<%= button_to 'New Dox', new_documentation_path%>	
 	</div>
 
 	<div id="tabs-2">
 		<% @documentations.each do |documentation| %>
 			<% @creator = User.find(documentation.user_id) %>
-
-			<li><b><dt><%= link_to "#{documentation.title}", documentation %></dt></b></li>
-			<i>by: <%=h @creator.name %></i>
-			<dd><%=h truncate(documentation.description.gsub(/<.*?>/,''), :length => 150) %></dd><br />
+			<div id="dox_list">
+				<b><dt><%= link_to "#{documentation.title}", documentation %></dt></b>
+				<i>by: <%=h @creator.name %></i>
+				<dd><%=h truncate(documentation.description.gsub(/<.*?>/,''), :length => 150) %></dd><br />
+			</div>
 		<% end %>
 	</div>
 </div>

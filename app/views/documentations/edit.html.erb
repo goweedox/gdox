@@ -12,7 +12,7 @@
 		<% @creator = User.find(@documentation.user_id) %>
 		<div id="title" class="about_dox"> <%= in_place_text_field :documentation, 'title' %></div><br/>
 		<div id="info" class="about_dox"> <i><%= in_place_text_area :documentation, 'description' %></i> </div> 
-		<br /><%= link_to 'Save', :controller => "documentations", :action => "#{@documentation.id}" %>
+		<div id="mode_button"><%= link_to 'Save', :controller => "documentations", :action => "#{@documentation.id}" %></div>
 	</div>
 
 	<div id="screenie_area" class="content">

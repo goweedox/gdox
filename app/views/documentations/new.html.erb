@@ -5,7 +5,7 @@
     <h2>New documentation</h2>
       <% form_for @documentation, :html => { :multipart => true } do |f| %>
         <%= render :partial => 'form', :locals => {:f => f} %>                
-        <%= f.submit "Create" %>
+        <%= f.submit "Create", {:class => "buttonTo" }  %>
       <% end %>
 
       <%= link_to 'Back', documentations_path %>

@@ -16,7 +16,7 @@
   <%= javascript_include_tag 'screenstepslive.js', 'jquery-1.4.2.js', 'ui/jquery.ui.draggable.js', 'ui/jquery.ui.droppable.js', 'ui/jquery.ui.core.js', 'ui/jquery.ui.widget.js' %>
 
 	<style type="text/css">
-		#draggable {width: 100px; height: 100px; padding: 0.5em; float: left; margin: 0 10px 10px 0; background: #FFEE56 }
+		#draggable {width: 100px; height: 100px; padding: 0.5em; float: left; margin: 0 10px 10px 0; background: blue; }
 		#droppable {width: 500px; height: 500px; padding: 2em; float: right; margin: 0 10px 10px 0; background: #FF3333 }
 		#whitebox {width: 500px; height: 500px; padding: 2em; float: left; margin: 0 10px 10px 0; background: #FFFFFF}
 	</style>
@@ -51,17 +51,6 @@
     <input type="text" id="screenstepslive-search-field" value="" name="text"></input>
    }
   </script>
-
-	<script type="text/javascript" charset="utf-8">
-		$(function() {
-			$("#draggable").draggable();
-			$("#droppable").droppable({
-				drop: function(event,ui) {
-					$(this).find('p').html('Welcome...now burn!!!');
-				}
-			});
-		});
-	</script>
 </head>
 
 <body>

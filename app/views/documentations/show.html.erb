@@ -7,7 +7,7 @@
 	 
 		<div id="info" class="about_dox"> <i><%= @documentation.description %></i> </div> 
 		<% if @current.id == @documentation.user_id %>
-			<br/><%= link_to 'Edit', edit_documentation_path(@documentation) %>
+			<div id="mode_button"><%= link_to 'Edit', edit_documentation_path(@documentation) %></div>
 		<% end %>
 	</div>
 
@@ -20,9 +20,9 @@
 	  <fieldset>
 		  <legend>Screensteps live account info</legend> <br />
 		  <form name="screensteps_info" method="get">
-		    Domain: <input type="text" name="domain" id="domain" size=26/><br />
-		    Space : <input type="text" name="space" id="space" size=26/> <br /><br />
-		    <input type="button" value="Submit" onclick="getInfo()" />
+		    Domain <input type="text" name="domain" id="domain" size=26/><br />
+		    Space <input type="text" name="space" id="space" size=26/> <br /><br />
+		    <input type="button" value="Submit" onclick="getInfo()"/>
 		  </form>
     </fieldset>
   

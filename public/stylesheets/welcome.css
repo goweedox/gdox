@@ -43,8 +43,25 @@
 	-moz-box-shadow: 3px 3px 4px black;
 	-webkit-box-shadow: 3px 3px 4px black;
 	box-shadow: 3px 3px 4px black;
-	
+}
 
+#dox_list {
+  width: 800px;
+  background: transparent;
+  border-bottom: 1px solid gray;
+  border-left: 0px;
+  border-right: 0px;
+  width: 650px;
+  padding: 10px 10px 10px 10px;
+}
+
+#dox_list:hover {
+  background: #b9d6f4;
+}
+
+.dox_list#menu {
+  color: white;
+  text-shadow: 0px 1px 0px transparent;
 }
 
 /*Style for show_users*/
