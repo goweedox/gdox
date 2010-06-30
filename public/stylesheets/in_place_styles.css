@@ -8,52 +8,15 @@
 .inplace_text_area{
 	height:100px;
 	float: left;
-	width: 800px;
-	
+	width: 900px;
+	border: 2px solid white; 
 	background: #fff;  
-	border: 2px solid #037;  
 	padding: 5px 5px;  
-	margin-top: 0;  
+	margin-right: 5px;  
 	margin-bottom: 5px;
 	font-family: verdana, arial, helvetica, sans-serif;
 	font-size: 13px;
 	   
-  -moz-border-radius-topright:1ex;
-  -moz-border-radius-bottomright:1ex;
-  -webkit-border-top-right-radius:1ex;
-  -webkit-border-bottom-right-radius:1ex;
-  -moz-border-radius-topleft:1ex;
-  -moz-border-radius-bottomleft:1ex;
-  -webkit-border-top-left-radius:1ex;
-  -webkit-border-bottom-left-radius:1ex;
-}
-
-input {
-   background: #fff;  
-   border: 2px solid #037;  
-   padding: 5px 5px;  
-   margin-top: 0;  
-   margin-bottom: 5px;  
-   
-  -moz-border-radius-topright:1ex;
-  -moz-border-radius-bottomright:1ex;
-  -webkit-border-top-right-radius:1ex;
-  -webkit-border-bottom-right-radius:1ex;
-  -moz-border-radius-topleft:1ex;
-  -moz-border-radius-bottomleft:1ex;
-  -webkit-border-top-left-radius:1ex;
-  -webkit-border-bottom-left-radius:1ex; 
-}
-
-.inplace input {  
-   background: #fff;  
-   border: 1px solid #037;  
-   padding: 5px 5px;  
-   margin-top: 0;  
-   margin-bottom: 5px;
-   font-family: verdana, arial, helvetica, sans-serif;
-   font-size: 13px;
-   
   -moz-border-radius-topright:1ex;
   -moz-border-radius-bottomright:1ex;
   -webkit-border-top-right-radius:1ex;
@@ -69,13 +32,42 @@ input {
 	font-size:11px;
 }
 .inplace_text_field{
-	width: 800px;
+	width: 900px;
+	margin-right: 5px;
 }
+
 .in_place_editor_form input{
-	float: left;
+   float: left;
+   background: #fff;  
+   border: 2px solid white;  
+   padding: 3px 3px;  
+   margin-top: 0px;  
+   margin-bottom: 5px;   
+  -moz-border-radius-topright:1ex;
+  -moz-border-radius-bottomright:1ex;
+  -webkit-border-top-right-radius:1ex;
+  -webkit-border-bottom-right-radius:1ex;
+  -moz-border-radius-topleft:1ex;
+  -moz-border-radius-bottomleft:1ex;
+  -webkit-border-top-left-radius:1ex;
+  -webkit-border-bottom-left-radius:1ex; 
 }
+
 .in_place_editor_form a{
-	float: left;
+  float: left;
+  background: white;
+  margin-top: 0px; 
+  width: 65px;
+  padding: 1px 1px; 
+  
+  -moz-border-radius-topright: .4em;
+  -moz-border-radius-bottomright: .4em;
+  -webkit-border-top-right-radius: .4em;
+  -webkit-border-bottom-right-radius:.4em;
+  -moz-border-radius-topleft:.4em;
+  -moz-border-radius-bottomleft: .4em;
+  -webkit-border-top-left-radius: .4em;
+  -webkit-border-bottom-left-radius: .4em; 
 }
 .calendar_date_select{
 	background:#fff;

@@ -1,7 +1,8 @@
+<div id="content_container2">
 <div id="content_container">
 	<div id="about_dox">
 		<% @creator = User.find(@documentation.user_id) %>
-		<div id="title" class="about_dox"> <%= @documentation.title %> 	
+		<div id="title" class="about_dox"> <%= @documentation.title %>
 			<span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i> </span> </div><br/>
 	 
 		<div id="info" class="about_dox"> <i><%= @documentation.description %></i> </div> 
@@ -11,26 +12,19 @@
 	</div>
 
 	<div id="screenie_area" class="content">
-	  		<!--div id="upload_panel" >
-			<% form_for @documentation, :html => { :multipart => true } do |f| %>
-				<%= add_screenshot(f) %><br/><br/>
-			<% end %>
-		</div-->
-		<% for screenshot in @documentation.screenshots %>
-			<%= image_tag screenshot.data.url(:original), :alt => "", :width => "785" %> <br /><br />
-		<% end %>
+		<%= render :partial => 'dox_screenshots' %>  
 	</div> 
 
 	<div id="lessons_area" class="content">
 	
 	  <fieldset>
-    <legend>Screensteps live account info</legend> <br />
-    <form name="screensteps_info" method="get">
-      Domain: <input type="text" name="domain" id="domain" size=30/><br />
-      Space : <input type="text" name="space" id="space" size=30/> <br /><br />
-      <input type="button" value="Submit" onclick="getInfo()" />
-    </form>
-  </fieldset>
+		  <legend>Screensteps live account info</legend> <br />
+		  <form name="screensteps_info" method="get">
+		    Domain: <input type="text" name="domain" id="domain" size=26/><br />
+		    Space : <input type="text" name="space" id="space" size=26/> <br /><br />
+		    <input type="button" value="Submit" onclick="getInfo()" />
+		  </form>
+    </fieldset>
   
     <h5>Search for available lessons in Screensteps live:</h5>
     <form id="screenstepslive-search" action="">
@@ -44,4 +38,5 @@
 	</div>
 	
 		<div style="clear:both;"></div>
+</div>
 </div>

@@ -42,24 +42,31 @@
 }
 
 #about_dox{
-  background: white;
+  background: #92b7d3;
   padding: 10px;
   border-bottom: 2px solid black;
-
 }
 
 .about_dox#title{
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
+  color: black;
+  text-shadow: 0px 1px 0px #e1e1e8;
   line-height: 26px;
+  font-family: Arial;
 }
 
 .about_dox#author{
   font-size: 12px;
+  text-shadow: 0px 1px 0px transparent;
+  font-weight: normal;
 }
 
 .about_dox#info{
   overflow: auto;
+  min-height: 100px;
+  text-shadow: 0px .08em 0px #e1e1e8;
+  font-family: Arial;
 }
 
 .content{
@@ -73,7 +80,6 @@
   width: 810px;
   overflow: auto;
   border-right-style:solid;
-
 }
 
 #lessons_area{
@@ -81,8 +87,4 @@
   padding: 5px;
   width: 267px;
   overflow: auto;
-
 }
-
-
-
