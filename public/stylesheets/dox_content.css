@@ -3,18 +3,31 @@
   => screenie area
   => lessons area
 
-  dapat changed na ang name! 
 */
 #controls{
-  position: fixed; top: 0px; left: 1px;
-  background: #333;
+  border: 2px solid gray;
+  position: fixed; top: 10px; left: 5px;
+  background: transparent;
   display: inline;
   padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  padding-right: 8px;
   margin-right: 2px;
+  
+  -moz-border-radius-topleft:1ex;
+  -moz-border-radius-topright:1ex;
+  -webkit-border-top-left-radius:1ex;
+  -webkit-border-top-right-radius:1ex;
+  -moz-border-radius-bottomleft:1ex;
+  -moz-border-radius-bottomright:1ex;
+  -webkit-border-bottom-left-radius:1ex;  
+  -webkit-border-bottom-right-radius:1ex; 
 }
 
 .controls{
   background: #333;
+  height: auto;
 }
 
 .controls ul{
@@ -29,15 +42,10 @@
 }
 
 #about_dox{
-  margin-top: 50px;
+  background: white;
   padding: 10px;
   border-bottom: 2px solid black;
-  
-  /* to make round corners */
-  -moz-border-radius-topleft:2ex;
-  -moz-border-radius-topright:2ex;
-  -webkit-border-top-left-radius:2ex;
-  -webkit-border-top-right-radius:2ex;
+
 }
 
 .about_dox#title{
@@ -54,22 +62,27 @@
   overflow: auto;
 }
 
+.content{
+  float: left;
+  min-height: 500px;
+}
+
 #screenie_area{
-  margin-top: 5px;
+  background: white;
   padding: 5px;
-  width: 60%;
-  height: 100%;
-  min-width: 500px;
+  width: 810px;
   overflow: auto;
-  border-bottom: 2px solid black;
+  border-right-style:solid;
+
 }
 
 #lessons_area{
+  background: transparent;
   padding: 5px;
-  width: 30%;
-  min-width: 300px;
+  width: 267px;
   overflow: auto;
-  border-bottom: 2px solid black;
+
 }
+
 
 

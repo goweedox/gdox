@@ -2,32 +2,46 @@
   => HEADER
   => CONTAINER
   => FOOTER
-  
-
-  dapat changed na ang name! 
 */
 
 a:link {text-decoration:none; color: #fff;}
 a:visited {text-decoration:none; color: #fff;}
 a:hover {text-decoration:underline;}
 a:active {text-decoration:none;}
+html {
+  background:url("/images/html_bg.png") repeat-x scroll 0 0 #5F5F5F;
+  overflow-y:scroll;
+}
+
+#header_wrapper {
+  position: fixed; top: 0px;
+  background:url("/images/html_bg.png") repeat-x scroll 0 0 #5F5F5F;
+  width: 100%;
+  height: 500px;
+  margin: 0px;
+  height: 80px; 
+  min-width: 800px;
+  border-bottom: 4px solid gray;
+}
 
 #header{
   position: fixed; top: 0px;
-  background: #333;
+  background: url("/images/body_bg.jpg") no-repeat scroll center top transparent;
   width: 100%;
-  padding: 0px;
+  height: 500px;
   margin: 0px;
-  height: 50px; 
+  height: 80px; 
   min-width: 800px;
+  border-bottom: 4px solid gray;
 }
 
 #menu{
   position: fixed; top: 0px; right: 0px;
-  background: #333;
-  padding: 0px;
+  background:transparent;
+  padding-left: 10px;
   margin-top: 7px;
   margin-right: 10px;
+  height: 70px;
 }
 
 .menu ul{
@@ -45,35 +59,28 @@ a:active {text-decoration:none;}
 
 #container{
   width: 100%;
-  background: transparent;
+  background: white;
 }
 
-#content 
-{
-  min-width: 800px;
-  max-width: 100%;
-  padding: 20px;
-
-}
-
-#content a:link, 
-#content a:visited { 
- color: #333;  
-} 
-
-.main_content{
-  display: inline-block;
+#content_container {
+  width: 1100px;
+  background: #D6D6D6;
+  margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
 }
 
+#content_container a:link, 
+#content_container a:visited { 
+ color: #333;  
+} 
+
 #footer{
   text-align: center;
-  background: transparent;
-  color: black;
+  background:transparent;
+  border-top: 4px solid gray;
   padding-top: 7px;
   width: 100%;
-  height: 70px;
-
+  height: 50px;
+  
 }
-

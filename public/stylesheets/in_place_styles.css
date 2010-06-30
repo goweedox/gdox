@@ -28,6 +28,23 @@
   -webkit-border-bottom-left-radius:1ex;
 }
 
+input {
+   background: #fff;  
+   border: 2px solid #037;  
+   padding: 5px 5px;  
+   margin-top: 0;  
+   margin-bottom: 5px;  
+   
+  -moz-border-radius-topright:1ex;
+  -moz-border-radius-bottomright:1ex;
+  -webkit-border-top-right-radius:1ex;
+  -webkit-border-bottom-right-radius:1ex;
+  -moz-border-radius-topleft:1ex;
+  -moz-border-radius-bottomleft:1ex;
+  -webkit-border-top-left-radius:1ex;
+  -webkit-border-bottom-left-radius:1ex; 
+}
+
 .inplace input {  
    background: #fff;  
    border: 1px solid #037;  

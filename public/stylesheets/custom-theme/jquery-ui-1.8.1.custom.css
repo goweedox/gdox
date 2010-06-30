@@ -50,9 +50,9 @@
 .ui-widget { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1.1em; }
 .ui-widget .ui-widget { font-size: 1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1em; }
-.ui-widget-content { border: 1px solid #6299c0; background: #eff1f1 url(images/ui-bg_flat_100_eff1f1_40x100.png) 50% 50% repeat-x; color: #222222; }
+.ui-widget-content { border: transparent; background: transparent; color: #222222; }
 .ui-widget-content a { color: #222222; }
-.ui-widget-header { border: 1px solid #4297d7; background: #5c9ccc url(images/ui-bg_inset-hard_55_5c9ccc_1x100.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
+.ui-widget-header { border: 2px solid #4297d7; border-top: 0px; border-right: 0px; border-left: 0px; background: transparent; color: #ffffff; font-weight: bold; }
 .ui-widget-header a { color: #ffffff; }
 
 /* Interaction states

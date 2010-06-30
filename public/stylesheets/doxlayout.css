@@ -3,10 +3,15 @@ a:visited {text-decoration:none; color: #fff;}
 a:hover {text-decoration:underline;}
 a:active {text-decoration:none;}
 
+html {
+  background:url("/images/html_bg.png") repeat-x scroll 0 0 #5F5F5F;
+  overflow-y:scroll;
+}
+
 body
 {
-  
-  background: url("/images/fade.jpg") repeat-x scroll 0 0 white;
+  /*background: url("/images/fade.jpg") repeat-x scroll 0 0 white;*/
+  background:url("/images/body_bg.jpg") no-repeat scroll center top transparent;
   margin:0;
   padding:0; 
   color: #fff;

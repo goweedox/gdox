@@ -3,36 +3,38 @@
 </head>
 
 <div id="controls" class="controls">
-  <ul>
-    <li> <%= image_tag("controls/controls.png", :border=>0) %> </li>
-    <li> <%= image_tag("controls/add.png", :border=>0) %></li>
-    <li> <%= image_tag("controls/delete.png", :border=>0) %></li>
-    <li> <%= image_tag("controls/screenie.png", :border=>0) %></li>
-    <li> <a onclick="Effect.BlindDown('upload_panel'); return false;" href="#"> <%= link_to image_tag("controls/up.png", :border=>0) %> </a></li>
-    <li> <%= link_to image_tag("controls/view.png", :border=>0), :controller => "documentations", :action => "#{@documentation.id}" %> </li>
-  </ul>
+  <%= render  :partial=> 'shared/headerEdit' %>
 </div>
 
-<div id="about_dox">
-	<% @creator = User.find(@documentation.user_id) %>
-	<div id="title" class="about_dox"> <%= in_place_text_field :documentation, 'title' %> 	
-	  <span id="author" class="about_dox"><i> &nbsp; by <%=h @creator.name %></i></span> </div>
-	<div id="info" class="about_dox"> <i><%= in_place_text_area :documentation, 'description' %></i> </div> 
-	<br /><%= link_to 'Save', :controller => "documentations", :action => "#{@documentation.id}" %>
-</div>
+<div id="content_container">
+	<div id="about_dox">
+		<% @creator = User.find(@documentation.user_id) %>
+		<div id="title" class="about_dox"> <%= in_place_text_field :documentation, 'title' %></div><br/>
+		<div id="info" class="about_dox"> <i><%= in_place_text_area :documentation, 'description' %></i> </div> 
+		<br /><%= link_to 'Save', :controller => "documentations", :action => "#{@documentation.id}" %>
+	</div>
 
-<div id="screenie_area" class="main_content">
-	<div id="upload_panel" >
-		<% form_for @documentation, :html => { :multipart => true } do |f| %>
-			<%= add_screenshot(f) %><br/><br/>
+	<div id="screenie_area" class="content">
+		<div id="upload_panel" >
+			<% form_for @documentation, :html => { :multipart => true } do |f| %>
+				<%= add_screenshot(f) %><br/><br/>
+			<% end %>
+		</div>
+
+		<% for screenshot in @documentation.screenshots %>
+			<%= image_tag screenshot.data.url(:original), :alt => "", :width => "785" %> <br /><br />
 		<% end %>
 	</div>
 
-	<% for screenshot in @documentation.screenshots %>
-		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "785" %> <br /><br />
-	<% end %>
-</div>
+	<div id="lessons_area" class="content">
 
-<div id="lessons_area" class="main_content">
-
+	<!--
+		<button id="bttn" onclick="addAnotation()">Clicky!</button>
+		<div id="draggable"><p>Drag me to hell</p></div>
+		<div id="whitebox"></div>
+		<div id="droppable"><p>This is Hell</p></div>
+	-->
+	</div>
+	
+	<div style="clear:both;"></div>
 </div>
