@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta charset=UTF-8" />
   <% if controller.action_name == 'edit' %>
 	  <% title = 'Edit Mode' %>
   <% elsif controller.action_name == 'show' %>
@@ -13,16 +13,24 @@
 
 	<%= javascript_include_tag :defaults %>
   <%= stylesheet_link_tag 'scaffold', 'dox_layout', 'dox_content', 'dox_extras'%>
-  <%= javascript_include_tag 'screenstepslive.js', 'jquery-1.4.2.js', 'ui/jquery.ui.draggable.js', 'ui/jquery.ui.droppable.js', 'ui/jquery.ui.core.js', 'ui/jquery.ui.widget.js' %>
+  <%= javascript_include_tag 'screenstepslive.js', 'jquery-1.4.2.js', 'ui/jquery.ui.core.js', 'ui/jquery.ui.widget.js', 'ui/jquery.ui.mouse.js','ui/jquery.ui.draggable.js', 'ui/jquery.ui.droppable.js' %>
 
-	<style type="text/css">
-		#draggable {width: 100px; height: 100px; padding: 0.5em; float: left; margin: 0 10px 10px 0; background: blue; }
-		#droppable {width: 500px; height: 500px; padding: 2em; float: right; margin: 0 10px 10px 0; background: #FF3333 }
-		#whitebox {width: 500px; height: 500px; padding: 2em; float: left; margin: 0 10px 10px 0; background: #FFFFFF}
+
+		<style type="text/css">
+	#draggable { background: red; width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+	#droppable { background: blue; width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
 	</style>
+	<script type="text/javascript">
 
-  <script>
-    jQuery.noConflict();
+	$(function() {
+		$("#draggable").draggable();
+		$("#screenie_area").droppable({
+			drop: function(event, ui) {
+				$(this).addClass('ui-state-highlight').find('p').html('Dropped!');
+			}
+		});
+
+	});
 	</script>
 
   <script type="text/javascript" charset="utf-8">    
