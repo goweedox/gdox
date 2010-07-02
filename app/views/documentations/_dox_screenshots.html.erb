@@ -1,0 +1,54 @@
+<head>
+	<script>
+	$(document).ready(function(){
+		$('#dox_scr1').addAnnotations(blackNote, $('#scr1 span.note').seralizeAnnotations());
+		$('#dox_scr2').addAnnotations(blackNote, $('#scr2 span.note').seralizeAnnotations());
+		$('#dox_scr3').addAnnotations(blackNote, $('#scr3 span.note').seralizeAnnotations());
+		$('#dox_scr4').addAnnotations(blackNote, $('#scr4 span.note').seralizeAnnotations());
+		$('#dox_scr5').addAnnotations(blackNote, $('#scr5 span.note').seralizeAnnotations());
+	});
+	</script>
+</head>
+
+
+
+<%
+	flag1 = true
+	flag2 = true
+	flag3 = true
+	flag4 = true
+	flag5 = true
+%>
+
+<% for screenshot in @documentation.screenshots %>
+	<% if flag1 %>
+		<div id="dox_scr1">
+		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
+		</div>
+		<% flag1 = false %>
+	
+	<%elsif flag2 %>
+		<div id="dox_scr2">
+		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
+		</div>
+		<% flag2 = false %>
+
+	<%elsif flag3 %>
+		<div id="dox_scr3">
+		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
+		</div>
+		<% flag3 = false %>
+	
+	<%elsif flag4 %>
+		<div id="dox_scr4">
+		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
+		</div>
+		<% flag4 = false %>
+
+	<%elsif flag5 %>
+		<div id="dox_scr5">
+		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
+		</div>
+		<% flag5 = false %>
+	<% end %>
+<% end %>

@@ -1,5 +1,6 @@
 <head>
 	<%= stylesheet_link_tag 'in_place_styles' %>
+	</script>
 </head>
 
 <div id="controls" class="controls">
@@ -17,17 +18,15 @@
 	</div>
 
 	<div id="screenie_area" class="content">
-		<div id="upload_panel" >
+		<div id="upload_panel">
 			<% form_for @documentation, :html => { :multipart => true } do |f| %>
 				<%= add_screenshot(f) %><br/><br/>
 			<% end %>
 		</div>
-<!--
-		<div id="draggable" class="ui-widget-content">
-		<p>Drag me to my target</p>
-		</div>
--->
-		<%= render :partial => 'dox_screenshots' %>     
+
+    <div id="drag"><%= image_tag("controls/add.png", :border=>0) %></div>
+
+		<%= render :partial => 'anno_screenshots' %>     
 	</div>
 
 	<div id="lessons_area" class="content">

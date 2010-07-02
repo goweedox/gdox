@@ -100,3 +100,34 @@ text_area {
 .buttonTo:hover {
   background: #3c6cb4; 
 }
+
+#demo {
+ width: 500px;
+ height: 500px;
+}
+
+#draggable { 
+  background: red;
+  border: 2px solid black;
+  width: 50px;
+  height: 50px;
+  padding: 0.5em;
+  float: left;
+  margin: 10px 10px 10px 0;
+  font-weight: 8px;
+  text-align: center;
+}
+
+#drag {
+  background: transparent;
+}
+	
+#droppable { 
+  background: white;
+  border: 2px solid black;
+  width: 150px;
+  padding: 0.5em;
+  float: left;
+  margin: 10px;
+  overflow: auto;
+}

@@ -11,14 +11,30 @@
 	<% else title = @current.name %>
 	<% end %>
   <title>Gowee Dox | <%= title %></title>
+	<link rel="icon" href="/images/icon.png" type="image/x-icon">
   
-  <%= stylesheet_link_tag 'dox_extras','doxlayout','welcome', 'scaffold', 'jquery.ui.all', 'custom-theme/jquery-ui-1.8.2.custom.css' %>
-  <%= javascript_include_tag "jquery-1.4.2", "ui/jquery.ui.core", "ui/jquery.ui.widget", "ui/jquery.ui.tabs"%>
+  <%= stylesheet_link_tag 'dox_extras','doxlayout','welcome', 'scaffold', 'custom-theme/jquery-ui-1.8.2.custom' %>
+  <%= javascript_include_tag 'jquery-1.4.2.js', 'ui/jquery.ui.widget', 'ui/jquery.ui.tabs' %>
   
+
 	<script type="text/javascript">
 	$(function() {
 		$('#tabs').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'normal' });
-	});
+/* This part adds a dialog box
+		var $dialog = $('<div></div>')
+			.html('This dialog will show every time!')
+			.dialog({
+				autoOpen: false,
+				title: 'Basic Dialog'
+			});
+
+		$('#opener').click(function() {
+			$dialog.dialog('open');
+			// prevent the default action, e.g., following a link
+			return false;
+		});
+*/
+	});	
 	</script>
 
 </head>

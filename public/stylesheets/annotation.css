@@ -1,0 +1,77 @@
+#nutmeg, #smallNutmeg, #numberedNutmeg, #labeledNutmeg { 
+  position: relative; 
+  cursor: pointer; 
+  width: 100%;
+}
+
+#scr1, #scr2, #scr3, #scr4, #scr5 { 
+  position: relative; 
+  cursor: pointer; 
+  width: 100%;
+}
+
+#dox_scr1, #dox_scr2, #dox_scr3, #dox_scr4, #dox_scr5 { 
+  position: relative; 
+  cursor: pointer; 
+  width: 100%;
+}
+
+#nutmeg { 
+  cursor: pointer;
+}
+
+#smallNutmeg { 
+	width: 200px; 
+}
+
+span.sparkle { 
+	background: url(/images/playground/gold-unicorn.gif) no-repeat; 
+	width: 136px; 
+	height: 161px; 
+}
+
+#serializedOutput span.wrap { 
+	padding: 10px;
+	width: 100%;
+	height: 100%;
+}
+
+div.highlight { 
+	margin-bottom: 18px; 
+}
+
+/* Note styles */
+span.note { 
+	display: block; 
+	position: absolute; 
+	top: -2px; 
+	left: 0; 
+	z-index: 10; 
+	background: url(/playground/awesome-overlays/notes-bg.png) no-repeat 0 0; 
+	width: 25px; 
+	height: 25px; 
+	font-size: 12px; 
+	font-weight: bold; 
+	line-height: 25px; 
+	letter-spacing: -1px; 
+	text-align: center; 
+	color: #fff; 
+	text-decoration: none; 
+	text-shadow: 0 1px 1px rgba(0,0,0,.15); 
+}
+
+span.note.black { 
+	background-position: -150px 0; 
+}
+
+span.set-label {
+	display: block; 
+	width: 69px; 
+	height: 34px; 
+	background: url(/images/arrow_label.png) no-repeat; 
+	position: absolute;
+}
+
+span.wrap { 
+	padding: 10px; 
+}

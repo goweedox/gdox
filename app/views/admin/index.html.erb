@@ -5,6 +5,9 @@
 		<li><a href="#tabs-2"><span>Available Dox</span></a></li>
 	</ul>
 	<div id="tabs-1">
+<!--
+		<button id="opener">Open the dialog</button>
+-->
 		<%= button_to "New Dox", new_documentation_path, {:class => "buttonTo" } %><br/>
 		<% @documentations.each do |documentation| %>
 			<% if (session[:user_id] == documentation.user_id) %>

@@ -2,7 +2,7 @@ module DocumentationsHelper
 	def add_screenshot(form_builder)
 		button_to_function "Add Screenshot", :id  => "add_screenshot", :class => "buttonTo" do |page|
 		  form_builder.fields_for :screenshots, Screenshot.new, :child_index => 'NEW_RECORD' do |screenshot_form|
-		    html = render(:partial => 'screenshot', :locals => { :f => screenshot_form })
+		    html = render(:partial => 'add_screenshot', :locals => { :f => screenshot_form })
 		    page << "$('add_screenshot').insert({ before: '#{escape_javascript(html)}'.replace(/NEW_RECORD/g, new Date().getTime()) });"
 		  end
 		end
