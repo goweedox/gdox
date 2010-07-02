@@ -15,13 +15,17 @@
   <%= stylesheet_link_tag 'scaffold', 'dox_layout', 'dox_content', 'dox_extras'%>
   <%= javascript_include_tag 'screenstepslive.js', 'jquery-1.4.2.js', 'ui/jquery.ui.core.js', 'ui/jquery.ui.widget.js', 'ui/jquery.ui.mouse.js','ui/jquery.ui.draggable.js', 'ui/jquery.ui.droppable.js' %>
 
-
-		<style type="text/css">
-	#draggable { background: red; width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
-	#droppable { background: blue; width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+	<style type="text/css">
+		#draggable { background: red; width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+		#droppable { background: blue; width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
 	</style>
-	<script type="text/javascript">
 
+	<script>
+			jQuery.noConflict();
+	</script>
+
+<!--
+	<script type="text/javascript">
 	$(function() {
 		$("#draggable").draggable();
 		$("#screenie_area").droppable({
@@ -32,7 +36,8 @@
 
 	});
 	</script>
-
+-->
+ 
   <script type="text/javascript" charset="utf-8">    
     function getInfo() {
     domain_name = document.screensteps_info.domain.value;
