@@ -13,13 +13,20 @@
   <title>Gowee Dox | <%= title %></title>
 	<link rel="icon" href="/images/icon.png" type="image/x-icon">
   
-  <%= stylesheet_link_tag 'dox_extras','doxlayout','welcome', 'scaffold', 'custom-theme/jquery-ui-1.8.2.custom' %>
+  <%= stylesheet_link_tag 'dox_extras','doxlayout','welcome', 'scaffold', 'custom-theme/jquery-ui-1.8.2.custom', 'style' %>
   <%= javascript_include_tag 'jquery-1.4.2.js', 'ui/jquery.ui.widget', 'ui/jquery.ui.tabs' %>
+	<%= javascript_include_tag 'jquery-1.4.2.js' %>
+	<%= javascript_include_tag 'jquery-spasticNav.js', 'jquery-ui.min.js' %>
   
 
 	<script type="text/javascript">
-	$(function() {
-		$('#tabs').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'normal' });
+	var j = jQuery.noConflict();
+	j(document).ready(function(){
+
+		//codes for nav
+		j('#nav').spasticNav();
+
+		j('#tabs').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'normal' });
 /* This part adds a dialog box
 		var $dialog = $('<div></div>')
 			.html('This dialog will show every time!')
@@ -40,6 +47,7 @@
 </head>
 	
 <body>
+<!--
 	<div id="top_wrap">
 		<div id="always_top">
 			<%= link_to 'Home', :controller => 'admin', :action => 'index' %>  |
@@ -47,8 +55,15 @@
 	    <%= link_to 'Logout', :controller => 'admin', :action => 'logout' %> 
 		</div>
 	</div>
+-->
 	<div id="header">	
 	  <div id="menu" class="menu">
+			<ul id="nav">
+				<li id="selected"><A><%= link_to 'Home', :controller => 'admin', :action => 'index' %></A></li>
+				<li><A><%= link_to'Users', :controller => 'admin', :action => 'show_users' %></A></li>
+				<li><A><%= link_to 'Logout', :controller => 'admin', :action => 'logout' %></A></li>
+			</ul>
+
 	    <ul>
         <li> <%= link_to image_tag("gdox.png", :border=>0), :action => 'admin', :action => 'index' %></li>
 	    </ul>

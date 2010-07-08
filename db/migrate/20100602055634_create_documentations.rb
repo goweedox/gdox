@@ -6,6 +6,7 @@ class CreateDocumentations < ActiveRecord::Migration
       t.integer :user_id, :null => false
       t.string :title
       t.text :description
+
       t.timestamps
     end
     #execute "alter table users add column documentation_id int after id;"

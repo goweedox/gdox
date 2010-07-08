@@ -13,29 +13,64 @@
 -->
 <head>
 	<script>
-	$(document).ready(function(){
-			$.each($('#scr1 span.note').seralizeAnnotations(), function(){
-				$('#serializedOutput ul').append($(document.createElement('li')).html('<strong>x:</strong> ' + this.x + ' <strong>y:</strong> ' + this.y + ' <strong>response_time:</strong> ' + this.response_time + 'ms'));
+	var j = jQuery.noConflict();
+	j(document).ready(function(){
+
+		j('.set-label').draggable();
+		
+		num1 = 0.3875
+		num2 = 0.3857
+		j('#scr1').addAnnotations(function(annotation){
+			return j(document.createElement('span')).
+				addClass('set-label').html(annotation.position);
+		},[
+				{x: num1, y: num2, position: 4}, 
+				{x: .57, y: .329, position: 2}
+			]
+		);
+
+		j('#show_coords').click(function(event){
+			event.preventDefault();
+	
+			j('#lessons_area').empty();
+			j.each(j('#scr1 span.set-label').seralizeAnnotations(), function(){
+				j('#lessons_area').append(j(document.createElement('li')).html('<strong>x:</strong> ' + this.x + '<br/> <strong>y:</strong> ' + this.y + '<br/> <strong>response_time:</strong> ' + this.response_time + 'ms' +'<br/><br/>'
+				));
+			});
+		});
+
+		j('#save_coords').click(function(event){
+			event.preventDefault();
+
+			j('#lessons_area').empty();
+			j.each(j('#scr1 span.set-label').seralizeAnnotations(), function(){
+				j('#lessons_area').append(j(document.createElement('li')).html('<strong>x:</strong> ' + this.x + '<br/> <strong>y:</strong> ' + this.y + '<br/> <strong>response_time:</strong> ' + this.response_time + 'ms' + '<br/><br/>'
+				));
+			});
+		});
+
+/*
+			j.each(j('#scr2 span.note').seralizeAnnotations(), function(){
+				j('#serializedOutput ul').append(j(document.createElement('li')).html('<strong>x:</strong> ' + this.x + ' <strong>y:</strong> ' + this.y + ' <strong>response_time:</strong> ' + this.response_time + 'ms'));
 			});
 
-			$.each($('#scr2 span.note').seralizeAnnotations(), function(){
-				$('#serializedOutput ul').append($(document.createElement('li')).html('<strong>x:</strong> ' + this.x + ' <strong>y:</strong> ' + this.y + ' <strong>response_time:</strong> ' + this.response_time + 'ms'));
+			j.each(j('#scr3 span.note').seralizeAnnotations(), function(){
+				j('#serializedOutput ul').append(j(document.createElement('li')).html('<strong>x:</strong> ' + this.x + ' <strong>y:</strong> ' + this.y + ' <strong>response_time:</strong> ' + this.response_time + 'ms'));
 			});
 
-			$.each($('#scr3 span.note').seralizeAnnotations(), function(){
-				$('#serializedOutput ul').append($(document.createElement('li')).html('<strong>x:</strong> ' + this.x + ' <strong>y:</strong> ' + this.y + ' <strong>response_time:</strong> ' + this.response_time + 'ms'));
+			j.each(j('#scr4 span.note').seralizeAnnotations(), function(){
+				j('#serializedOutput ul').append(j(document.createElement('li')).html('<strong>x:</strong> ' + this.x + ' <strong>y:</strong> ' + this.y + ' <strong>response_time:</strong> ' + this.response_time + 'ms'));
 			});
 
-			$.each($('#scr4 span.note').seralizeAnnotations(), function(){
-				$('#serializedOutput ul').append($(document.createElement('li')).html('<strong>x:</strong> ' + this.x + ' <strong>y:</strong> ' + this.y + ' <strong>response_time:</strong> ' + this.response_time + 'ms'));
-			});
-
-			$.each($('#scr5 span.note').seralizeAnnotations(), function(){
-				$('#serializedOutput ul').append($(document.createElement('li')).html('<strong>x:</strong> ' + this.x + ' <strong>y:</strong> ' + this.y + ' <strong>response_time:</strong> ' + this.response_time + 'ms'));
-			});
+			j.each(j('#scr5 span.note').seralizeAnnotations(), function(){
+				j('#serializedOutput ul').append(j(document.createElement('li')).html('<strong>x:</strong> ' + this.x + ' <strong>y:</strong> ' + this.y + ' <strong>response_time:</strong> ' + this.response_time + 'ms'));
+*/
 	});
 	</script>
 </head>
+
+<button id="show_coords"> Show Coords </button>
+<button id="save_coords"> Show</button> <br/><br/>
 
 <%
 	flag1 = true
@@ -45,13 +80,15 @@
 	flag5 = true
 %>
 
+
+
 <% for screenshot in @documentation.screenshots %>
 	<% if flag1 %>
 		<div id="scr1">
 		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
 		</div>
 		<% flag1 = false %>
-	
+
 	<%elsif flag2 %>
 		<div id="scr2">
 		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
@@ -63,7 +100,7 @@
 		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
 		</div>
 		<% flag3 = false %>
-	
+
 	<%elsif flag4 %>
 		<div id="scr4">
 		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>

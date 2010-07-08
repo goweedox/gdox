@@ -120,6 +120,8 @@ text_area {
 
 #drag {
   background: transparent;
+  cursor: move;
+  z-index: 1;
 }
 	
 #droppable { 
@@ -130,4 +132,27 @@ text_area {
   float: left;
   margin: 10px;
   overflow: auto;
+}
+
+button {  
+   background: #06a;  
+   color: #fff;
+   border: 2px solid #037;  
+   font-size: 12px;  
+   font-weight: bold;  
+   margin-left: 0px;  
+   padding: 5px 10px; 
+   
+  -moz-border-radius-topleft:1ex;
+  -moz-border-radius-bottomleft:1ex;
+  -webkit-border-top-left-radius:1ex;
+  -webkit-border-bottom-left-radius:1ex; 
+  -moz-border-radius-topright:1ex;
+  -moz-border-radius-bottomright:1ex;
+  -webkit-border-top-right-radius:1ex;
+  -webkit-border-bottom-right-radius:1ex; 
+}
+
+button:hover {
+  background-color: #3c6cb4;
 }

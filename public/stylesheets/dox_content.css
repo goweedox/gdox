@@ -8,6 +8,7 @@
   padding-left: 0px;
   padding-right: 8px;
   margin-right: 2px;
+  z-index: 5;
   
   -moz-border-radius-topleft:1ex;
   -moz-border-radius-topright:1ex;

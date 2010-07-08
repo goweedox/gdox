@@ -48,3 +48,49 @@ pre {
   font-size: 12px;
   list-style: square;
 }
+
+#dox_list {
+  width: 800px;
+  background: transparent;
+  border-bottom: 1px solid gray;
+  border-left: 0px;
+  border-right: 0px;
+  width: 650px;
+  padding: 10px 10px 10px 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#dox_list:hover {
+  background: #b9d6f4;
+}
+
+.dox_list#menu {
+  color: white;
+  text-shadow: 0px 1px 0px transparent;
+}
+
+#all_dox2 {
+  width: 1100px;
+  background: #92b7d3;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  -moz-box-shadow: 3px 3px 4px gray;
+  -webkit-box-shadow: 3px 3px 4px gray;
+  box-shadow: 3px 3px 4px gray;
+  
+}
+
+#all_dox {
+  width: 1100px;
+  background: #92b7d3;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  -moz-box-shadow: -3px 3px 4px gray;
+  -webkit-box-shadow: -3px 3px 4px gray;
+  box-shadow: -3px 3px 4px gray;
+}

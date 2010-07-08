@@ -5,14 +5,14 @@
 }
 
 #scr1, #scr2, #scr3, #scr4, #scr5 { 
-  position: relative; 
-  cursor: pointer; 
+  position: relative;
+  cursor: pointer;
   width: 100%;
 }
 
 #dox_scr1, #dox_scr2, #dox_scr3, #dox_scr4, #dox_scr5 { 
   position: relative; 
-  cursor: pointer; 
+  cursor: default; 
   width: 100%;
 }
 
@@ -46,8 +46,7 @@ span.note {
 	position: absolute; 
 	top: -2px; 
 	left: 0; 
-	z-index: 10; 
-	background: url(/playground/awesome-overlays/notes-bg.png) no-repeat 0 0; 
+	background: url(/images/notes-bg.png) no-repeat 0 0; 
 	width: 25px; 
 	height: 25px; 
 	font-size: 12px; 
@@ -65,13 +64,23 @@ span.note.black {
 }
 
 span.set-label {
-	display: block; 
-	width: 69px; 
-	height: 34px; 
-	background: url(/images/arrow_label.png) no-repeat; 
+	display: block;
+	width: 69px;
+	height: 34px;
+	background: url(/images/arrow_label.png) no-repeat;
 	position: absolute;
+	cursor: move;
+}
+
+span.set-bubble {
+	display: block;
+	width: 28px;
+	height: 40px;
+	background: url(/images/bubble.png) no-repeat;
+	position: absolute;
+	cursor: move;
 }
 
 span.wrap { 
-	padding: 10px; 
+	padding: 10px;
 }

@@ -9,12 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100618085147) do
+ActiveRecord::Schema.define(:version => 20100708181513) do
 
   create_table "annotations", :force => true do |t|
-    t.integer  "loc_x",      :null => false
-    t.integer  "loc_y",      :null => false
-    t.integer  "screen_id",  :null => false
+    t.float    "x_coord"
+    t.float    "y_coord"
+    t.integer  "response_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(:version => 20100618085147) do
     t.integer  "user_id",     :null => false
     t.string   "title"
     t.text     "description"
-    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20100618085147) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "url"
   end
 
   create_table "screenshots", :force => true do |t|

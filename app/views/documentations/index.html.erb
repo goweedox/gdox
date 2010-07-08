@@ -1,32 +1,12 @@
-<div id="content_container">
-  <br />
-  <div id="user-list">
-    <h3>Listing Documentations</h3>
-
-    <table>
-    <% @documentations.each do |documentation| %>
-	    <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
-
-	    <td class="list-names">
-		    <dl>
-			    <dt><%=h documentation.title %></dt>
-			    <dd><%=h truncate(documentation.description.gsub(/<.*?>/,''), :length => 80) %></dd>
-		    </dl>
-	    </td>
-
-	    <td class="list-actions">
-		    <%= link_to 'Show', documentation %>
-     	  <%= link_to 'Edit', edit_documentation_path(documentation) %>
-     	  <%= link_to 'Destroy', documentation, :confirm => 'Are you sure?', :method => :delete %></td>
-	    </td>
-	
-	    </tr>
-    <% end %>
-    </table>
-  
-    <br/>
-
-    <%= button_to 'Create New Dox', new_documentation_path %>
-  </div>
+<div id="all_dox2">
+<div id="all_dox">
+	<% @documentations.each do |documentation| %>
+		<% @creator = User.find(documentation.user_id) %>
+		<div id="dox_list">
+			<b><dt><%= link_to "#{documentation.title}", documentation %></dt></b>
+			<i>by: <%=h @creator.name %></i>
+			<dd><%=h truncate(documentation.description.gsub(/<.*?>/,''), :length => 150) %></dd><br />
+		</div>
+	<% end %>
 </div>
-<br />
+</div>
