@@ -19,7 +19,7 @@ ul, li {
 
 #nav {
  position: relative;
- background: #292929;
+ background: transparent;
  float: left;
  margin-top: 20px;
 }

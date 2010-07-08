@@ -44,30 +44,11 @@ body
   -webkit-border-bottom-right-radius:1ex; 
 }
 
-#top_wrap {
-	width: 800px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#always_top {
-	background: #333;
-	padding-top:10px;
-	height: 30px;
-	width: 168px;
-	padding-left: 15px;
-	
-	-moz-border-radius-bottomright:1ex;
-	-moz-border-radius-bottomleft:1ex;
-	-webkit-border-bottom-right-radius:1ex;
-	-webkit-border-bottom-left-radius:1ex; 
-}
-
 #header
 {
   background: transparent;
   height: 90px;
-  width: 100%;
+  width: 700px;
   margin-left: auto;
   margin-right: auto;
 }

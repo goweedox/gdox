@@ -17,36 +17,35 @@
 	flag4 = true
 	flag5 = true
 %>
-<button id="doItHansel">Add</button>
 
 <% for screenshot in @documentation.screenshots %>
 	<% if flag1 %>
 		<div id="dox_scr1">
-		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
+		<center><%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %></center><br/><br/>
 		</div>
 		<% flag1 = false %>
 	
 	<%elsif flag2 %>
 		<div id="dox_scr2">
-		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
+		<center><%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %></center><br/><br/>
 		</div>
 		<% flag2 = false %>
 
 	<%elsif flag3 %>
 		<div id="dox_scr3">
-		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
+		<center><%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %></center><br/><br/>
 		</div>
 		<% flag3 = false %>
 	
 	<%elsif flag4 %>
 		<div id="dox_scr4">
-		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
+		<center><%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %></center><br/><br/>
 		</div>
 		<% flag4 = false %>
 
 	<%elsif flag5 %>
 		<div id="dox_scr5">
-		<%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %><br/><br/>
+		<center><%= image_tag screenshot.data.url(:original), :alt => "", :width => "800" %></center><br/><br/>
 		</div>
 		<% flag5 = false %>
 	<% end %>

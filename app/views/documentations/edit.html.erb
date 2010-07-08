@@ -4,7 +4,14 @@
 </head>
 
 <div id="controls" class="controls">
-  <%= render  :partial=> 'shared/headerEdit' %>
+  <ul>
+		<li id="control"> <%= image_tag("controls/controls.png", :border=>0) %> </li>
+		<li id="add"> <%= image_tag("controls/add.png", :border=>0) %> </li>
+		<li id="screenie"> <%= image_tag("controls/screenie.png", :border=>0) %></li>
+		<li id="up"> <%= image_tag("controls/up.png", :border=>0) %></li>
+		<li id="view"> <%= image_tag("controls/view.png", :border=>0) %> </li>
+		<li id="arrow"> <%= image_tag("arrow.png", :border=>0) %></li>
+	</ul>
 </div>
 
 <div id="content_container2">
@@ -23,8 +30,6 @@
 				<%= add_screenshot(f) %><br/><br/>
 			<% end %>
 		</div>
-
-    <div id="drag"><%= image_tag("controls/add.png", :border=>0) %></div>
 
 		<%= render :partial => 'anno_screenshots' %>     
 	</div>

@@ -13,15 +13,16 @@
   <title> <%= title %> </title>
 	<link rel="icon" href="/images/icon.png" type="image/x-icon">
 
-  <%= stylesheet_link_tag 'extras','doxlayout', 'welcome', 'scaffold', 'jquery.ui.all'%>
+  <%= stylesheet_link_tag 'extras','doxlayout', 'welcome', 'scaffold', 'jquery.ui.all', 'style'%>
 	<%= javascript_include_tag :defaults %>
   <%= javascript_include_tag 'jquery-1.4.2.js' %>
+	<%= javascript_include_tag 'jquery-spasticNav.js', 'jquery-ui.min.js' %>
   
-	<script>
-	$(document).ready(function(){
-		 // Your code here
-	 $('#login').click(function(){
-     $('div.notice').slideDown("slow");
+	<script type="text/javascript">
+	var j = jQuery.noConflict();
+	j(document).ready(function(){
+		//codes for nav
+		j('#nav').spasticNav();
    });
 	</script>
 </head>
@@ -29,14 +30,16 @@
 <body>
 	<div id="header">	
 	  <div id="menu" class="menu">
-	    <ul>	    
-				<li> <%= link_to  " Home ", :controller => 'welcome',:action => 'index' %> </li> 
-	      <li> <%= link_to  " Sign Up ", :controller => 'welcome',:action => 'signup' %> </li> 
-    	  <li> <%= link_to  " Login ", :controller => 'welcome',:action => 'login' %> </li>	    
-    	  <li> <%= link_to image_tag("gdox.png", :border=>0), :action => 'welcome', :action => 'index' %> </li>  	 
-	    </ul> 
-    </div>
-	</div>	
+			<ul id="nav">
+				<li id="selected"><A><%= link_to 'Home', :controller => 'welcome', :action => 'index' %></A></li>
+				<li><A><%= link_to'Sign-up', :controller => 'welcome', :action => 'signup' %></A></li>
+				<li><A><%= link_to 'Log-in', :controller => 'welcome', :action => 'login' %></A></li>
+			</ul>
+	    <ul>
+        <li> <%= link_to image_tag("gdox.png", :border=>0), :action => 'admin', :action => 'index' %></li>
+	    </ul>
+	</div>
+
 	<div id="content">
 	  <div id="main_content">
 	 		<% if flash[:notice] -%>

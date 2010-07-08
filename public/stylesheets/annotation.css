@@ -67,7 +67,7 @@ span.set-label {
 	display: block;
 	width: 69px;
 	height: 34px;
-	background: url(/images/arrow_label.png) no-repeat;
+	background: url(/images/arrow.png) no-repeat;
 	position: absolute;
 	cursor: move;
 }
@@ -83,4 +83,49 @@ span.set-bubble {
 
 span.wrap { 
 	padding: 10px;
+}
+
+span.add {
+	display: block;
+	width: 32px;
+	height: 32px;
+	background: url(/images/controls/add.png) no-repeat;
+	position: absolute;
+	cursor: move;
+}
+
+span.arrow {
+	display: block;
+	width: 69px;
+	height: 34px;
+	background: url(/images/arrow.png) no-repeat;
+	position: absolute;
+	cursor: move;
+}
+
+span.screenie {
+	display: block;
+	width: 32px;
+	height: 32px;
+	background: url(/images/controls/screenie.png) no-repeat;
+	position: absolute;
+	cursor: move;
+}
+
+span.up {
+	display: block;
+	width: 32px;
+	height: 32px;
+	background: url(/images/controls/up.png) no-repeat;
+	position: absolute;
+	cursor: move;
+}
+
+span.view {
+	display: block;
+	width: 32px;
+	height: 40px;
+	background: url(/images/controls/view.png) no-repeat;
+	position: absolute;
+	cursor: move;
 }
