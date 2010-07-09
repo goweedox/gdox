@@ -7,24 +7,24 @@
 
 		var i = 'add';
 		var pos = 'center';
-		j('#add', controls).click(function() {
+		j('#add', '#controls').click(function() {
 			i = 'add';
 		});
 
-		j('#arrow', controls).click(function() {
+		j('#arrow', '#controls').click(function() {
 			i = 'arrow';
 			pos = 'left';
 		});
 
-		j('#screenie', controls).click(function() {
+		j('#screenie', '#controls').click(function() {
 			i = 'screenie';
 		});
 
-		j('#up', controls).click(function() {
+		j('#up', '#controls').click(function() {
 			i = 'up';
 		});
 
-		j('#view', controls).click(function() {
+		j('#view', '#controls').click(function() {
 			i = 'view';
 			pos = 'right';
 		});
@@ -56,6 +56,7 @@
 		
 		num1 = 0.3875
 		num2 = 0.3857
+		
 		j('#scr1').addAnnotations(function(annotation){
 			return j(document.createElement('span')).
 				addClass('set-label').html(annotation.position);
